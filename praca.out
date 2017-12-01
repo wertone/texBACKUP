@@ -1,0 +1,48 @@
+\BOOKMARK [0][-]{chapter.1}{Wstep}{}% 1
+\BOOKMARK [0][-]{chapter.2}{Analiza tematu}{}% 2
+\BOOKMARK [1][-]{section.2.1}{Wprowadzenie}{chapter.2}% 3
+\BOOKMARK [2][-]{subsection.2.1.1}{Procesor danych z terminali kas fiskalnych Aloha}{section.2.1}% 4
+\BOOKMARK [2][-]{subsection.2.1.2}{Umiejscowienie w systemie 360iQ}{section.2.1}% 5
+\BOOKMARK [2][-]{subsection.2.1.3}{Dane wejsciowe}{section.2.1}% 6
+\BOOKMARK [2][-]{subsection.2.1.4}{Typy zdarzen generowanych przez kase Aloha}{section.2.1}% 7
+\BOOKMARK [2][-]{subsection.2.1.5}{Etap wstepnego przetwarzania}{section.2.1}% 8
+\BOOKMARK [2][-]{subsection.2.1.6}{Etap w\233asciwego przetwarzania}{section.2.1}% 9
+\BOOKMARK [2][-]{subsection.2.1.7}{Przypadki niestandardowe}{section.2.1}% 10
+\BOOKMARK [1][-]{section.2.2}{Opis technologii i wykorzystanych narzedzi}{chapter.2}% 11
+\BOOKMARK [2][-]{subsection.2.2.1}{Srodowisko pracy i jezyk programowania}{section.2.2}% 12
+\BOOKMARK [2][-]{subsection.2.2.2}{Baza danych}{section.2.2}% 13
+\BOOKMARK [2][-]{subsection.2.2.3}{Modu\233y wspierajace}{section.2.2}% 14
+\BOOKMARK [0][-]{chapter.3}{Wymagania}{}% 15
+\BOOKMARK [1][-]{section.3.1}{Wymagania funkcjonalne}{chapter.3}% 16
+\BOOKMARK [2][-]{subsection.3.1.1}{Modu\233 wstepnego przetwarzania danych - PreParser}{section.3.1}% 17
+\BOOKMARK [2][-]{subsection.3.1.2}{Modu\233 w\233asciwego przetwarzania danych - Parser}{section.3.1}% 18
+\BOOKMARK [1][-]{section.3.2}{Wymagania niefunkcjonalne}{chapter.3}% 19
+\BOOKMARK [2][-]{subsection.3.2.1}{Modu\233 wstepnego przetwarzania danych - PreParser}{section.3.2}% 20
+\BOOKMARK [2][-]{subsection.3.2.2}{Modu\233 w\233asciwego przetwarzania danych - Parser}{section.3.2}% 21
+\BOOKMARK [1][-]{section.3.3}{Analiza przypadk\363w uzycia \(diagramy UML\)}{chapter.3}% 22
+\BOOKMARK [0][-]{chapter.4}{Specyfikacja zewnetrzna}{}% 23
+\BOOKMARK [1][-]{section.4.1}{Wymagania sprzetowe i programowe}{chapter.4}% 24
+\BOOKMARK [1][-]{section.4.2}{Instalacja}{chapter.4}% 25
+\BOOKMARK [2][-]{subsection.4.2.1}{Instacja PreParser-a na kontrolerze u klienta}{section.4.2}% 26
+\BOOKMARK [2][-]{subsection.4.2.2}{Instacja Parser-a po stronie administratora}{section.4.2}% 27
+\BOOKMARK [1][-]{section.4.3}{Obs\233uga systemu i administrowanie nim}{chapter.4}% 28
+\BOOKMARK [2][-]{subsection.4.3.1}{PreParser}{section.4.3}% 29
+\BOOKMARK [2][-]{subsection.4.3.2}{Parser}{section.4.3}% 30
+\BOOKMARK [1][-]{section.4.4}{Bezpieczenstwo}{chapter.4}% 31
+\BOOKMARK [1][-]{section.4.5}{Przyk\233ad dzia\233ania}{chapter.4}% 32
+\BOOKMARK [0][-]{chapter.5}{Specyfikacja wewnetrzna}{}% 33
+\BOOKMARK [1][-]{section.5.1}{Architektura systemu}{chapter.5}% 34
+\BOOKMARK [1][-]{section.5.2}{Organizacja i struktura baz danych}{chapter.5}% 35
+\BOOKMARK [1][-]{section.5.3}{Wykorzystane biblioteki}{chapter.5}% 36
+\BOOKMARK [1][-]{section.5.4}{Model klas}{chapter.5}% 37
+\BOOKMARK [1][-]{section.5.5}{Szczeg\363\233owa analiza danych wejsciowych}{chapter.5}% 38
+\BOOKMARK [1][-]{section.5.6}{Algorytmy}{chapter.5}% 39
+\BOOKMARK [1][-]{section.5.7}{Diagramy UML}{chapter.5}% 40
+\BOOKMARK [0][-]{chapter.6}{Testowanie i uruchamianie}{}% 41
+\BOOKMARK [1][-]{section.6.1}{PreParser}{chapter.6}% 42
+\BOOKMARK [1][-]{section.6.2}{Parser}{chapter.6}% 43
+\BOOKMARK [0][-]{chapter.7}{Uwagi o przebiegu i wynikach prac}{}% 44
+\BOOKMARK [1][-]{section.7.1}{Stopien realizacji zagadnienia}{chapter.7}% 45
+\BOOKMARK [1][-]{section.7.2}{Napotkane problemy}{chapter.7}% 46
+\BOOKMARK [1][-]{section.7.3}{Dalszy rozw\363j}{chapter.7}% 47
+\BOOKMARK [0][-]{chapter.8}{Podsumowanie}{}% 48

@@ -1,0 +1,414 @@
+\documentclass[a4paper]{book}
+\usepackage[utf8]{inputenc}                                      
+\usepackage[OT4]{fontenc}  
+\usepackage[polish]{babel} 
+\usepackage{indentfirst}
+\usepackage{graphicx} 
+\usepackage{hyperref}
+% potrzebny jeżeli korzystamy z listingów
+\usepackage{listings}
+
+% formatowanie listingu
+\lstset{language=C++, 
+	numbers=left, 
+	numberstyle=\tiny, 
+	%     stepnumber=1, 
+	%     numbersep=5pt,
+	%	stringstyle=\ttfamily,
+	showstringspaces=false,
+	keywords={function, foreach, in, end, if, not},
+	tabsize=3,
+	%	escapeinside={(!}{!)}
+}
+
+
+\frenchspacing
+
+\input{todo.tex}
+
+\title{Tymczasowa strona tytułowa}
+\author{Mateusz Stolecki}
+
+
+\begin{document}
+%\kslistofremarks
+
+\cleardoublepage
+
+	
+%	\maketitle
+\input{front.tex}
+
+%\tableofcontents
+
+\mainmatter
+
+\chapter{Wstęp}
+Celem pracy dyplomowej jest zaprojektowanie i implementacja systemu informatycznego, który umożliwiałby gromadzenie oraz przetwarzanie danych generowanych przez kasy sklepowe Aloha. System ten miałby na  celu dostarczenie użytkownikowi informacji o funkcjonowaniu sklepu, w którym aplikacja została zainstalowana. Umożliwi to kompleksowy monitoring i analizę danych sprzedażowych. System będzie pobierał dane generowane przez kasę i poddawał je szczegółowej analizie, która pozwoli na tworzenie z nich struktur  obrazujących rzeczywiste czynności wykonywane przy użyciu kas Aloha (szczególnie popularny model kasy w Stanach Zjednoczonych). Takie przetwarzanie przychodzących danych pozwoli użytkownikowi na wejrzenie w dane szczegółowe konkretnej transakcji, zobaczenie materiału wideo z jej przebiegu oraz generowanie raportów i paragonów. Dzięki takim funkcjonalnościom system powinien umożliwić optymalizację sprzedaży oraz wprowadzanie oszczędności wynikających z usunięcia nieprawidłowości zaistniałych podczas pracy sklepu. Aplikacja będzie składała się z dwóch warstw:
+\begin{itemize}
+	\item modułu wstępnego przetwarzania danych (PreParser-a)
+	\item modułu właściwego przetwarzania danych (Parser-a)
+\end{itemize}
+PreParser będzie działał jako serwis po stronie użytkownika i wprowadzi konieczność jego instalacji na tzw. kontrolerze w sklepie użytkownika, czyli komputerze gromadzącym dane przychodzące z kas w danym sklepie i poddającym je etapowi wstępnej obróbki (preprasing) oraz wysyłającym dane wynikowe do bazy danych dostarczanej przez twórcę systemu, gdzie dalszym ich przetwarzaniem zajmie się Parser. Zadaniem modułu właściwego przetwarzania danych, będzie obróbka wstępnie przetworzonych informacji przez PreParser i zamiana ich na format mogący być analizowany przez system i zaprezentowany użytkownikowi. Pomysł na stworzenie takiego oprogramowania zrodził się z faktu zajmowania się tą tematyką zawodowo przez autora niniejszej pracy. Autor postanowił wykorzystać wiedzę i doświadczenie zdobyte podczas pracy zawodowej oraz studiów, by stworzyć system mający być częścią oprogramowania 360iQ dostarczanego przez firmę EZUniverse Inc. Dzięki regularnej pracy nad zagadnieniem podczas wykonywaniu obowiązków zawodowych, możliwe było dokładne dostosowanie systemu pod wymagania użytkownika oraz jego solidne przetestowanie przy działu z wykorzystaniem realnych danych i przypadków użycia.
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{./img/360iQ.png}
+	\caption{Logo produktu 360iQ stworzonego przez firmę EZUniverse}
+	\label{fig:360iq}
+\end{figure}
+Kolejny rozdział niniejszej pracy zawiera zarys problemu oraz informacje opisujące wykorzystane technologie. Rozdział trzeci wprowadza w temat wymagań funkcjonalnych i niefunkcjonalnych oraz przypadków użycia. Następne rozdziały przybliżą tematykę specyfikacji zewnętrznej oraz wewnętrznej systemu. Poruszone zostaną zagadnienia związane z wykorzystanymi algorytmami oraz metodami radzenia sobie z problematycznymi danymi wejściowymi. Przedstawiony zostanie dodatkowo schemat bazy danych oraz nastąpi omówienie ważniejszych, ze względu na role i funkcjonalność klas. Dwa ostatnie rozdziały poruszą kwestię testowania aplikacji oraz omówiony zostanie przebieg prac i wyniki końcowe wraz z wizją dalszego rozwoju systemu. 
+
+\chapter{Analiza tematu}
+Niniejszy rozdział omawia podstawowe zagadnienia związane z realizowanym projektem. Poruszona została kwestia umiejscowienia konwertera danych Aloha w całym systemie 360iQ oraz opisane zostały typy informacji przekazywane przez kasę.
+\section{Wprowadzenie}
+\subsection{Procesor danych z terminali kas fiskalnych Aloha}
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{./img/aloha_pos.png}
+	\caption{Przykładowy model kasy Aloha.}
+	\label{fig:aloha_pos}
+\end{figure}
+Terminale kasowe Aloha (rys. \ref{fig:aloha_pos}) są niezwykle popularne w Stanach Zjednoczonych. Umożliwiają one kompleksową obsługę transakcji w sklepie, wpłat oraz wypłat do kasy. Jedną z dodatkowych możliwości terminala jest również dostarczanie informacji o zalogowaniu się pracownika i jego wylogowaniu, co pozwala ustalić intensywność pracy danej osoby, bądź też faktyczne godziny w jakich pracuje. W systemie 360iQ kasy Aloha wykorzystywane są do sklepach sieci Burger King. Terminal kasy przy każdym tzw. zdarzeniu, wysyła informację do nasłuchującego go kontrolera. Zdarzenia te są prostymi akcjami wykonywanymi podczas użytkowania kasy np. dodanie nowego produktu, potwierdzenie przyjęcia płatności. Dzięki gromadzeniu tych akcji po stronie kontrolera istnieje możliwość połączenia ich w zbiory, które będą reprezentować transakcje, wpłaty, wypłaty oraz obecności pracowników. Łączeniem tych zdarzeń w całość zajmuje się moduł aplikacji zainstalowany na kontrolerze zwany PreParserem, który jako część systemu 360iQ funkcjonuję pod nazwą AlohaPreParser. Przetwarza on zdarzenia uwzględniając zawarte w nich informacje dotyczące numeru kasy, rachunku etc.
+Po wstępnym przetworzeniu danych zostają one wysłane do bazy ulokowanej po stronie administratora, gdzie przechwytywane są one przez Parser i dokonywana jest właściwa analiza danych i ich przetwarzanie w celu dostarczenia klientowi potrzebnych informacji. 
+
+\subsection{Umiejscowienie w systemie 360iQ}
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{./img/EZUniverse.png}
+	\caption{Logo firmy EZUniverse Inc.}
+	\label{fig:EZUniverse}
+\end{figure}
+AlohaPreParser oraz AlohaParser są bezpośrednimi składowymi systemu systemu 360iQ dostarczanemu przez firmę EZUniverse (rys. \ref{fig:EZUniverse}). System ten składa się z całej infrastruktury nakierowanej na dostarczenie klientowi maksymalnej liczby informacji mogących wesprzeć funkcjonowanie biznesu klienta. Wspierane są duże ilości modeli kas, które mogą być zainstalowane w klepie klienta, między innymi:
+\begin{itemize}
+	\item Aloha
+	\item Micros
+	\item Sicom
+	\item Radiant
+	\item Subshop2000
+	\item ProfiTrack
+	\item Panasonic7900
+	\item Comtrex
+	\item Gilbarco
+	\item Par
+	\item SubwayPOS
+\end{itemize}
+
+Dzięki wsparciu dla dużej ilości modeli kas oraz współpracy z największymi sieciami sklepów (np. Subway, Burger King) system 360iQ jest kompleksowa platformą do wspomagania biznesu klienta.
+\subsection{Dane wejściowe}
+Danymi wejściowymi dostarczanymi do kontrolera są pojedyncze zdarzenia zapisane w formacie XML.
+Format przychodzących danych omówiony zostanie na podstawie następującego zdarzenia (listing \ref{lst:przykladoweZdarzenieAloha}).  
+\begin{figure}
+	\begin{lstlisting}[frame=single, breaklines=true]
+	<SpyMessage TerminalID="3" EventTime="18:00:38" EmployeeID="139" EmployeeName="JAMES BOND" ManagerID="0" ManagerName="" TableID="3132860" CheckID="3145860" TransactionTypeID="8" TransactionType="ADD_ITEM" Description="SM FRY" Amount="1.99" Quantity="1" Sender="192.168.0.101" ReceivedOn="2017/03/05 00:00:52.042" />
+	\end{lstlisting}
+	\caption{Przykładowe zdarzenie - dane wejściowe Aloha.}
+	\label{lst:przykladoweZdarzenieAloha}
+\end{figure}
+Opisuje ono akcję dodania nowego przedmiotu do rachunku o numerze 3145860. Możemy nad podstawie przedstawionego listingu ustalić również, że dane zdarzenie miało miejsce o godzinie 18:00:38 oraz przedmiot SM FRY został dodany do rachunku przez pracownika JAMES BOND. Na podstawie tak przedstawionych danych wejściowych moduł przetwarzania wstępnego jest w stanie budować całe zestawy transakcji, które zawierają szereg zdarzeń podobnych temu wyżej przedstawionemu. Dzięki tak pogrupowanym danym, zamiana zwykłych zdarzeń z terminala na struktury mogące być poddane analizie jest znacznie uproszczona. Terminal generuje również dodatkowe dane przechwytywane przez kontroler zwane słownikami. Słowniki są zestawami danych zapisanych w formacie XML niosącymi informacje o specyficznych cecha danego sklepu, np. promocjach, identyfikatorach produktów, bądź podatkach. Przykładowe słowniki przedstawiono na listingach w skróconej formie, gdyż całe pliki potrafią zawierać znaczne ilości informacji (Kategorie produktów: \ref{lst:przykladowySlownikProduktow}, Lista promocji: \ref{lst:przykladowySlownikPromocji})
+\begin{figure}
+	\begin{lstlisting}[frame=single, breaklines=true]
+	<ItemCategoryMessage>
+	<Item ItemId="112" ItemName="DELETE" Price="5.89">
+	<Category CategoryId="96" CategoryName="WHOPPER  LINE" />
+	<Category CategoryId="68" CategoryName="SANDWICHES" />
+	<Category CategoryId="55" CategoryName="ALL ITEMS" />
+	<Category CategoryId="57" CategoryName="DISCOUNTABLE ITEMS" />
+	<Category CategoryId="56" CategoryName="ALL ITEMS EXCEPT CMB" />
+	<Category CategoryId="313" CategoryName="ANY SANDWICH" />
+	<Category CategoryId="1" CategoryName="FOOD" />
+	</Item>
+	<Item ItemId="2692" ItemName="LG FLOAT" Price="2.79">
+	<Category CategoryId="71" CategoryName="DRINKS" />
+	<Category CategoryId="55" CategoryName="ALL ITEMS" />
+	<Category CategoryId="57" CategoryName="DISCOUNTABLE ITEMS" />
+	<Category CategoryId="56" CategoryName="ALL ITEMS EXCEPT CMB" />
+	<Category CategoryId="1" CategoryName="FOOD" />
+	</Item>
+	<Item ItemId="392" ItemName="WRP HM CSP" Price="0">
+	<Category CategoryId="68" CategoryName="SANDWICHES" />
+	<Category CategoryId="310" CategoryName="Bearcat Sandwiches" />
+	<Category CategoryId="55" CategoryName="ALL ITEMS" />
+	<Category CategoryId="57" CategoryName="DISCOUNTABLE ITEMS" />
+	<Category CategoryId="56" CategoryName="ALL ITEMS EXCEPT CMB" />
+	<Category CategoryId="1" CategoryName="FOOD" />
+	</Item>
+	<Item ItemId="484" ItemName="WRP BLT CSP" Price="3.49">
+	<Category CategoryId="55" CategoryName="ALL ITEMS" />
+	<Category CategoryId="57" CategoryName="DISCOUNTABLE ITEMS" />
+	<Category CategoryId="56" CategoryName="ALL ITEMS EXCEPT CMB" />
+	<Category CategoryId="25" CategoryName="ALL SALADS" />
+	<Category CategoryId="1" CategoryName="FOOD" />
+	</Item>
+	<Item ItemId="5748" ItemName="AVOCADO RAN" Price="0">
+	<Category CategoryId="55" CategoryName="ALL ITEMS" />
+	<Category CategoryId="57" CategoryName="DISCOUNTABLE ITEMS" />
+	<Category CategoryId="56" CategoryName="ALL ITEMS EXCEPT CMB" />
+	<Category CategoryId="1" CategoryName="FOOD" />
+	</Item>
+	</ItemCategoryMessage>
+	\end{lstlisting}
+	\caption{Przykładowy słownik produktów w formacie XML - wersja skrócona.}
+	\label{lst:przykladowySlownikProduktow}
+\end{figure}
+
+
+</Item>
+\begin{figure}
+	\begin{lstlisting}[frame=single, breaklines=true]
+	<PromotionMessage>
+	<Item ItemId="7592" ItemName="Items" Price="0">
+	<Promotion PromotionId="6485" PromotionVersion="1941" PromotionName="6485*$5C'wich Ml 2" />
+	<Promotion PromotionId="118" PromotionVersion="999" PromotionName="Local Combos" />
+	<Promotion PromotionId="139" PromotionVersion="2655" PromotionName="Bacon King" />
+	<Promotion PromotionId="101" PromotionVersion="689" PromotionName="Whopper Combo" />
+	<Promotion PromotionId="101" PromotionVersion="744" PromotionName="Whopper Combo" />
+	<Promotion PromotionId="101" PromotionVersion="749" PromotionName="Whopper Combo" />
+	<Promotion PromotionId="110" PromotionVersion="2444" PromotionName="FISH COMBO" />
+	<Promotion PromotionId="282" PromotionVersion="169" PromotionName="Free Kids Combo" />
+	<Promotion PromotionId="104" PromotionVersion="694" PromotionName="Whopper Jr. Combo" />
+	<Promotion PromotionId="104" PromotionVersion="746" PromotionName="Whopper Jr. Combo" />
+	<Promotion PromotionId="108" PromotionVersion="693" PromotionName="Orig. Chicken Combo" />
+	<Promotion PromotionId="108" PromotionVersion="789" PromotionName="Orig. Chicken Combo" />
+	<Promotion PromotionId="160" PromotionVersion="900" PromotionName="Grilled Ckn Sw Combo" />
+	<Promotion PromotionId="160" PromotionVersion="2447" PromotionName="Grilled Ckn Sw Combo" />
+	<Promotion PromotionId="29142" PromotionVersion="160" PromotionName="$1.99 Kids Combo" />
+	<Promotion PromotionId="10012" PromotionVersion="947" PromotionName="5 FOR $4" />
+	<Promotion PromotionId="10012" PromotionVersion="1372" PromotionName="5 FOR $4" />
+	<Promotion PromotionId="10012" PromotionVersion="1866" PromotionName="5 FOR $4" />
+	<Promotion PromotionId="28802" PromotionVersion="1951" PromotionName="8802*$4 2Cwich ML" />
+	<Promotion PromotionId="147" PromotionVersion="747" PromotionName="Homestyle Cb" />
+	<Promotion PromotionId="9579" PromotionVersion="985" PromotionName="9579*2/$10 Wpr ML" />
+	<Promotion PromotionId="283" PromotionVersion="1351" PromotionName="Kids Breakfast Meal" />
+	<Promotion PromotionId="234" PromotionVersion="94" PromotionName="Dbl Biscuit Combo" />
+	<Promotion PromotionId="221" PromotionVersion="89" PromotionName="Crois'wich Combo" />
+	<Promotion PromotionId="221" PromotionVersion="90" PromotionName="Crois'wich Combo" />
+	<Promotion PromotionId="221" PromotionVersion="93" PromotionName="Crois'wich Combo" />
+	</Item>
+	</PromotionMessage>
+	\end{lstlisting}
+	\caption{Przykładowy słownik listy promocji w formacie XML - wersja skrócona.}
+	\label{lst:przykladowySlownikPromocji}
+\end{figure}
+Słowniki te gromadzone są przez moduł wstępnego przetwarzania danych i wykorzystywane w ich analizie i algorytmach mających na celu dokonanie odpowiednich poprawek w danych transakcyjnych (szczegółowo ten temat został poruszony w rozdziale traktującym o wykorzystanych algorytmach).
+\subsection{Typy zdarzeń generowanych przez kasę Aloha}
+Kasa Aloha jest zdolna do wygenerowania szeregu typów zdarzeń. Są to między innymi:
+\begin{itemize}
+	\item Zalogowanie pracownika w kasie
+	\item Wylogowanie pracownika z kasy
+	\item Przerwa w pracy
+	\item Zakończenie przerwy w pracy
+	\item Otwarcie kasy
+	\item Dodanie nowego przedmiotu do transakcji
+	\item Anulowanie dodanego przedmiotu
+	\item Usunięcie przedmiotu z transakcji
+	\item Otwarcie nowego zamówienia
+	\item Drukowanie rachunku
+	\item Zamknięcie zamówienia
+	\item Ponowne otwarcie zamówienia
+	\item Przyjęcie płatności
+	\item Autoryzacja płatności
+	\item Odrzucenie płatności
+	\item Modyfikacja płatności
+	\item Usunięcie płatności
+	\item Dodaj promocje
+	\item Usuń promocje
+	\item Wartość podatku
+	\item Wartość netto transakcji
+	\item Wartość brutto transakcji
+	\item Dodatek do potrawy
+\end{itemize}
+Jest to lista wszystkich obsługiwanych typów zdarzeń. Są one identyfikowane przez PreParser na podstawie przypisanych im unikalnych identyfikatorów. Istnieje  jeden typ zdarzenia, który nie został uwzględniony w wyżej wymienionej liście, mianowicie zdarzanie nie będące elementem transakcji zakończonej sprzedażą. Takie przypadki to tzw. transakcje typu "NOSALE" i są  one analizowane z wykorzystaniem szczególnego podejścia. Jest ono szerzej opisane w następnych rozdziałach.
+\subsection{Etap wstępnego przetwarzania}
+Każdy sklep korzystający z oprogramowania będącego przedmiotem niniejszej pracy wymaga instalacji specjalnego modułu działającego jako serwis na komputerze zwanym kontrolerem. Urządzenie to gromadzi zdarzenia generowane przez kasy działające w obrębie omawianego sklepu. Odebrane informacje są przechwytywane przez działający w systemie moduł wstępnego przetwarzania, który poddaje je wstępnej analizie. Możemy wyodrębnić kluczowe etapy składające się na przeprowadzenie wspomnianego procesu:
+\begin{itemize}
+	\item Sprawdzanie danych pod kątem duplikatów ich i odpowiednie odfiltrowanie
+	\item Analiza możliwości wystąpienia niezamkniętych lub błędnych transakcji ich odpowiednia obsługa
+	\item Grupowanie zdarzeń przychodzących z kasy w kolekcje związane z jedną transakcją
+	\item Poszukiwanie transakcji, które zostały ponownie i sprawdzanie czy wymagana jest korekcja cen produktów lub płatności
+	\item Przetwarzanie całych grup transakcji, rozbudowa zdarzeń z wykorzystaniem algorytmów analizy promocji oraz kategorii produktów
+	\item Konwersja zgrupowanych zdarzeń na obiekty XML (Transakcje, Wpłaty/Wypłaty z kasy, Obecności pracowników)
+	\item Wysyłanie XML-i do bazy danych w celu ich przetworzenia przez moduł właściwego przetwarzania
+\end{itemize}
+\subsection{Etap właściwego przetwarzania}
+Po wstępnym przetworzeniu danych, gdy moduł wstępnego procesowania informacji przekaże je do bazy danych udostępnianej przez administratora systemu, są one przechwytywane przez działający w środowisku dostarczyciela usługi moduł właściwego przetwarzania danych. Pobiera on z tabel dane w formacie XML, które dzięki wstępnej pracy wykonanej przez PreParser są już odpowiednio pogrupowane i oznaczone. Umożliwia to Parserowi zejście poziom niżej w analizie danych, podczas gdy PreParser analizował zdarzenia pod kątem grupowania ich w struktury, Parser może analizować same zdarzenia i wyciągać z nich informacje, które są konieczne do zbudowania wyczerpującego opisu transakcji, bądź innego zdarzenia, które miało miejsce na kasie.
+Moduł ten analizuje każde zdarzenie i krok po kroku tworzy obiekt, który na sam koniec procesowania danych zostanie umieszczony w wynikowej bazie. Udostępnia ona bezpośrednio dane mogące być analizowane przez klienta za pośrednictwem specjalnej aplikacji webowej będącej jest częścią systemu 360iQ. Schemat analizy danych przez moduł właściwego przetwarzania wygląda następująco:
+\begin{itemize}
+\item Sprawdzanie danych pod kątem duplikatów ich i odpowiednie odfiltrowanie
+\item Wykrywanie typu zdarzenia jakie zostało zgrupowane w wejściowy XML: (Transakcja, Wpłata/Wypłata, Obecność pracownika)
+\item Uruchamianie odpowiedniego schematu przetwarzania zależnie od wykrytego typu wiadomości
+\item Analiza danych w formacie XML krok po kroku i tworzenie cyfrowego modelu będącego odpowiednikiem realnej czynności wykonanej przez pracownika sklepu.
+\item Sprawdzanie poprawności stworzonych modeli i dokonywanie koniecznych poprawek, jak również oznaczenie tych, które zawierają wartości odbiegające od normy (ten fakt jest później odpowiednio prezentowany użytkownikowi w aplikacji webowej)
+\item Generowanie paragonów do wglądu przez klienta
+\item Wysyłanie przetworzony modeli do odpowiednich tabel wynikowej bazy danych w zależności od typu przetwarzanych wiadomości.
+\end{itemize}
+\subsection{Przypadki niestandardowe}
+Terminale kasowe Aloha są dość bogate w przypadki, które można uznać za niestandardowe. Do najczęstszych takich sytuacji możemy zaliczyć:
+ \begin{itemize}
+ 	\item Wadliwe dane wejściowe
+ 	\item Niezamknięte transakcje
+ 	\item Dodawanie przedmiotów do rachunku z użyciem ich pełnej nazwy oraz późniejsze usuwanie wykorzystując ich skrócone nazwy
+ 	\item Dodawanie promocji bez uwzględnienia odpowiednich przedmiotów, które dodana promocja powinna dodawać
+ 	\item W regionach innych niż Stany Zjednoczone częstym problemem jest brak informacji o podatkach
+ \end{itemize}
+\subsubsection{Wadliwe dane wejściowe}
+Z racji faktu, że moduł wstępnego przetwarzania otrzymuje dane z terminali kasowych Aloha w formacie XML, często zdarza się sytuacja, że jest on wadliwy (np. ucięty), lub też występują jego duplikaty. W takich przypadkach PreParser ustawia odpowiednie statusy tych wiadomości (mogą być one potem zweryfikowane przez użytkownika) i pomija je w procedurze wstępnej analizy.
+\subsubsection{Niezamknięte transakcje}
+Jednym z najrzadziej występujących przypadków niestandardowych jest sytuacja, gdy mamy do czynienia z niezamkniętą transakcją. Dzieje się to wtedy, gdy otwierana jest transakcja, lecz nie przychodzi zdarzenie oznaczające jej zamknięcie (w Aloha jest to: "CLOSECHECK"). W takiej sytuacji moduł wstępnego przetwarzania ustawiana taką transakcję w stan oczekiwania, który trwa 24 godziny. Jeśli do tego czasu przyjdzie zdarzenie zamykające daną transakcję, to zostanie ona zatwierdzona i przesłana do dalszej analizy, w przeciwnym razie nastąpi jej usunięcie z kolejki oczekujących i oznaczenie jako błędnej danej wejściowej, by użytkownik mógł samodzielnie się jej przyjrzeć.
+\subsubsection{Dodawanie przedmiotów do rachunku z użyciem ich pełnej nazwy oraz późniejsze usuwanie wykorzystując ich skrócone nazwy}
+Przedmioty dodawane przez kasę Aloha do rachunków niestety często charakteryzują się niejednolitym nazewnictwem. Ten sam przedmiot może być nazywany z wykorzystaniem:
+ \begin{itemize}
+	\item nazwy skróconej
+	\item pełnej nazwy przedmiotu
+	\item ID przedmiotu, bądź jego oznaczenia kodowego
+\end{itemize}
+Powoduje to problemy przy usuwaniu z rachunku już dodanych przedmiotów. Przedmiot dodany do transakcji pod nazwą X może być z niej usuwany pod nazwą Y. W celu uzyskania spójności i powiązania ze sobą przedmiotów wykorzystywany jest algorytm rozszerzania danych przekazywanych przez zdarzenie. Korzysta on ze słownika kategorii przedmiotów, który jest dostarczany raz dziennie przez właściciela sklepu jako specjalne zdarzenie terminala Aloha i przechowywany przez kontroler. Dzięki temu słownikowi możliwe jest powiązanie ze sobą tych samych przedmiotów występujących pod różną nazwą, wykorzystując fakt, że każdy przedmiot ma swoje unikalne ID, które jest udostępniane za pośrednictwem słownika kategorii produktów. Takie rozwiązanie gwarantuje, że w wynikowej transakcji przedmioty będą powiązane i usunięte w sposób prawidłowy niezależnie od zastosowania pełnej, bądź jego skróconej nazwy.
+\subsubsection{Dodawanie promocji bez uwzględnienia odpowiednich przedmiotów, które dodana promocja powinna dodawać}
+Niezbyt przyjazną cechą terminala Aloha jest obsługa dodawania promocji bez uwzględnienia przedmiotów wchodzących w jej skład. W takim wypadku konieczne jest dodanie przedmiotów do transakcji, których dotyczy dana promocja, dzięki czemu zachowana zostanie zgodność danych z realnie sprzedanymi przedmiotami po stronie sklepu. Dodawanie przedmiotów przez moduł wstępnego przetwarzania realizowane jest przy użyciu słownika promocji dostarczanego przez klienta dla każdego sklepu. Pozwala on zidentyfikować nazwę promocji i rozszerzyć XML z transakcją o potrzebne przedmioty. 
+\subsubsection{W regionach innych niż Stany Zjednoczone częstym problemem jest brak informacji o podatkach}
+Problem ten objawia się sytuacją, gdy w zdarzeniu wystawianym przez terminal mającym typ "TAX" pojawia się zerowa wartość podatku. W tej sytuacji, by uzyskać prawidłową cenę końcową z wliczoną już wartością podatku, konieczne jest wczytanie dodatkowego słownika przechowującego wartości podatków dla każdego z przedmiotów. Takie rozwiązanie pojawia się w sytuacji, gdy oprogramowanie działa w krajach gdzie system podatkowy znacząco różni się od tego, który obowiązuje w Stanach Zjednoczonych. 
+\section{Opis technologii i wykorzystanych narzędzi}
+\subsection{Środowisko pracy i język programowania}
+Projekt został zrealizowany przy użyciu technologii .NET oraz języka C\#.
+Wielokrotnie podczas przeglądania kodu źródłowego projektu można również napotkać skrypty pisane w języku T-SQL, w celu komunikacji z bazą danych.
+Całość projektu została napisana w środowisku Visual Studio 2017, przy czym korzystano również z Visual Studio Code w celu analizy danych XML oraz szybkiego przeglądania plików tekstowych.
+Do administrowania i zarządzania bazą danych wykorzystano Microsoft SQL Server Management Studio 2016. 
+\subsection{Baza danych}
+Serwerem bazy danych był Microsoft SQL Server 2016 w wersji Express zainstalowany na lokalnym komputerze. Dokonano połączenia tabel koniecznych do pracy modułu wstępnego przetwarzania i tych niezbędnych do funkcjonowania jednostki realizującej właściwe procesowanie danych.
+Dzięki takiemu rozwiązaniu można było testować działanie całego systemu na lokalnym komputerze bez konieczności korzystania z osobnego komputera, który miałby pełnić funkcję kontrolera.
+Dane wykorzystywane w niniejszym projekcie są backupami realnych danych źródłowych zaczerpniętych z codziennej pracy systemu u klienta. Pozwala to testować i przedstawić pracę niniejszego projektu w jego naturalnych warunkach i w starciu z prawdziwymi danymi generowanymi przez sklepy w Stanach Zjednoczonych,
+\subsection{Moduły wspierające}
+Opisywana w niniejszej pracy aplikacja jest wspierana przez następujące oprogramowanie, które jest częścią systemy 360iQ i zostało opracowane przez firmę EZUniverse:
+ \begin{itemize}
+ 	\item AlohaSpyRelay
+ 	\item EZ360DataInterface
+ \end{itemize}
+\subsubsection{AlohaSpyRelay}
+AlohaSpyRelay jest aplikacją zapewniającą transmisje danych z kasy Aloha do kontrolera gdzie zainstalowany jest moduł wstępnego przetwarzania. Pobiera ona dane bezpośrednio z terminala, zamienia ja na zdarzenia zapisane w formacie XML i przekazuje do kontrolera.
+\subsubsection{EZ360DataInterface}
+EZ360DataInterface jest łącznikiem pomiędzy modułem wstępnego przetwarzania i częścią odpowiadająca za właściwe przetwarzanie. Po wstępnym przetworzeniu danych przez PreParser istnieje konieczność wysłania ich do bazy danych dostarczanej przez administratora systemu, tym właśnie zajmuje się opisywana aplikacja. Moduł wstępnego przetwarzania przygotowuje gotową paczkę danych do wysłania i powiadamia EZ360DataInterface, że są dane do wysyłki. Aplikacja przechwytuje dane od PreParsera i wysyła je zgodnie ze skonfigurowanymi w jej ustawieniach wytycznymi.
+\chapter{Wymagania}
+Rozdział ten opisuje wymagania konieczne do uruchomienia oprogramowania po stronie kontrolera jak i administratora aplikacji. Przedstawione zostały również przypadki użycie wraz ze stosownym komentarzem.
+\section{Wymagania funkcjonalne}
+\subsection{Moduł wstępnego przetwarzania danych - PreParser}
+\begin{itemize}
+	\item Serwis powinien być wstanie odczytywać pobrać dane z lokalnej bazy danych kontrolera gdzie przechowywane są informację o zdarzeniach, które nadesłał terminal Aloha
+	\item Powinna istnieć możliwość przetwarzania dany na etapie wstępnej analizy w celu eliminacji duplikatów i wadliwych wiadomości
+	\item Kluczową kwestią jest zastosowanie algorytmów dodających potrzebne produkty z promocji oraz rozszerzające nazwy wspomnianych wcześniej produktów, by można było je łatwo ze sobą powiązać
+	\item Serwis powinien informować użytkownika na bieżąco o stanie swojej aktywności za pośrednictwem komunikatów w pliku logów.
+	\item Serwis powinien być zdolny grupować wiadomości w kolekcje i konwertować je na odpowiednio zdefiniowane XML-e, a następnie wysyłać je do bazy danych po stronie administratora, by mogły być one dalej analizowane
+\end{itemize}
+\subsection{Moduł właściwego przetwarzania danych - Parser}
+\begin{itemize}
+	\item Aplikacja powinna móc odczytywać dane z odpowiednich tabel w bazie danych, gdzie w sposób ciągły pojawiają się nowe dane przysyłane z bliżej nie określonej liczby kontrolerów, gdzie zostały one wstępnie obrobione przez moduł wstępnego przetwarzania
+	\item Oprogramowanie musi wspierać różne typy przychodzących wiadomości (transakcje, wpłaty/wypłaty, obecności pracowników) i stosować dla nich właściwe formy analizy i przetwarzania
+	\item Wynikowe dane powinny zostać zapisane w bazie danych, z której może korzystać aplikacja webowa dostarczana jako element systemu 360iQ i opracowana przez firmę EZUniverse i prezentująca wyniki użytkownikowi w przyjaznej dla niego formie. Rezultat przetwarzania powinien być możliwie jak najdokładniejszym odwzorowaniem zdarzenia jakie zaszło w danej chwili czasu na kasie w sklepie użytkownika. Ważne jest zachowanie odpowiednich stref czasowych i synchronizacja czasu wideo.
+	\item Oprogramowanie powinno udostępniać prosty i intuicyjny interfejs użytkownika
+	\item W przypadku wystąpienia błędu podczas analizy danych, aplikacja powinna zamieści odpowiednią informację na ekranie interfejsu użytkownika
+\end{itemize}
+\section{Wymagania niefunkcjonalne}
+\subsection{Moduł wstępnego przetwarzania danych - PreParser}
+\begin{itemize}
+	\item Stabilnie działający serwis po stronie kontrolera
+	\item Personalizacja za pomocą jednego pliku konfiguracyjnego
+	\item Prosty sposób instalacji oraz włączania serwisu
+	\item Szczegółowy system logów pomagający w diagnostyce usterek i monitoringu działania aplikacji
+	\item Niskie wymagania sprzętowe, serwis powinien się uruchamiać i pracować bez widocznych strat na wydajności będąc zainstalowanym na stosunkowo taniej i mało wydajnej maszynie
+\end{itemize}
+\subsection{Moduł właściwego przetwarzania danych - Parser} 
+ \begin{itemize}
+ 	\item Stabilnie działająca aplikacja desktopowa z intuicyjnym interfejsem użytkownika
+ 	\item Pełne wsparcie dla przetwarzania danych z kas Aloha oraz integracja z pozostałymi parserami z innych kas działającymi w systemie
+ 	\item Łatwość wystartowania i zastopowania aplikacji
+ 	\item Dążenie do jak najniższego wykorzystania zasobów systemu, w którym aplikacja jest zainstalowana
+ \end{itemize}
+\section{Analiza przypadków użycia (diagramy UML)}
+
+\chapter{Specyfikacja zewnętrzna}
+Rozdział ten opisuje wymagania sprzętowe i programowe, które należy spełnić, by zapewnić poprawne funkcjonowanie aplikacji. Poruszone zostały kwestie instalacji i administracji poszczególnymi modułami oprogramowania oraz temat zabezpieczeń.
+\section{Wymagania sprzętowe i programowe}
+\section{Instalacja}
+\subsection{Instacja PreParser-a na kontrolerze u klienta}
+\subsection{Instacja Parser-a po stronie administratora}
+\section{Obsługa systemu i administrowanie nim}
+\subsection{PreParser}
+\subsubsection{Startowanie serwisu}
+\subsubsection{Zatrzymywanie serwisu}
+\subsubsection{Deinstalacja serwisu}
+\subsubsection{Diagnostyka i logowanie}
+\subsection{Parser}
+\subsubsection{Uruchamianie aplikacji}
+\subsubsection{Zatrzymywanie aplikacji}
+\subsubsection{Deinstalacja aplikacji}
+\subsubsection{Diagnostyka i logowanie}
+\section{Bezpieczeństwo}
+\section{Przykład działania}
+
+\chapter{Specyfikacja wewnętrzna}
+W niniejszym rozdziale podjęta została kwestia architektury oprogramowania. Przedstawione zostały schematy baz danych oraz zakres wykorzystywanych bibliotek. Rozpisano również model ważniejszych klas oraz szczegółowo omówione zostały dane wejściowe wraz algorytmami koniecznymi do ich odpowiedniej analizy.
+\section{Architektura systemu}
+\section{Organizacja i struktura baz danych}
+\section{Wykorzystane biblioteki}
+\section{Model klas}
+\section{Szczegółowa analiza danych wejściowych}
+\section{Algorytmy}
+\section{Diagramy UML}
+
+\begin{figure}
+	\begin{lstlisting}[frame=single]
+function map = CreateBinaryMap(image, P)
+	threshold = FindThreshold(image, P);
+	map = Binarize(image, threshold);
+	map = MorphologicalClosing(map);
+end
+	\end{lstlisting}
+	\caption{Przykładowy listing.}
+	\label{lst:przyklad}
+\end{figure}
+
+\chapter{Testowanie i uruchamianie}
+\section {PreParser}
+\section {Parser}
+Sposób testowania w ramach pracy (organizacja eksperymentów, przypadki testowe, wyniki, zakres testowania -- pełny/niepełny)
+
+Poniżej przykład tworzenia tabeli. Podobnie jak w przypadku rysunków, każdą tabelę należy opisać w treśći pracy i odpowiednio się do niej odwołać.
+
+\begin{table}
+	\centering
+	\caption{Nagłówek tabeli.}
+	\begin{tabular}{|c|l|r|}
+		\hline
+		Pierwsza kolumna & Druga kolumna & Trzecia kolumna \\
+		\hline
+		3 & 4 & 5 \\
+		\hline 
+	\end{tabular}
+	\label{tab:przyklad_tabeli}
+\end{table}
+
+\chapter{Uwagi o przebiegu i~wynikach prac}
+\section {Stopień realizacji zagadnienia}
+\section{Napotkane problemy}
+\section{Dalszy rozwój}
+
+\chapter{Podsumowanie}
+
+
+Przeczytaj poniższy tekst przed oddaniem pracy do sprawdzenia:
+
+\ksremark{W całej pracy należy zapewnić, że nie pojawiają się sieroty - pojedyncze litery na końcu linii. W tym celu należy korzystać z symbolu tyldy po każdej takiej literze.}
+
+\ksremark{Nie powinno być odstępów między akapitami. Jeżeli tak się dzieje, oznacza to złe ułożenie obrazków. Wtedy wystarczy określić, gdzie powinien taki obraz się znajdować (np. na górze/dole strony). Innym rozwiązaniem jest dodanie komendy 'newpage' na końcu strony.}
+
+\ksremark{Proszę nie używać słownictwa w języku obcym - większość słów ma swój polski odpowiednik.}	
+
+
+\ksremark{Proszę nie używać apostrofów w roli cudzysłowia.}	
+
+\ksremark{W przypadku stosowania różnych czcionek (kursywy czy pogrubień) proszę trzymać się jednej konwencji w całej pracy.}	
+
+\ksremark{Wprowadzająć pojęcie należy podać najpierw jego polską nazwę, następnie w nawiasie angielską i ewentualny skrót. Od takiej definicji skrótu można z niego korzystać w dalszej części pracy. Np. Jako algorytm uczacy wybrałem metodę wektorów wspierających (ang. Support Vector Machine, SVM). SVM jest często stosowany do ...}	
+
+\bibliographystyle{plain}
+\bibliography{bibliografia}	
+	
+\end{document}
