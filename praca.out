@@ -23,8 +23,8 @@
 \BOOKMARK [0][-]{chapter.4}{Specyfikacja zewnetrzna}{}% 23
 \BOOKMARK [1][-]{section.4.1}{Wymagania sprzetowe i programowe}{chapter.4}% 24
 \BOOKMARK [1][-]{section.4.2}{Instalacja}{chapter.4}% 25
-\BOOKMARK [2][-]{subsection.4.2.1}{Instacja PreParser-a na kontrolerze u klienta}{section.4.2}% 26
-\BOOKMARK [2][-]{subsection.4.2.2}{Instacja Parser-a po stronie administratora}{section.4.2}% 27
+\BOOKMARK [2][-]{subsection.4.2.1}{Instalacja PreParser-a na kontrolerze u klienta}{section.4.2}% 26
+\BOOKMARK [2][-]{subsection.4.2.2}{Instalacja Parser-a po stronie administratora}{section.4.2}% 27
 \BOOKMARK [1][-]{section.4.3}{Obs\233uga systemu i administrowanie nim}{chapter.4}% 28
 \BOOKMARK [2][-]{subsection.4.3.1}{PreParser}{section.4.3}% 29
 \BOOKMARK [2][-]{subsection.4.3.2}{Parser}{section.4.3}% 30

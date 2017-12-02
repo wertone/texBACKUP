@@ -50,7 +50,7 @@ Celem pracy dyplomowej jest zaprojektowanie i implementacja systemu informatyczn
 	\item modułu właściwego przetwarzania danych (Parser-a)
 \end{itemize}
 PreParser będzie działał jako serwis po stronie użytkownika i wprowadzi konieczność jego instalacji na tzw. kontrolerze w sklepie użytkownika, czyli komputerze gromadzącym dane przychodzące z kas w danym sklepie i poddającym je etapowi wstępnej obróbki (preprasing) oraz wysyłającym dane wynikowe do bazy danych dostarczanej przez twórcę systemu, gdzie dalszym ich przetwarzaniem zajmie się Parser. Zadaniem modułu właściwego przetwarzania danych, będzie obróbka wstępnie przetworzonych informacji przez PreParser i zamiana ich na format mogący być analizowany przez system i zaprezentowany użytkownikowi. Pomysł na stworzenie takiego oprogramowania zrodził się z faktu zajmowania się tą tematyką zawodowo przez autora niniejszej pracy. Autor postanowił wykorzystać wiedzę i doświadczenie zdobyte podczas pracy zawodowej oraz studiów, by stworzyć system mający być częścią oprogramowania 360iQ dostarczanego przez firmę EZUniverse Inc. Dzięki regularnej pracy nad zagadnieniem podczas wykonywaniu obowiązków zawodowych, możliwe było dokładne dostosowanie systemu pod wymagania użytkownika oraz jego solidne przetestowanie przy działu z wykorzystaniem realnych danych i przypadków użycia.
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{./img/360iQ.png}
 	\caption{Logo produktu 360iQ stworzonego przez firmę EZUniverse}
@@ -62,7 +62,7 @@ Kolejny rozdział niniejszej pracy zawiera zarys problemu oraz informacje opisuj
 Niniejszy rozdział omawia podstawowe zagadnienia związane z realizowanym projektem. Poruszona została kwestia umiejscowienia konwertera danych Aloha w całym systemie 360iQ oraz opisane zostały typy informacji przekazywane przez kasę.
 \section{Wprowadzenie}
 \subsection{Procesor danych z terminali kas fiskalnych Aloha}
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{./img/aloha_pos.png}
 	\caption{Przykładowy model kasy Aloha.}
@@ -72,7 +72,7 @@ Terminale kasowe Aloha (rys. \ref{fig:aloha_pos}) są niezwykle popularne w Stan
 Po wstępnym przetworzeniu danych zostają one wysłane do bazy ulokowanej po stronie administratora, gdzie przechwytywane są one przez Parser i dokonywana jest właściwa analiza danych i ich przetwarzanie w celu dostarczenia klientowi potrzebnych informacji. 
 
 \subsection{Umiejscowienie w systemie 360iQ}
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{./img/EZUniverse.png}
 	\caption{Logo firmy EZUniverse Inc.}
@@ -97,7 +97,7 @@ Dzięki wsparciu dla dużej ilości modeli kas oraz współpracy z największymi
 \subsection{Dane wejściowe}
 Danymi wejściowymi dostarczanymi do kontrolera są pojedyncze zdarzenia zapisane w formacie XML.
 Format przychodzących danych omówiony zostanie na podstawie następującego zdarzenia (listing \ref{lst:przykladoweZdarzenieAloha}).  
-\begin{figure}
+\begin{figure}[h]
 	\begin{lstlisting}[frame=single, breaklines=true]
 	<SpyMessage TerminalID="3" EventTime="18:00:38" EmployeeID="139" EmployeeName="JAMES BOND" ManagerID="0" ManagerName="" TableID="3132860" CheckID="3145860" TransactionTypeID="8" TransactionType="ADD_ITEM" Description="SM FRY" Amount="1.99" Quantity="1" Sender="192.168.0.101" ReceivedOn="2017/03/05 00:00:52.042" />
 	\end{lstlisting}
@@ -323,13 +323,13 @@ Rozdział ten opisuje wymagania konieczne do uruchomienia oprogramowania po stro
  \end{itemize}
 \section{Analiza przypadków użycia (diagramy UML)}
 W niniejszej sekcji zaprezentowano przypadki użycia dla modułu wstępnego przetwarzania (rys. \ref{fig:przypadki_uzycia_preparser}) oraz dla części odpowiadającej za właściwe przetwarzanie (rys. \ref{fig:przypadki_uzycia_parser}).
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{./img/przypadki_uzycia_preparser.png}
 	\caption{Przypadki użycia - moduł wstępnego przetwarzania.}
 	\label{fig:przypadki_uzycia_preparser}
 \end{figure}
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=\textwidth]{./img/przypadki_uzycia_parser.png}
 	\caption{Przypadki użycia - moduł właściwego przetwarzania.}
@@ -338,19 +338,215 @@ W niniejszej sekcji zaprezentowano przypadki użycia dla modułu wstępnego prze
 \chapter{Specyfikacja zewnętrzna}
 Rozdział ten opisuje wymagania sprzętowe i programowe, które należy spełnić, by zapewnić poprawne funkcjonowanie aplikacji. Poruszone zostały kwestie instalacji i administracji poszczególnymi modułami oprogramowania oraz temat zabezpieczeń.
 \section{Wymagania sprzętowe i programowe}
+Opisywana aplikacja została przetestowana, na dwóch konfiguracjach sprzętowych:
+ \begin{itemize}
+	\item Komputer stacjonarny:
+	\subitem Procesor - i5 4690K @ 4.5 GHz, 4.0GHz Uncore
+	\subitem Pamięć RAM - 8GB DDR3 @ 2400MHz CL11 T1
+	\subitem Dysk - SSD 128 GB TLC
+	\subitem System operacyjny - Windows 10 PRO
+	\item Laptop:
+	\subitem Procesor - i5 7200U @ 2.5 GHz
+	\subitem Pamięć RAM - 16GB DDR4 @ 2133MHz CL15
+	\subitem Dysk - SSD 256 GB MLC
+	\subitem System operacyjny - Windows 10 PRO
+\end{itemize}
+Obydwie konfiguracje gwarantowały satysfakcjonującą płynność i szybkość działania aplikacji.
+Na podstawie testów z użyciem wyżej wymienionych zestawów zdefiniowano przybliżone wymagania sprzętowe oraz programowe:
+\begin{itemize}
+	\item Minimalne wymagania sprzętowe:
+	\subitem Procesor - i3 2 generacji Intel Core lub odpowiednik AMD
+	\subitem Pamięci RAM - 4GB pamięci operacyjnej
+	\subitem Dysk - 100mb wolnej przestrzeni dyskowej
+	\subitem Stały dostęp do internetu
+	\item Minimalne wymagania programowe:
+	\subitem System operacyjny - Windows w wersji 7 lub nowszej
+	\subitem Microsoft SQL Server Management Studio oraz MS SQL Server w wersji 2012 lub nowszej
+	\subitem .NET Framework w wersji 3.5 lub nowszej
+\end{itemize}
 \section{Instalacja}
-\subsection{Instacja PreParser-a na kontrolerze u klienta}
-\subsection{Instacja Parser-a po stronie administratora}
+\subsection{Instalacja PreParser-a na kontrolerze u klienta}
+W celu zainstalowania  modułu wstępnego przetwarzania danych należy uruchomić plik EZ360PreParserService.Setup.v.VERSION.exe, gdzie VERSION jest numerem wersji.
+Uruchomionony zostanie instalator serwisu (rys. \ref{fig:preparser_installation_part1}). W momencie wciśnięcia przycisku Install, instalator rozpocznie wgrywanie PreParser na kontroler. Po zakończeniu proces powinien zostać wyświetlony ekran informujący o poprawnie zakończonej instalacji serwisu (rys. \ref{fig:preparser_installation_part2})
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./img/preparser_installation_part1.png}
+	\caption{Instalacja modułu wstępnego przetwarzania - początek instalacji.}
+	\label{fig:preparser_installation_part1}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./img/preparser_installation_part2.png}
+	\caption{Instalacja modułu wstępnego przetwarzania - koniec instalacji.}
+	\label{fig:preparser_installation_part2}
+\end{figure}
+Następnie należy dokonać konfiguracji zainstalowanego serwisu. W tym celu otwieramy plik configuration.json. Powinien on mieć format przedstawiony na listingu \ref{lst:przykladowyPlikKonfiguracyjnyPreParser}.
+\begin{figure}[h]
+	\begin{lstlisting}[frame=single, breaklines=true]
+	{
+	"ProcessID": 636298774975,
+	"ParserType": "ALOHA",
+	"ObjectsConnectionString": "Data Source = server; User ID = sa; Password = sa_password; Initial Catalog = EZ360Objects;",
+	"CommunicationConnectionString": "Data Source = server; User ID = sa; Password = sa_password; Initial Catalog = EZ360Communication;",
+	"TransactionWebservice": "http://localhost:65059/api/Transactions",
+	"ActionWebservice": "http://localhost:65059/api/Actions",
+	"CashOperationWebservice": "http://localhost:65059/api/CashOperations",
+	"TimeClockWebservice": "http://localhost:65059/api/TimeClocks",
+	"DataWebservice": "http://localhost:65059/api/Data",
+	"TimerInterval": 500,
+	"DatabaseTimeout": 30,
+	"DatabaseTimeoutInterval": 10,
+	"DelayAfterDatabaseError": 10,
+	"DelayDeleteNotServedTransaction": 40,
+	"Rows": 500,
+	"SenderTimerInterval": 1000,
+	"MaxRowsToSend": 25,
+	"MaxSenderQueues": 250,
+	"CompressWebRequest": true,
+	"ControllerWebURL": "http://127.0.0.1:81/"
+	}
+	\end{lstlisting}
+	\caption{Zawartość pliku konfiguracyjnego - PreParser.}
+	\label{lst:przykladowyPlikKonfiguracyjnyPreParser}
+\end{figure}
+Skrócony opis poszczególnych parametrów:
+\begin{itemize}
+	\item ProcessID - id procesu działającego na danym kontrolerze
+	\item ParserType - typ parsera komunikującego się z kontrolerem
+	\item ObjectsConnectionString - parametry połączenia do tabeli EZ360Objects w bazie danych
+	\item CommunicationConnectionString - parametry połączenia do tabeli EZ360Communication w bazie danych
+	\item TransactionWebservice - adres url do webservice-u obsługującego transakcje
+	\item ActionWebservice - adres url do webservice-u obsługującego akcje
+	\item CashOperationWebservice - adres url do webservice-u obsługującego wpłaty/wypłaty
+	\item TimeClockWebservice - adres url do webservice-u obsługującego obecności pracowników
+	\item DataWebservice - adres url do webservice-u obsługującego dane dodatkowe
+	\item TimerInterval - czas pomiędzy kolejnymi sprawdzeniami czy nie przyszły nowe zdarzenia (w milisekundach)
+	\item DatabaseTimeout - maksymalny czas w jakim może zostać wykonywane zapytanie do bazy danych (w sekundach)
+	\item DatabaseTimeoutInterval - przerwa pomiędzy kolejnymi zapytaniami do bazy danych (w sekundach)
+	\item DelayAfterDatabaseError - czas do ponownej próby połączenia z bazą danych po wystąpieniu błędu
+	\item DelayDeleteNotServedTransaction - czas po jakim nieobsługiwana transakcja jest usuwana
+	\item Rows - maksymalna liczba wierszy możliwa do procesowania
+	\item SenderTimerInterval - interwał z jakim wysyłane są dane do bazy
+	\item MaxRowsToSend - maksymalna liczba wierszy przesłana w jednym zapytaniu
+	\item MaxSenderQueues - limit liczby obiektów w kolejce do wysłania
+	\item CompressWebRequest - kompresowanie wysyłanych danych
+	\item ControllerWebURL - adres URL kontrolera
+\end{itemize}
+\subsection{Instalacja Parser-a po stronie administratora}
+\newpage Poprawna instalacja modułu właściwego przetwarzania danych na komputerze administratora wymaga ręcznego rozpakowania archiwum AlohaParserVERSION.zip, gdzie VERSION jest numerem wersji. Po rozpakowaniu archiwum w miejsce wybrane przez administratora, powinny być dostępne pliki (rys. \ref{fig:aloha_parser_content}) potrzebne do uruchomienia modułu właściwego przetwarzania danych.
+Aplikacje można uruchomić otwierając plik EZ360ParserUI.exe.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./img/aloha_parser_content.png}
+	\caption{Zawartość archiwum AlohaParserVERSION.}
+	\label{fig:aloha_parser_content}
+\end{figure}
+Następnie należy dokonać konfiguracji zainstalowanej aplikacji. W tym celu otwieramy plik configuration.json. Powinien on mieć format przedstawiony na listingu \ref{lst:przykladowyPlikKonfiguracyjnyParser}.
+\begin{figure}[h]
+	\begin{lstlisting}[frame=single, breaklines=true]
+	"ProcessID": 444,
+	"ParserType": "ALOHA",
+	"Enabled": false,
+	"DBConnections": {
+	"AccessConnectionString": "Data Source = M-STOLECKI\\EZUniverse; User ID = sa; Password = prestigo123!; Initial Catalog = EZ360Access",
+	"CommunicationConnectionString": "Data Source = M-STOLECKI\\EZUniverse; User ID = sa; Password = prestigo123!; Initial Catalog = EZ360Communication",
+	"LaborConnectionString": "Data Source = M-STOLECKI\\EZUniverse; User ID = sa; Password = prestigo123!; Initial Catalog = EZ360Labor",
+	"ObjectsConnectionString": "Data Source = M-STOLECKI\\EZUniverse; User ID = sa;Password = prestigo123!; Initial Catalog = EZ360Objects",
+	"SalesConnectionString": "Data Source = M-STOLECKI\\EZUniverse; User ID = sa; Password = prestigo123!; Initial Catalog = EZ360Sales",
+	"ReportsConnectionString": "Data Source = M-STOLECKI\\EZUniverse; User ID = sa; Password = prestigo123!; Initial Catalog = EZ360Reports",      
+	"ApplicationsConnectionString": "Data Source = M-STOLECKI\\EZUniverse; User ID = sa; Password = prestigo123!; Initial Catalog = EZ360Applications"
+	},
+	"TimerInterval": 1000,
+	"DatabaseTimeout": 10,
+	"DatabaseTimeoutInterval": 10,
+	"DelayAfterDatabaseError": 5000,
+	"EnablePreserveSavedTransactions": false,
+	"DeletePreservedTransactionsAfter": 24,
+	"VideoTimeOffset": -10,
+	"IdentificationPrefix" : "",
+	"IdentificationNumber" : "",
+	"Actions": {
+	"Enabled": false,
+	"Rows": 100
+	},
+	"CashOperations": {
+	"Enabled": true,
+	"Rows": 100
+	},
+	"Transactions": {
+	"Enabled": true,
+	"Rows": 100
+	},
+	"TimeClocks": {
+	"Enabled": true,
+	"Rows": 100
+	},
+	"Data": {
+	"Enabled": true,
+	"Rows": 100
+	}
+	\end{lstlisting}
+	\caption{Zawartość pliku konfiguracyjnego - Parser - wycinek dotyczący kasy Aloha.}
+	\label{lst:przykladowyPlikKonfiguracyjnyParser}
+\end{figure}
+Skrócony opis poszczególnych parametrów:
+\begin{itemize}
+	\item ProcessID - id procesu działającego na komputerze administratora
+	\item ParserType - typ parsera, którego dotyczy konfiguracja
+	\item AccessConnectionString - parametry połączenia do tabeli EZ360Access w bazie danych
+	\item CommunicationConnectionString - parametry połączenia do tabeli EZ360Communication w bazie danych
+	\item LaborConnectionString - parametry połączenia do tabeli EZ360Labor w bazie danych
+	\item ObjectsConnectionString - parametry połączenia do tabeli EZ360Objects w bazie danych
+	\item SalesConnectionString - parametry połączenia do tabeli EZ360Sales w bazie danych
+	\item ReportsConnectionString - parametry połączenia do tabeli EZ360Reports w bazie danych
+	\item ApplicationsConnectionString - parametry połączenia do tabeli EZ360Applications w bazie danych
+	\item TimerInterval - czas pomiędzy kolejnymi sprawdzeniami czy nie przyszły nowe dane (w milisekundach)
+	\item DatabaseTimeout - maksymalny czas w jakim może zostać wykonywane zapytanie do bazy danych (w sekundach)
+	\item DatabaseTimeoutInterval - przerwa pomiędzy kolejnymi zapytaniami do bazy danych (w sekundach)
+	\item DelayAfterDatabaseError - czas do ponownej próby połączenia z bazą danych po wystąpieniu błędu
+	\item EnablePreserveSaveTransactions - definiuje czy włączyć funkcjonalność zachowywania transakcji
+	\item DeletePreserveTransactionsAfter - definiuje po jakim czasie powinny być usuwane zachowane transakcje (podane w godzinach) 
+	\item Rows - maksymalna liczba wierszy możliwa do procesowania
+	\item VideoTimeOffset - przesunięcie w minutach uwzględniane przy wyliczaniu czasu wideo
+	\item IdentificationPrefix - prefix pomagający zidentyfikować dane
+	\item IdentificationNumer - numer pomagający zidentyfikować dane
+	\item Dalsze ustawienia definiują, które typy danych powinny być przetwarzane
+\end{itemize}
 \section{Obsługa systemu i administrowanie nim}
 \subsection{PreParser}
 \subsubsection{Startowanie serwisu}
+Startowanie serwisu realizowane z wykorzystaniem systemu operacyjnego Windows. Poprawne wystartowanie modułu wstępnego przetwarzania (po jego odpowiedniej konfiguracji) sprowadza się do uruchomienia serwisu za pośrednictwem menadżera serwisów systemu Windows (proces został zaprezentowany na rys. \ref{fig:startowanie_serwisu})
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./img/startowanie_serwisu.png}
+	\caption{Przykład startowania serwisu.}
+	\label{fig:startowanie_serwisu}
+\end{figure}
 \subsubsection{Zatrzymywanie serwisu}
-\subsubsection{Deinstalacja serwisu}
+Zatrzymywanie preparsera realizowane jest podobnie jak jego startowanie. Wykorzystuje się do tego również menadżer serwisów Windows.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./img/zatrzymywanie_serwisu.png}
+	\caption{Przykład zatrzymywania serwisu.}
+	\label{fig:zatrzymywanie_serwisu}
+\end{figure}
+\subsubsection{Dezinstalacja serwisu}
+W celu usunięcia serwisu z systemu operacyjnego należy uruchomić wiersz poleceń systemu Windows, a następnie przejść do katalogu gdzie został zainstalowany serwis. Po dokonaniu wyżej opisach czynności należy dokonać dezinstalacji poleceniem: \newline
+EZ360PreParserService.exe -uninstall \newline
+Spowoduje one usunięcie serwisu z systemu. 
 \subsubsection{Diagnostyka i logowanie}
+Serwis podczas pracy regularnie generuje szereg komunikatów o statusie swojego działania i aktywności.
+Są one zapisywane w plikach logów, które przechowywane są w folderze "logs". Przechowywanych jest do 30 plików logów, które następnie po pojawieniu się następnych logów są usuwane.
+Wyróżniamy następujące typy wiadomości składowanych w logach:
+\begin{itemize}
+	\item INFO - informuję użytkownika o statusie działa serwisu
+	\item WARN - komunikuje pojawienie się problemu podczas analizy danych, co w większości przypadków oznacza brak wsparcia dla konkretnego typu danych i nie powoduje błędnego działania systemu
+	\item ERROR - zawiadamia o wystąpieniu poważnego problemu, który powinien zostać zgłoszony do administratora w celu jego rozwiązania
+\end{itemize}
 \subsection{Parser}
 \subsubsection{Uruchamianie aplikacji}
 \subsubsection{Zatrzymywanie aplikacji}
-\subsubsection{Deinstalacja aplikacji}
+\subsubsection{Dezinstalacja aplikacji}
 \subsubsection{Diagnostyka i logowanie}
 \section{Bezpieczeństwo}
 \section{Przykład działania}
