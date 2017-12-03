@@ -579,7 +579,26 @@ Podobnie jak w przypadku modułu wstępnego przetwarzania, tutaj również zaimp
 \section{Bezpieczeństwo}
 Ważną kwestią uwzględnianą podczas procesu tworzenia oprogramowania będącego przedmiotem niniejszej pracy jest bezpieczeństwo. W celu zapewnienia uwarunkowań sprzyjających bezpieczeństwu przetwarzanych danych moduł właściwego przetwarzania oraz wszystkie bazy przechowujące informacje przychodzące od strony użytkownika składowane są po stronie administratora systemu. Zapewnia on szereg zabezpieczeń i ciągłe wsparcie techniczne. Po stronie użytkownika zainstalowany jest tylko serwis modułu wstępnego przetwarzania na kontrolerze, który tylko przetwarzana lokalne dane i wysyła je do głównego centrum danych, więc nie ma możliwości dostępu do informacji zgromadzonych przez innych użytkowników.
 \section{Przykład działania}
-
+ \begin{itemize}
+	\item Startowanie preparsera \ref{fig:startowanie_serwisu}
+	\item Zatrzymywanie preparser \ref{fig:zatrzymywanie_serwisu}
+	\item Startowanie aplikacji \ref{fig:startowanie_aplikacji}
+	\item Zatrzymywanie aplikacji \ref*{fig:zatrzymywanie_aplikacji}
+	\item Logi modułu wstępnego przetwarzania \ref{fig:preparser_log}
+	\item Logi modułu właściwego przetwarzania \ref{fig:parser_log}
+\end{itemize}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./img/preparser_log.png}
+	\caption{Logi preparsera.}
+	\label{fig:preparser_log}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./img/parser_log.png}
+	\caption{Logi parsera.}
+	\label{fig:parser_log}
+\end{figure}
 \chapter{Specyfikacja wewnętrzna}
 W niniejszym rozdziale podjęta została kwestia architektury oprogramowania. Przedstawione zostały schematy baz danych oraz zakres wykorzystywanych bibliotek. Rozpisano również model ważniejszych klas oraz szczegółowo omówione zostały dane wejściowe wraz algorytmami koniecznymi do ich odpowiedniej analizy.
 \section{Architektura systemu}

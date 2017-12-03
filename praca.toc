@@ -46,19 +46,19 @@
 \contentsline {subsubsection}{Diagnostyka i logowanie}{25}{section*.16}
 \contentsline {section}{\numberline {4.4}Bezpiecze\IeC {\'n}stwo}{25}{section.4.4}
 \contentsline {section}{\numberline {4.5}Przyk\IeC {\l }ad dzia\IeC {\l }ania}{25}{section.4.5}
-\contentsline {chapter}{\numberline {5}Specyfikacja wewn\IeC {\k e}trzna}{31}{chapter.5}
-\contentsline {section}{\numberline {5.1}Architektura systemu}{31}{section.5.1}
-\contentsline {section}{\numberline {5.2}Organizacja i struktura baz danych}{31}{section.5.2}
-\contentsline {section}{\numberline {5.3}Wykorzystane biblioteki}{31}{section.5.3}
-\contentsline {section}{\numberline {5.4}Model klas}{31}{section.5.4}
-\contentsline {section}{\numberline {5.5}Szczeg\IeC {\'o}\IeC {\l }owa analiza danych wej\IeC {\'s}ciowych}{31}{section.5.5}
-\contentsline {section}{\numberline {5.6}Algorytmy}{31}{section.5.6}
-\contentsline {section}{\numberline {5.7}Diagramy UML}{31}{section.5.7}
-\contentsline {chapter}{\numberline {6}Testowanie i uruchamianie}{33}{chapter.6}
-\contentsline {section}{\numberline {6.1}PreParser}{33}{section.6.1}
-\contentsline {section}{\numberline {6.2}Parser}{33}{section.6.2}
-\contentsline {chapter}{\numberline {7}Uwagi o przebiegu i~wynikach prac}{35}{chapter.7}
-\contentsline {section}{\numberline {7.1}Stopie\IeC {\'n} realizacji zagadnienia}{35}{section.7.1}
-\contentsline {section}{\numberline {7.2}Napotkane problemy}{35}{section.7.2}
-\contentsline {section}{\numberline {7.3}Dalszy rozw\IeC {\'o}j}{35}{section.7.3}
-\contentsline {chapter}{\numberline {8}Podsumowanie}{37}{chapter.8}
+\contentsline {chapter}{\numberline {5}Specyfikacja wewn\IeC {\k e}trzna}{33}{chapter.5}
+\contentsline {section}{\numberline {5.1}Architektura systemu}{33}{section.5.1}
+\contentsline {section}{\numberline {5.2}Organizacja i struktura baz danych}{33}{section.5.2}
+\contentsline {section}{\numberline {5.3}Wykorzystane biblioteki}{33}{section.5.3}
+\contentsline {section}{\numberline {5.4}Model klas}{33}{section.5.4}
+\contentsline {section}{\numberline {5.5}Szczeg\IeC {\'o}\IeC {\l }owa analiza danych wej\IeC {\'s}ciowych}{33}{section.5.5}
+\contentsline {section}{\numberline {5.6}Algorytmy}{33}{section.5.6}
+\contentsline {section}{\numberline {5.7}Diagramy UML}{33}{section.5.7}
+\contentsline {chapter}{\numberline {6}Testowanie i uruchamianie}{35}{chapter.6}
+\contentsline {section}{\numberline {6.1}PreParser}{35}{section.6.1}
+\contentsline {section}{\numberline {6.2}Parser}{35}{section.6.2}
+\contentsline {chapter}{\numberline {7}Uwagi o przebiegu i~wynikach prac}{37}{chapter.7}
+\contentsline {section}{\numberline {7.1}Stopie\IeC {\'n} realizacji zagadnienia}{37}{section.7.1}
+\contentsline {section}{\numberline {7.2}Napotkane problemy}{37}{section.7.2}
+\contentsline {section}{\numberline {7.3}Dalszy rozw\IeC {\'o}j}{37}{section.7.3}
+\contentsline {chapter}{\numberline {8}Podsumowanie}{39}{chapter.8}
