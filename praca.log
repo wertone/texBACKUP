@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.11.27)  2 DEC 2017 18:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.11.27)  3 DEC 2017 15:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -850,53 +850,86 @@ Package pdftex.def Info: Requested size: 345.0pt x 397.70415pt on input line 52
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[23] [24] [25] [26 <./img/startowanie_serwisu.png>] [27 <./img/zatrzymywanie_se
-rwisu.png>] [28
+[23]
+<./img/inicjalizacja_aplikacji.png, id=522, 743.02594pt x 446.41782pt>
+File: ./img/inicjalizacja_aplikacji.png Graphic file (type png)
+<use ./img/inicjalizacja_aplikacji.png>
+Package pdftex.def Info: ./img/inicjalizacja_aplikacji.png  used on input line 
+551. on input line 551.
+Package pdftex.def Info: Requested size: 345.0pt x 207.28241pt on input line 55
+1.
+<./img/startowanie_aplikacji.png, id=524, 742.27313pt x 446.41782pt>
+File: ./img/startowanie_aplikacji.png Graphic file (type png)
+<use ./img/startowanie_aplikacji.png>
+Package pdftex.def Info: ./img/startowanie_aplikacji.png  used on input line 55
+8. on input line 558.
+Package pdftex.def Info: Requested size: 345.0pt x 207.49358pt on input line 55
+8.
 
-]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./img/zatrzymywanie_aplikacji.png, id=526, 742.27313pt x 446.41782pt>
+File: ./img/zatrzymywanie_aplikacji.png Graphic file (type png)
+<use ./img/zatrzymywanie_aplikacji.png>
+Package pdftex.def Info: ./img/zatrzymywanie_aplikacji.png  used on input line 
+566. on input line 566.
+Package pdftex.def Info: Requested size: 345.0pt x 207.49358pt on input line 56
+6.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[24] [25] [26] [27 <./img/startowanie_serwisu.png>] [28 <./img/zatrzymywanie_se
+rwisu.png>] [29 <./img/inicjalizacja_aplikacji.png> <./img/startowanie_aplikacj
+i.png>] [30 <./img/zatrzymywanie_aplikacji.png>]
 Rozdzia\l  5.
-[29] [30
+[31
+
+] [32
 
 ]
 Rozdzia\l  6.
-[31] [32
+[33] [34
 
 ]
 Rozdzia\l  7.
-[33] [34
+[35] [36
 
 ]
 Rozdzia\l  8.
 Package hyperref Info: bookmark level for unknown uwagas defaults to 0 on input
- line 606.
+ line 634.
 
-LaTeX Warning: Marginpar on page 35 moved.
+LaTeX Warning: Marginpar on page 37 moved.
 
 
-LaTeX Warning: Marginpar on page 35 moved.
+LaTeX Warning: Marginpar on page 37 moved.
 
-(./praca.bbl [35] [36
+(./praca.bbl [37] [38
 
 ]
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 622.
- [37]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 622.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 650.
+ [39]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 650.
  (./praca.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 622.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 622.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 650.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 650.
 Package rerunfilecheck Info: File `praca.out' has not changed.
 (rerunfilecheck)             Checksum: 6204F2D10DD2A9DDC1FE707D8DC17250;3528.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 622.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 650.
  ) 
 Here is how much of TeX's memory you used:
- 8492 strings out of 492985
- 119248 string characters out of 6136283
+ 8515 strings out of 492985
+ 119902 string characters out of 6136283
  707435 words of memory out of 5000000
- 11673 multiletter control sequences out of 15000+600000
+ 11688 multiletter control sequences out of 15000+600000
  12352 words of font info for 32 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  33i,8n,58p,1264b,1415s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -910,10 +943,10 @@ st/fonts/type1/public/pl/plr10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/publ
 ic/pl/plr5.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/pl/plsl10.pfb><c:
 /texlive/2017/texmf-dist/fonts/type1/public/pl/plss12.pfb><c:/texlive/2017/texm
 f-dist/fonts/type1/public/pl/plssbx10.pfb>
-Output written on praca.pdf (41 pages, 590288 bytes).
+Output written on praca.pdf (43 pages, 687028 bytes).
 PDF statistics:
- 738 PDF objects out of 1000 (max. 8388607)
- 657 compressed objects within 7 object streams
- 266 named destinations out of 1000 (max. 500000)
- 440 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 760 PDF objects out of 1000 (max. 8388607)
+ 671 compressed objects within 7 object streams
+ 271 named destinations out of 1000 (max. 500000)
+ 455 words of extra memory for PDF output out of 10000 (max. 10000000)
 

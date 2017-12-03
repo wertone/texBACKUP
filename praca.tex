@@ -545,10 +545,39 @@ Wyróżniamy następujące typy wiadomości składowanych w logach:
 \end{itemize}
 \subsection{Parser}
 \subsubsection{Uruchamianie aplikacji}
+W celu uruchomienia aplikacji należy otworzyć plik EZ360ParserUI.exe, następnie dokonać inicjalizacji poprzez kliknięcie odpowiedniego przycisku (rys. \ref{fig:inicjalizacja_aplikacji}).
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./img/inicjalizacja_aplikacji.png}
+	\caption{Inicjalizacja aplikacji.}
+	\label{fig:inicjalizacja_aplikacji}
+\end{figure}
+Po poprawnej inicjalizacji modułu, wystarczy wcisnąć przycisk start, by rozpocząć proces przetwarzania danych (rys. \ref{fig:startowanie_aplikacji}).
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./img/startowanie_aplikacji.png}
+	\caption{Startowanie aplikacji.}
+	\label{fig:startowanie_aplikacji}
+\end{figure}
 \subsubsection{Zatrzymywanie aplikacji}
+Administrator może w każdej chwili zatrzymać moduł właściwego przetwarzania danych. W celu dokonania tego, należy kliknąć przycisk STOP (rys. \ref{fig:zatrzymywanie_aplikacji}). Aplikacja dokończy obecny proces przetwarzania i wyśle dane, następnie zatrzyma się (trwa to około kilka sekund, zależnie od ilości procesowanych danych).
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./img/zatrzymywanie_aplikacji.png}
+	\caption{Zatrzymywanie aplikacji.}
+	\label{fig:zatrzymywanie_aplikacji}
+\end{figure}
 \subsubsection{Dezinstalacja aplikacji}
+Dezinstalacja aplikacji sprowadza się do usunięcia zawartości folderu, w którym został zainstalowany moduł. Należy przy tym pamiętać, by wcześniej zatrzymać Parser i zamknąć aplikację.
 \subsubsection{Diagnostyka i logowanie}
+Podobnie jak w przypadku modułu wstępnego przetwarzania, tutaj również zaimplementowano system logowania komunikatów. Komunikaty informujące o stanie działania aplikacji przechowywane są w folderze "logs" oraz wyświetlane w interfejsie użytkownika, który udostępnia oprogramowanie. W tym wypadku typy komunikatów wyświetlane użytkownikowi są określane przez odpowiedni kolor czcionki:
+ \begin{itemize}
+ 	\item INFO - Czarny
+ 	\item WARN - Zielony
+ 	\item ERROR - Czerwony
+ \end{itemize}
 \section{Bezpieczeństwo}
+Ważną kwestią uwzględnianą podczas procesu tworzenia oprogramowania będącego przedmiotem niniejszej pracy jest bezpieczeństwo. W celu zapewnienia uwarunkowań sprzyjających bezpieczeństwu przetwarzanych danych moduł właściwego przetwarzania oraz wszystkie bazy przechowujące informacje przychodzące od strony użytkownika składowane są po stronie administratora systemu. Zapewnia on szereg zabezpieczeń i ciągłe wsparcie techniczne. Po stronie użytkownika zainstalowany jest tylko serwis modułu wstępnego przetwarzania na kontrolerze, który tylko przetwarzana lokalne dane i wysyła je do głównego centrum danych, więc nie ma możliwości dostępu do informacji zgromadzonych przez innych użytkowników.
 \section{Przykład działania}
 
 \chapter{Specyfikacja wewnętrzna}
