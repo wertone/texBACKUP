@@ -602,25 +602,61 @@ Ważną kwestią uwzględnianą podczas procesu tworzenia oprogramowania będąc
 \chapter{Specyfikacja wewnętrzna}
 W niniejszym rozdziale podjęta została kwestia architektury oprogramowania. Przedstawione zostały schematy baz danych oraz zakres wykorzystywanych bibliotek. Rozpisano również model ważniejszych klas oraz szczegółowo omówione zostały dane wejściowe wraz algorytmami koniecznymi do ich odpowiedniej analizy.
 \section{Architektura systemu}
+Schemat (rys. \ref{fig:schemat_przeplywu_danych}) przedstawia przepływ danych w systemie realizującym przetwarzanie informacji z kas Aloha.
+Jak już wielokrotnie wspominano w niniejszej pracy, dane wychodzące z terminala kasy Aloha mają pewną ścieżkę, którą muszą pokonać zanim zostaną one przekształcone w model, mogący być prezentowany użytkownikowi i analizowany przez niego. Wspominany proces wygląda następująco:
+ \begin{itemize}
+	\item Terminal kasy Aloha wysyła komunikat o zdarzeniu
+	\item AlohaSpyRelay przechwytuje informację przychodzącą z terminala i przetwarza ją na format rozpoznawalny przez moduł wstępnego przetwarzania
+	\item Moduł wstępnego przetwarzania zainstalowany na kontrolerze odczytuje dane przychodzące z terminala i opracowane przez AlohaSpyRelay, a następnie dokonuje ich wstępnej analizy
+	\item Dane wynikowe z PreParser przekazywane są do EZ360DataInterface, który przesyła je do bazy danych ulokowanej po stronie administratora systemu
+	\item Moduł właściwego przetwarzania danych, odczytuje z bazy wiadomości i przetwarza je na format mogący być analizowany i oglądany przez użytkownika
+	\item Dane wyjściowe z Parsersa prezentowane są w aplikacji webowej, będącej częścią systemu 360iQ dostarczanego przez firmę EZUniverse
+\end{itemize}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./img/schemat_przeplywu_danych.png}
+	\caption{Schemat przepływu danych.}
+	\label{fig:schemat_przeplywu_danych}
+\end{figure}
 \section{Organizacja i struktura baz danych}
+Moduł wstępnego przetwarzania danych:
+ \begin{itemize}
+	\item RAWDATA
+	\item ALOHATransactions
+	\item ALOHACashOperations
+	\item ALOHATimeClocks
+	\item ALOHAData
+	\item ALOHAActions
+\end{itemize}
+Schemat bazy danych - \ref{fig:preparser_database_schema}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./img/preparser_database_schema.png}
+	\caption{Schemat bazy danych dla modułu wstępnego przetwarzania.}
+	\label{fig:preparser_database_schema}
+\end{figure}
+\newline
+Moduł właściwego przetwarzania danych:
+\begin{itemize}
+	\item Transactions
+	\item TransactionProducts
+	\item TransactionPayments
+	\item TransactionDiscounts
+	\item TransactionReceipts
+	\item TransactioActions
+\end{itemize}
+Schemat bazy danych - \ref{fig:parser_database_schema}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./img/parser_database_schema.png}
+	\caption{Schemat bazy danych dla modułu właściwego przetwarzania.}
+	\label{fig:parser_database_schema}
+\end{figure} 
 \section{Wykorzystane biblioteki}
 \section{Model klas}
 \section{Szczegółowa analiza danych wejściowych}
 \section{Algorytmy}
 \section{Diagramy UML}
-
-\begin{figure}
-	\begin{lstlisting}[frame=single]
-function map = CreateBinaryMap(image, P)
-	threshold = FindThreshold(image, P);
-	map = Binarize(image, threshold);
-	map = MorphologicalClosing(map);
-end
-	\end{lstlisting}
-	\caption{Przykładowy listing.}
-	\label{lst:przyklad}
-\end{figure}
-
 \chapter{Testowanie i uruchamianie}
 \section {PreParser}
 \section {Parser}
