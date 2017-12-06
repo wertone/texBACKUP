@@ -653,7 +653,45 @@ Schemat bazy danych - \ref{fig:parser_database_schema}
 	\label{fig:parser_database_schema}
 \end{figure} 
 \section{Wykorzystane biblioteki}
+Podczas realizowania zagadnienia omówionego w niniejszej pracy korzystano z następujących bibliotek .NET:
+\begin{itemize}
+	\item Microsoft.AspNet.WebApi.Client
+	\item Microsoft.Bcl
+	\item Microsoft.Bcl.Build
+	\item Microsoft.Net.Http
+	\item Newtonsoft.Json
+	\item System.ValueTuple
+\end{itemize}
+Wszystkie wyżej wymienione biblioteki są udostępnia przez menadżer pakietów NuGet, będący zintegrowany z Visual Studio.
 \section{Model klas}
+Niniejsza sekcja opisuje najważniejsze klasy wykorzystywane w projekcie. W zależności od modułu są to:
+\begin{itemize}
+	\item Moduł wstępnego przetwarzania danych (schemat \ref{fig:preparser_diagram_klas})
+	\subitem PreParser
+	\subitem AlohaPreParser
+	\subitem TransactionPreParser
+	\subitem TimeClockPreParser
+	\subitem CashDropPreParser
+	\item Moduł właściwego przetwarzania danych (schemat \ref{fig:parser_diagram_klas})
+	\subitem Parser
+	\subitem AlohaParser
+	\subitem TransactionParser
+	\subitem TimeClockParser
+	\subitem CashDropParser
+	\subitem DataParser
+\end{itemize}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./img/preparser_diagram_klas.png}
+	\caption{Diagram przedstawiający najważniejsze klasy - PreParser.}
+	\label{fig:preparser_diagram_klas}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\textwidth]{./img/parser_diagram_klas.png}
+	\caption{Diagram przedstawiający najważniejsze klasy - Parser.}
+	\label{fig:parser_diagram_klas}
+\end{figure}
 \section{Szczegółowa analiza danych wejściowych}
 \section{Algorytmy}
 \section{Diagramy UML}

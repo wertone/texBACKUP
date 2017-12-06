@@ -49,7 +49,7 @@
 \contentsline {chapter}{\numberline {5}Specyfikacja wewn\IeC {\k e}trzna}{33}{chapter.5}
 \contentsline {section}{\numberline {5.1}Architektura systemu}{33}{section.5.1}
 \contentsline {section}{\numberline {5.2}Organizacja i struktura baz danych}{34}{section.5.2}
-\contentsline {section}{\numberline {5.3}Wykorzystane biblioteki}{35}{section.5.3}
+\contentsline {section}{\numberline {5.3}Wykorzystane biblioteki}{34}{section.5.3}
 \contentsline {section}{\numberline {5.4}Model klas}{35}{section.5.4}
 \contentsline {section}{\numberline {5.5}Szczeg\IeC {\'o}\IeC {\l }owa analiza danych wej\IeC {\'s}ciowych}{35}{section.5.5}
 \contentsline {section}{\numberline {5.6}Algorytmy}{35}{section.5.6}
