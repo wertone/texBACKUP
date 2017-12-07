@@ -725,6 +725,13 @@ W systemie wykorzystane zostały następujące algorytmy przetwarzające i rozsz
 	\item Rozszerzanie zdarzenia XML o rozszerzone nazwy przedmiotów i wartości podatków (listing został podzielony na części - kolejno: \ref{lst:rozszerzanieXML1}, \ref{lst:rozszerzanieXML2}, \ref{lst:rozszerzanieXML3})
 \end{itemize}
 \subsection{Dodawanie brakujących przedmiotów będących częścią promocji do transakcji}
+Od czasu do czasu otrzymywana jest wiadomość zawierająca PromotionsXML. Za każdym razem, gdy taka informacja jest odbierana, zapisana zostaje do pliku lub aktualizowana, jeśli już istnieje. PreParser zawiera również obiekt, który przechowuje dane pochodzące ze słownika PromotionsXML. Wspomniana wiadomość jest konwertowana na instancję klasy PromotionBundle, która przechowuje informacje o promocjach i elementach w niej zawartych. Metoda bezpośrednio zaangażowana w przetwarzanie promocji nazywa się ProcessAddPromo. Zapewnia funkcjonalność, która wykrywa, czy nastąpiła zmiana promocji i wstawia produkty, których brakuje. System obsługuje także zdarzenie DELETEPROMO. To, co dokładnie dzieje się w wykrywaniu algorytmów promocji, można podsumować w prostych krokach:
+\begin{itemize}
+	\item Przechowywana jest historia przetworzonych zdarzeń, co pozwala algorytmowi powrócić do przeszłych akcji, aby wykryć pożądany schemat.
+	\item Szukany jest zestaw 2 instrukcji (jest to wartość minimum - zostaje ona zwiększona, jeśli wykryte są zdarzenia, których zawartość pola TransactionType zaczyna się od "6" lub "7"), które poprzedzały bieżące zdarzenie.
+	\item Jeśli znaleziony zostanie odpowiedni zestaw zdarzeń, który jest rozpoznawany jako zmiana promocji to dodawane lub usuwane są odpowiednie wydarzenia na podstawie wyników wyszukiwania odpowiednich schematów zdarzeń.
+\end{itemize}
+
 \begin{figure}[h]
 	\begin{lstlisting}[frame=single, breaklines=true]
 	private void ProcessAddPromo(XElement action, XElement lastAction, List<SpyMessage> actions,
@@ -842,6 +849,24 @@ W systemie wykorzystane zostały następujące algorytmy przetwarzające i rozsz
 	\label{lst:brakujaceProdukty3}
 \end{figure}
 \subsection{Rozszerzanie zdarzenia XML o rozszerzone nazwy przedmiotów i wartości podatków}
+Od czasu do czasu pojawia się komunikat zawierający ItemCategoryXML. Dostarcza on rozszerzonych informacji o przedmiotach i ich kategoriach. W Aloha ten sam przedmiot może być nazwany z wykorzystaniem różnych formatów:
+\begin{itemize}
+	\item ItemShortName
+	\item ItemLongName
+	\item ItemLongName2
+	\item ItemChitName
+	\item ItemName
+\end{itemize}
+Biorąc to pod uwagę, opracowano funkcjonalność rozszerzającą przychodzące zdarzenie XML z danych wejściowych.
+Dodaje ona nowe atrybuty do istniejącego pliku XML z wymienionymi wyżej nazwami elementów. Nazwa przedmiotu jest identyfikowana za pomocą tego algorytmu:
+\begin{itemize}
+	\item Nazwa przedmiotu (lub jej odmiany) jest wyodrębniona z atrybutu Description,
+	\item Uzyskana nazwa porównywana jest z nazwami produktu pochodzącymi z ItemCategoryXML,
+	\item Gdy tylko znaleziona zostanie pasująca nazwa, znajdowane są wszystkie jej odmiany i rozszerzana jest wiadomość XML o dodatkowe pola z odpowiednimi wartościami,
+	\item Od tego momentu zdarzenie zawiera wszystkie potrzebne informacje o przedmiocie, które mogą być wykorzystane podczas dalszego przetwarzania.
+\end{itemize}
+Metoda implementująca tę funkcjonalność to: ExtendMessegeWithAdditionalItemInfo.
+Słownik ItemCategoryXML jest przechowywany zarówno na dysku, jak i jako obiekt XElement po stronie serwisu. Jest aktualizowany za każdym razem, gdy przychodzi nowa wiadomość z nową wersją ItemCateogryXML.
 \begin{figure}[h]
 	\begin{lstlisting}[frame=single, breaklines=true]
 	private void ExtendMessegeWithAdditionalItemInfo(XElement action, XElement itemCategoryXML, List<TaxInformation> taxInformations, List<PromotionBundle> promotionBundles)

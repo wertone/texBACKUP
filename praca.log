@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.11.27)  7 DEC 2017 14:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.11.27)  7 DEC 2017 16:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -985,28 +985,13 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Float too large for page by 21.74443pt on input line 771.
+LaTeX Warning: Float too large for page by 21.74443pt on input line 778.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Warning: Float too large for page by 105.74443pt on input line 819.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: Float too large for page by 105.74443pt on input line 882.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: Float too large for page by 45.74443pt on input line 930.
+LaTeX Warning: Float too large for page by 105.74443pt on input line 826.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1014,13 +999,29 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[36] [37 <./img/preparser_database_schema.png>] [38 <./img/parser_database_sche
-ma.png>] [39 <./img/preparser_diagram_klas.png> <./img/parser_diagram_klas.png>
-] [40] [41] [42] [43] [44] [45] [46
+[36]
 
-]
+LaTeX Warning: Float too large for page by 105.74443pt on input line 907.
+
+
+LaTeX Warning: Float too large for page by 45.74443pt on input line 955.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[37] [38 <./img/preparser_database_schema.png>] [39 <./img/parser_database_sche
+ma.png>] [40 <./img/preparser_diagram_klas.png> <./img/parser_diagram_klas.png>
+] [41] [42] [43] [44] [45] [46]
 Rozdzia\l  6.
-[47] [48
+[47
+
+] [48
 
 ]
 Rozdzia\l  7.
@@ -1029,7 +1030,7 @@ Rozdzia\l  7.
 ]
 Rozdzia\l  8.
 Package hyperref Info: bookmark level for unknown uwagas defaults to 0 on input
- line 983.
+ line 1008.
 
 LaTeX Warning: Marginpar on page 51 moved.
 
@@ -1043,21 +1044,22 @@ LaTeX Warning: Marginpar on page 51 moved.
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 999.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1024.
  [53]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 999.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1024.
  (./praca.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 999.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 999.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1024.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1024.
+
 Package rerunfilecheck Info: File `praca.out' has not changed.
 (rerunfilecheck)             Checksum: 23BF9C6949EE09339BDA1B31B18F76C6;3737.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 999.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1024.
  ) 
 Here is how much of TeX's memory you used:
- 8962 strings out of 492985
- 127159 string characters out of 6136283
- 950435 words of memory out of 5000000
- 11910 multiletter control sequences out of 15000+600000
+ 8964 strings out of 492985
+ 127187 string characters out of 6136283
+ 951435 words of memory out of 5000000
+ 11912 multiletter control sequences out of 15000+600000
  12352 words of font info for 32 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  33i,8n,58p,1264b,1415s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1071,10 +1073,10 @@ st/fonts/type1/public/pl/plr10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/publ
 ic/pl/plr5.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/pl/plsl10.pfb><c:
 /texlive/2017/texmf-dist/fonts/type1/public/pl/plss12.pfb><c:/texlive/2017/texm
 f-dist/fonts/type1/public/pl/plssbx10.pfb>
-Output written on praca.pdf (57 pages, 1449941 bytes).
+Output written on praca.pdf (57 pages, 1452394 bytes).
 PDF statistics:
- 1099 PDF objects out of 1200 (max. 8388607)
- 979 compressed objects within 10 object streams
+ 1105 PDF objects out of 1200 (max. 8388607)
+ 985 compressed objects within 10 object streams
  489 named destinations out of 1000 (max. 500000)
  498 words of extra memory for PDF output out of 10000 (max. 10000000)
 
