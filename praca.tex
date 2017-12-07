@@ -693,8 +693,263 @@ Niniejsza sekcja opisuje najważniejsze klasy wykorzystywane w projekcie. W zale
 	\label{fig:parser_diagram_klas}
 \end{figure}
 \section{Szczegółowa analiza danych wejściowych}
+Na podstawie przykładowych danych wejściowych przestawionych na listingu \ref{lst:przykladoweZdarzenieAloha2}. Każde zdarzenie w formacie XML zawiera następujące atrybuty:
+\begin{itemize}
+	\item TerminalID - numer terminala kasowego
+	\item EventTime - czas wystąpienia zdarzenia
+	\item EmployeeID - ID pracownika
+	\item EmployeeName - imię i nazwisko pracownika
+	\item ManagerID - ID managera
+	\item ManagerName - imię i nazwisko managera
+	\item TableID - ID stanowiska, na którym ulokowany jest terminal
+	\item CheckID - numer transakcji
+	\item TransactionTypeID - ID typu zdarzenia
+	\item TransactionType - nazwa typu zdarzenia
+	\item Description - opis zdarzenia
+	\item Amount - wartość pieniężna związana ze zdarzeniem
+	\item Quantity - ilość sztuk (w przypadku produktów i płatności)
+	\item Sender - adres IP urządzenia wysyłającego
+	\item ReceivedOn - data otrzymania zdarzenia po stronie kontrolera
+\end{itemize}
+\begin{figure}[h]
+	\begin{lstlisting}[frame=single, breaklines=true]
+	<SpyMessage TerminalID="4" EventTime="23:59:57" EmployeeID="94205" EmployeeName="AHMET B?RL?K" ManagerID="0" ManagerName="" TableID="4194420" CheckID="40116" TransactionTypeID="59" TransactionType="TOTAL" Description="" Amount="18.75" Quantity="0" Sender="192.168.100.4" ReceivedOn="2017.11.30 00:00:08.204" />
+	\end{lstlisting}
+	\caption{Przykładowe zdarzenie - dane wejściowe Aloha.}
+	\label{lst:przykladoweZdarzenieAloha2}
+\end{figure}
 \section{Algorytmy}
-\section{Diagramy UML}
+W systemie wykorzystane zostały następujące algorytmy przetwarzające i rozszerzające dane wejściowe w formacie XML:
+\begin{itemize}
+	\item Dodawanie brakujących przedmiotów będących częścią promocji do transakcji (listing został podzielony na części - kolejno: \ref{lst:brakujaceProdukty1}, \ref{lst:brakujaceProdukty2}, \ref{lst:brakujaceProdukty3})
+	\item Rozszerzanie zdarzenia XML o rozszerzone nazwy przedmiotów i wartości podatków (listing został podzielony na części - kolejno: \ref{lst:rozszerzanieXML1}, \ref{lst:rozszerzanieXML2}, \ref{lst:rozszerzanieXML3})
+\end{itemize}
+\subsection{Dodawanie brakujących przedmiotów będących częścią promocji do transakcji}
+\begin{figure}[h]
+	\begin{lstlisting}[frame=single, breaklines=true]
+	private void ProcessAddPromo(XElement action, XElement lastAction, List<SpyMessage> actions,
+	List<PromotionBundle> promotionBundles, List<string> warningMessages, List<SpyMessage> result)
+	{
+	var listOfActions = actions.Select(x => x.Body).ToList();
+	var lastActionTransactionType = lastAction?.Attribute("TransactionType")?.Value ?? string.Empty;
+	if (lastActionTransactionType == "DELETE_PROMO")
+	{
+	var actionsOffset = 2;
+	var cancelItemActionAppeared = false;
+	var addItemActionAppeared = false;
+	for (var i = 1; i < actionsOffset + 1; i++)
+	{
+	var indexToMove = listOfActions.IndexOf(lastAction) - i;
+	if (indexToMove >= 0)
+	{
+	var currentAction = actions.ElementAt(indexToMove).Body;
+	var currentActionName = currentAction?.Attribute("TransactionType")?.Value ?? string.Empty;
+	if (currentActionName.StartsWith("6") || currentActionName.StartsWith("7"))
+	{
+	actionsOffset++;
+	}
+	
+	if (currentActionName == "ADD_ITEM" && cancelItemActionAppeared)
+	{
+	addItemActionAppeared = true;
+	break;
+	}
+	
+	if (currentActionName == "CANCEL_ITEM" && !addItemActionAppeared)
+	{
+	cancelItemActionAppeared = true;
+	}
+	}
+	else
+	{
+	break;
+	}
+	}
+	\end{lstlisting}
+	\caption{Dodawanie brakujących przedmiotów będących częścią promocji do transakcji - 1}
+	\label{lst:brakujaceProdukty1}
+\end{figure}
+\begin{figure}[h]
+	\begin{lstlisting}[frame=single, breaklines=true]
+	if (addItemActionAppeared)
+	{
+	IsPromoChanged = true;
+	AreItemsAlreadyAdded = true;
+	warningMessages.Add(
+	$"Promotion change found for transaction at CheckID = {action?.Attribute("CheckID")?.Value ?? string.Empty} and EventTime = {action?.Attribute("EventTime")?.Value ?? string.Empty}.");
+	}
+	}	
+	if (!AreItemsAlreadyAdded)
+	{
+	var promoName = action?.Attribute("Description")?.Value ?? string.Empty;
+	var itemsMultiplier = 1;
+	if (promoName.StartsWith("2 for"))
+	{
+	itemsMultiplier = 2;
+	}
+	var bundle =
+	promotionBundles.FirstOrDefault(x => x.PromotionName.ToUpperInvariant() ==
+	promoName.ToUpperInvariant());
+	var count = 1;
+	var spyMessage = actions.FirstOrDefault(x => x.Body == action);
+	if (bundle != null)
+	{
+	foreach (var product in bundle.ProductsInPromotion)
+	{
+	var element = new XElement(action);
+	element.SetAttributeValue("TransactionType", "ADD_ITEM");
+	element.SetAttributeValue("TransactionTypeID", "8");
+	element.SetAttributeValue("Quantity", "1");
+	element.SetAttributeValue("Description", product.Name);
+	element.SetAttributeValue("Amount", product.DisplayAs);
+	element.Add(new XAttribute("ItemId", product.PLU));
+	element.Add(new XAttribute("ItemName", product.Name));
+	var message = new SpyMessage
+	{
+	Body = element,
+	CheckID = long.Parse(element?.Attribute("CheckID")?.Value),
+	RawDataID = -1,
+	TransactionType = element?.Attribute("TransactionType")?.Value ?? string.Empty,
+	LastActionDate = actions.ElementAt(actions.IndexOf(spyMessage)).LastActionDate,
+	UtcTime = actions.ElementAt(actions.IndexOf(spyMessage)).UtcTime
+	};
+	\end{lstlisting}
+	\caption{Dodawanie brakujących przedmiotów będących częścią promocji do transakcji - 2}
+	\label{lst:brakujaceProdukty2}
+\end{figure}
+\begin{figure}[h]
+	\begin{lstlisting}[frame=single, breaklines=true]
+	for (var i = 0; i < itemsMultiplier; i++)
+	{
+	result.Add(message);
+	count++;
+	}
+	}
+	warningMessages.Add(
+	$"Promotion added {promoName} and EventTime = {action?.Attribute("EventTime")?.Value ?? string.Empty}. Added new events that add proper products for promotion");
+	}
+	else
+	{
+	warningMessages.Add(
+	$"Not found bundle: {promoName} in bundle collection for action's CheckID: {action?.Attribute("CheckID")?.Value ?? string.Empty}.");
+	}
+	}
+	
+	AreItemsAlreadyAdded = false;
+	}
+	\end{lstlisting}
+	\caption{Dodawanie brakujących przedmiotów będących częścią promocji do transakcji - 3}
+	\label{lst:brakujaceProdukty3}
+\end{figure}
+\subsection{Rozszerzanie zdarzenia XML o rozszerzone nazwy przedmiotów i wartości podatków}
+\begin{figure}[h]
+	\begin{lstlisting}[frame=single, breaklines=true]
+	private void ExtendMessegeWithAdditionalItemInfo(XElement action, XElement itemCategoryXML, List<TaxInformation> taxInformations, List<PromotionBundle> promotionBundles)
+	{
+	var itemName = action?.Attribute("Description")?.Value ?? string.Empty;
+	if (itemCategoryXML != null)
+	{
+	var itemNodes = itemCategoryXML.Elements();
+	action.Add(new XAttribute("ItemId", string.Empty));
+	action.Add(new XAttribute("ItemShortName", string.Empty));
+	action.Add(new XAttribute("ItemLongName", string.Empty));
+	action.Add(new XAttribute("ItemLongName2", string.Empty));
+	action.Add(new XAttribute("ItemChitName", string.Empty));
+	action.Add(new XAttribute("ItemName", string.Empty));
+	action.Add(new XAttribute("Tax", "0"));
+	foreach (var item in itemNodes)
+	{
+	var itemShortName = item?.Attribute("ItemShortName")?.Value ?? string.Empty;
+	var itemLongName = item?.Attribute("ItemLongName")?.Value ?? string.Empty;
+	var itemLongName2 = item?.Attribute("ItemLongName2")?.Value ?? string.Empty;
+	var itemChitName = item?.Attribute("ItemChitName")?.Value ?? string.Empty;
+	var itemNameAttr = item?.Attribute("ItemName")?.Value ?? string.Empty;	
+	if (!string.IsNullOrEmpty(itemShortName) && itemShortName == itemName
+	|| !string.IsNullOrEmpty(itemLongName) && itemLongName == itemName
+	|| !string.IsNullOrEmpty(itemLongName2) && itemLongName2 == itemName
+	|| !string.IsNullOrEmpty(itemChitName) && itemChitName == itemName
+	|| !string.IsNullOrEmpty(itemNameAttr) && itemNameAttr == itemName)
+	{
+	action.SetAttributeValue("ItemId", item?.Attribute("ItemId")?.Value ?? string.Empty);
+	action.SetAttributeValue("ItemShortName", itemShortName);
+	action.SetAttributeValue("ItemLongName", itemLongName);
+	action.SetAttributeValue("ItemLongName2", itemLongName2);
+	action.SetAttributeValue("ItemChitName", itemChitName);
+	action.SetAttributeValue("ItemName", itemNameAttr);
+	\end{lstlisting}
+	\caption{Rozszerzanie zdarzenia XML o rozszerzone nazwy przedmiotów i wartości podatków. - 1}
+	\label{lst:rozszerzanieXML1}
+\end{figure}
+\begin{figure}[h]
+	\begin{lstlisting}[frame=single, breaklines=true]
+	
+	if (taxInformations != null)
+	{
+	var taxId = item?.Attribute("ItemTaxId")?.Value ?? "0";
+	var tax = taxInformations.FirstOrDefault(x => x.TaxId == taxId);
+	if (tax != null)
+	{
+	if (decimal.TryParse(
+	action?.Attribute("Amount")?.Value ?? "0",
+	NumberStyles.Any,
+	CultureInfo.InvariantCulture,
+	out var amountValue))
+	{
+	var taxValue = amountValue * tax.TaxRate;
+	action.SetAttributeValue("Tax", taxValue.ToString(CultureInfo.InvariantCulture));
+	}
+	}
+	}
+	}
+	}
+	}
+	else
+	{
+	var itemsInPromotions = promotionBundles.Select(x => x.ProductsInPromotion).ToList();
+	var items = new List<Product>();
+	foreach (var itemsInPromotion in itemsInPromotions)
+	{
+	foreach (var itemInPromotion in itemsInPromotion)
+	{
+	if (!items.Any(x => x.PLU == itemInPromotion.PLU))
+	{
+	items.Add(itemInPromotion);
+	}
+	}
+	}
+	action.Add(new XAttribute("ItemId", string.Empty));
+	action.Add(new XAttribute("ItemShortName", string.Empty));
+	action.Add(new XAttribute("ItemLongName", string.Empty));
+	action.Add(new XAttribute("ItemLongName2", string.Empty));
+	action.Add(new XAttribute("ItemChitName", string.Empty));
+	action.Add(new XAttribute("ItemName", string.Empty));
+	action.Add(new XAttribute("Tax", "0"));
+	\end{lstlisting}
+	\caption{Rozszerzanie zdarzenia XML o rozszerzone nazwy przedmiotów i wartości podatków. - 2}
+	\label{lst:rozszerzanieXML2}
+\end{figure}
+\begin{figure}[h]
+	\begin{lstlisting}[frame=single, breaklines=true]
+	foreach (var item in items)
+	{
+	if (!string.IsNullOrEmpty(item.ShortName) && item.ShortName == itemName
+	|| !string.IsNullOrEmpty(item.LongName) && item.LongName == itemName
+	|| !string.IsNullOrEmpty(item.Name) && item.Name == itemName)
+	{
+	action.SetAttributeValue("ItemId", item.PLU);
+	action.SetAttributeValue("ItemShortName", item.ShortName);
+	action.SetAttributeValue("ItemLongName", item.LongName);
+	action.SetAttributeValue("ItemLongName2", string.Empty);
+	action.SetAttributeValue("ItemChitName", string.Empty);
+	action.SetAttributeValue("ItemName", item.Name);
+	}
+	}
+	}
+	}
+	\end{lstlisting}
+	\caption{Rozszerzanie zdarzenia XML o rozszerzone nazwy przedmiotów i wartości podatków. - 3}
+	\label{lst:rozszerzanieXML3}
+\end{figure}
 \chapter{Testowanie i uruchamianie}
 \section {PreParser}
 \section {Parser}

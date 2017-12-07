@@ -52,13 +52,14 @@
 \contentsline {section}{\numberline {5.3}Wykorzystane biblioteki}{34}{section.5.3}
 \contentsline {section}{\numberline {5.4}Model klas}{35}{section.5.4}
 \contentsline {section}{\numberline {5.5}Szczeg\IeC {\'o}\IeC {\l }owa analiza danych wej\IeC {\'s}ciowych}{35}{section.5.5}
-\contentsline {section}{\numberline {5.6}Algorytmy}{35}{section.5.6}
-\contentsline {section}{\numberline {5.7}Diagramy UML}{35}{section.5.7}
-\contentsline {chapter}{\numberline {6}Testowanie i uruchamianie}{39}{chapter.6}
-\contentsline {section}{\numberline {6.1}PreParser}{39}{section.6.1}
-\contentsline {section}{\numberline {6.2}Parser}{39}{section.6.2}
-\contentsline {chapter}{\numberline {7}Uwagi o przebiegu i~wynikach prac}{41}{chapter.7}
-\contentsline {section}{\numberline {7.1}Stopie\IeC {\'n} realizacji zagadnienia}{41}{section.7.1}
-\contentsline {section}{\numberline {7.2}Napotkane problemy}{41}{section.7.2}
-\contentsline {section}{\numberline {7.3}Dalszy rozw\IeC {\'o}j}{41}{section.7.3}
-\contentsline {chapter}{\numberline {8}Podsumowanie}{43}{chapter.8}
+\contentsline {section}{\numberline {5.6}Algorytmy}{36}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}Dodawanie brakuj\IeC {\k a}cych przedmiot\IeC {\'o}w b\IeC {\k e}d\IeC {\k a}cych cz\IeC {\k e}\IeC {\'s}ci\IeC {\k a} promocji do transakcji}{36}{subsection.5.6.1}
+\contentsline {subsection}{\numberline {5.6.2}Rozszerzanie zdarzenia XML o rozszerzone nazwy przedmiot\IeC {\'o}w i warto\IeC {\'s}ci podatk\IeC {\'o}w}{36}{subsection.5.6.2}
+\contentsline {chapter}{\numberline {6}Testowanie i uruchamianie}{47}{chapter.6}
+\contentsline {section}{\numberline {6.1}PreParser}{47}{section.6.1}
+\contentsline {section}{\numberline {6.2}Parser}{47}{section.6.2}
+\contentsline {chapter}{\numberline {7}Uwagi o przebiegu i~wynikach prac}{49}{chapter.7}
+\contentsline {section}{\numberline {7.1}Stopie\IeC {\'n} realizacji zagadnienia}{49}{section.7.1}
+\contentsline {section}{\numberline {7.2}Napotkane problemy}{49}{section.7.2}
+\contentsline {section}{\numberline {7.3}Dalszy rozw\IeC {\'o}j}{49}{section.7.3}
+\contentsline {chapter}{\numberline {8}Podsumowanie}{51}{chapter.8}
