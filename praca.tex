@@ -976,30 +976,44 @@ Słownik ItemCategoryXML jest przechowywany zarówno na dysku, jak i jako obiekt
 	\label{lst:rozszerzanieXML3}
 \end{figure}
 \chapter{Testowanie i uruchamianie}
+W niniejszym rozdziale zostaną opisane przeprowadzone testy zarówno dla moduł wstępnego przetwarzania danych jak i części odpowiedzialnej za właściwe przetwarzanie informacji. Dane testowe zostały zaimportowane w formie backup-u bazy danych z lokalizacji, na której codziennie działa opisane w tej pracy rozwiązanie. Testowane przypadki obejmują dane zawarte w zrzucie z bazy danych (03-11-2017) z lokalizacji położonej na terenie Stanów Zjednoczonych.
 \section {PreParser}
-\section {Parser}
-Sposób testowania w ramach pracy (organizacja eksperymentów, przypadki testowe, wyniki, zakres testowania -- pełny/niepełny)
-
-Poniżej przykład tworzenia tabeli. Podobnie jak w przypadku rysunków, każdą tabelę należy opisać w treśći pracy i odpowiednio się do niej odwołać.
-
+Tabela \ref{tab:testy_preparser} przedstawia wyniki procedury testowej modułu wstępnego przetwarzania.
+Dane wejściowe zgromadzone są w tabeli \_RAWDATA i wyniki ich analizy powinny zostać umieszczone w tabelach: Aloha\_Transactions, Aloha\_TimeClocks, Aloha\_CashOperations. Całość tabel znajduję się bazie EZ360Communication. 
 \begin{table}
 	\centering
-	\caption{Nagłówek tabeli.}
+	\caption{Testy modułu wstępnego przetwarzania danych.}
 	\begin{tabular}{|c|l|r|}
 		\hline
-		Pierwsza kolumna & Druga kolumna & Trzecia kolumna \\
+		Testowany przypadek & Dane wejściowe & Dane wyjściowe \\
 		\hline
 		3 & 4 & 5 \\
 		\hline 
 	\end{tabular}
-	\label{tab:przyklad_tabeli}
+	\label{tab:testy_preparser}
 \end{table}
-
+\section {Parser}
+Tabela \ref{tab:testy_parser} przedstawia wyniki procedury testowej modułu właściwego przetwarzania.
+Dane wejściowe zgromadzone są w tabelach: Aloha\_Transactions, Aloha\_TimeClocks, Aloha\_CashOperations i wyniki ich analizy powinny zostać umieszczone w tabelach: Transaction.Transactions, Transaction.Taxes, Transaction.Receipts, Transaction.Products, Transaction.Payments, Transaction.Discounts (EZ360Sales) oraz Employee.Employees, Employee.EmployeeAttendances (EZ360Labor). 
+\begin{table}
+	\centering
+	\caption{Testy modułu właściwego przetwarzania danych.}
+	\begin{tabular}{|c|l|r|}
+		\hline
+		Testowany przypadek & Dane wejściowe & Dane wyjściowe \\
+		\hline
+		3 & 4 & 5 \\
+		\hline 
+	\end{tabular}
+	\label{tab:testy_parser}
+\end{table}
 \chapter{Uwagi o przebiegu i~wynikach prac}
 \section {Stopień realizacji zagadnienia}
+Opisywane w poprzednich rozdziałach zagadnienie zostało zrealizowane w stopniu całkowitym. Aplikacja przeszła pomyślnie proces projektowania, tworzenia oraz testów. Jest ona wdrożona jako część systemu 360iQ udostępnianego przez firmę EZUniverse i widnieje w nim pod nazwami AlohaPreParser oraz AlohaParser. Oprogramowanie stabilnie działa na dużej liczbie kontrolerów i dostarcza wysoce wiarygodne dane, mogące być analizowane przez użytkownika systemu.
 \section{Napotkane problemy}
+Głównymi problemami, które generuje terminal kasowy Aloha są rozdrobnione i niespójne dane. Każda transakcja dostarczana jest jako seria zdarzeń, które niekoniecznie zostają wysyłane do kontrolera w należytym porządku. Wymagało to implementacji funkcjonalności łączącej zdarzenia w grupy, który można opisywać jako transakcje lub inne zdarzenia zachodzące na kasie. Dodatkowymi problemami były nieścisłości związane z produktami zawartymi w promocja oraz wiele nazw, które opisywały ten sam przedmiot. Rozwiązano te problemy wykorzystując opisane wcześniej w niniejszej pracy algorytmy rozszerzające i modyfikujące dane.
 \section{Dalszy rozwój}
-
+Z racji faktu ciągłej pracy systemu, konieczne jest jego stałe wspieranie oraz aktualizowanie. Rozwiązywane są również zgłaszane przez klienta usterki i błędy w przetwarzaniu danych. Konieczność ciągłej rozbudowy aplikacji wynika z wdrażania systemu na coraz większą ilość lokalizacji co wymaga specjalnych poprawek lub optymalizacji wynikających z uwarunkowań regionalnych.
 \chapter{Podsumowanie}
 
 
