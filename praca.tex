@@ -987,7 +987,13 @@ Dane wejściowe zgromadzone są w tabeli \_RAWDATA i wyniki ich analizy powinny 
 		\hline
 		Testowany przypadek & Dane wejściowe & Dane wyjściowe \\
 		\hline
-		3 & 4 & 5 \\
+		Procesowanie całości danych wejściowych z testowanej paczki. & Zawartość tabeli \_RAWDATA. Ilość zdarzeń do przetworzenia - 78490  &  Liczba przetworzonych danych: Aloha\_Transactions - 3700, Aloha\_TimeClocks - 232, Aloha\_CashOperations - 34\\
+		\hline
+		Przypadek pustej tabeli z danymi wejściowymi. & Zawartość tabeli \_RAWDATA. Ilość zdarzeń do przetworzenia - 0  & Brak danych do przetworzenia. PreParser oczekuje na przyjście nowych danych do przetwarzania. \\
+		\hline
+		Przypadek tabeli z danymi wejściowymi zawierającymi jedną niepełną transakcję. & Zawartość tabeli \_RAWDATA. Ilość zdarzeń do przetworzenia - 9. Brak zdarzenia kończącego transakcje.  & Dane zostają przetworzone, jednakże transakcja nie zostaje wysłana, ponieważ PreParser czeka na przyjście zdarzenia kończącego transakcje. \\
+		\hline
+		Przypadek tabeli z danymi wejściowymi zawierającymi jedną pełną transakcję. & Zawartość tabeli \_RAWDATA. Ilość zdarzeń do przetworzenia - 10. Występuje zdarzenie kończące transakcje.  & Dane zostają przetworzone, transakcja zostaje wysłana. \\
 		\hline 
 	\end{tabular}
 	\label{tab:testy_preparser}
@@ -1002,7 +1008,15 @@ Dane wejściowe zgromadzone są w tabelach: Aloha\_Transactions, Aloha\_TimeCloc
 		\hline
 		Testowany przypadek & Dane wejściowe & Dane wyjściowe \\
 		\hline
-		3 & 4 & 5 \\
+		Procesowanie transakcji & Zawartość tabeli Aloha\_Transactions. Ilość zdarzeń do przetworzenia - 3700  &  Dodano 3700 nowych transakcji do systemu.\\
+		\hline
+		Procesowanie wpłat/wypłat z kasy & Zawartość tabeli Aloha\_CashOperations. Ilość zdarzeń do przetworzenia - 34  &  Dodano 34 nowych wpłat/wypłat do systemu. \\
+		\hline
+		Procesowanie wpłat/wypłat z kasy & Zawartość tabeli Aloha\_TimeClocks. Ilość zdarzeń do przetworzenia - 232  &  Dodano 232 nowych informacji o obecnościach pracowników do systemu. \\
+		\hline
+		Brak danych do przetworzenia & Pusta tabela Aloha\_Transactions. & Parser czeka na nadejście danych do przetworzenia. \\
+		\hline 
+		Błędne dane wejściowe & Tabela Aloha\_Transactions z transakcjami zawierającymi błędne XML-e. & Parser oznacza nieprawidłowe dane odpowiednim statusem i kontynuuje pracę. \\
 		\hline 
 	\end{tabular}
 	\label{tab:testy_parser}
@@ -1011,11 +1025,11 @@ Dane wejściowe zgromadzone są w tabelach: Aloha\_Transactions, Aloha\_TimeCloc
 \section {Stopień realizacji zagadnienia}
 Opisywane w poprzednich rozdziałach zagadnienie zostało zrealizowane w stopniu całkowitym. Aplikacja przeszła pomyślnie proces projektowania, tworzenia oraz testów. Jest ona wdrożona jako część systemu 360iQ udostępnianego przez firmę EZUniverse i widnieje w nim pod nazwami AlohaPreParser oraz AlohaParser. Oprogramowanie stabilnie działa na dużej liczbie kontrolerów i dostarcza wysoce wiarygodne dane, mogące być analizowane przez użytkownika systemu.
 \section{Napotkane problemy}
-Głównymi problemami, które generuje terminal kasowy Aloha są rozdrobnione i niespójne dane. Każda transakcja dostarczana jest jako seria zdarzeń, które niekoniecznie zostają wysyłane do kontrolera w należytym porządku. Wymagało to implementacji funkcjonalności łączącej zdarzenia w grupy, który można opisywać jako transakcje lub inne zdarzenia zachodzące na kasie. Dodatkowymi problemami były nieścisłości związane z produktami zawartymi w promocja oraz wiele nazw, które opisywały ten sam przedmiot. Rozwiązano te problemy wykorzystując opisane wcześniej w niniejszej pracy algorytmy rozszerzające i modyfikujące dane.
+Głównymi problemami, które generuje terminal kasowy Aloha, są rozdrobnione i niespójne dane. Każda transakcja dostarczana jest jako seria zdarzeń, które niekoniecznie zostają wysyłane do kontrolera w należytym porządku. Wymagało to implementacji funkcjonalności łączącej zdarzenia w grupy, który można opisywać jako transakcje lub inne zdarzenia zachodzące na kasie. Dodatkowymi problemami były nieścisłości związane z produktami zawartymi w promocja oraz wiele nazw, które opisywały ten sam przedmiot. Rozwiązano te problemy wykorzystując opisane wcześniej w niniejszej pracy algorytmy rozszerzające i modyfikujące dane.
 \section{Dalszy rozwój}
 Z racji faktu ciągłej pracy systemu, konieczne jest jego stałe wspieranie oraz aktualizowanie. Rozwiązywane są również zgłaszane przez klienta usterki i błędy w przetwarzaniu danych. Konieczność ciągłej rozbudowy aplikacji wynika z wdrażania systemu na coraz większą ilość lokalizacji co wymaga specjalnych poprawek lub optymalizacji wynikających z uwarunkowań regionalnych.
 \chapter{Podsumowanie}
-
+W niniejszej pracy opisano proces realizacji zagadnienia, którym autor zajmuję się regularnie w ramach pracy zawodowej. Wiedza zdobyta podczas pracy z tym typem danych oraz urządzeń, pozwoliła zbudować od samych podstaw własny moduł realizujący kompleksowe przetwarzanie danych. Nieocenionym czynnikiem były również umiejętności wypracowane podczas studiów inżynierskich, które znacznie poszerzyły horyzonty myślowe autora oraz zapewniły podstawowy umiejętności, które następnie mogły być rozwijane dzięki samodzielnej pracy autora. Aplikacja przeszła szereg wymagających testów sprawdzających jakość przetwarzanych danych oraz ich poprawność. Oprogramowanie zostało wdrożone w sklepach na całym świecie (największa ilość wspieranych sklepów znajduję się na terenie Stanów Zjednoczonych) i jest ono na bieżąco monitorowane oraz rozwijane przez autora. Z racji faktu przeprowadzenia znacznej ilości testów oraz analizy przypadków testowych, autor niniejszej pracy ograniczył się do umieszczenia tylko tych najbardziej podstawowych, ponieważ całościowy opis i analiza testowanych przypadków nie był możliwy z racji zbyt ich dużego stopnia skomplikowania oraz obszerności. 
 
 Przeczytaj poniższy tekst przed oddaniem pracy do sprawdzenia:
 
