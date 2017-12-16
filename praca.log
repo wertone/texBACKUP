@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.11.27)  16 DEC 2017 14:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.11.27)  16 DEC 2017 14:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -523,6 +523,14 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip43
 )
+(c:/texlive/2017/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
+
+(c:/texlive/2017/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 147.
+)
 (c:/texlive/2017/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count99
 \lst@gtempboxa=\box26
@@ -551,43 +559,63 @@ Package: listings 2015/06/04 1.6 (Carsten Heinz)
 (c:/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-(c:/texlive/2017/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
 (c:/texlive/2017/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+)
+Package color Info: Redefining color red on input line 20.
+Package color Info: Redefining color blue on input line 21.
+Package color Info: Redefining color green on input line 22.
+Package color Info: Redefining color cyan on input line 23.
+
+(c:/texlive/2017/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(c:/texlive/2017/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen118
+\captionmargin@=\dimen119
+\captionwidth=\dimen120
+\caption@tempdima=\dimen121
+\caption@indent=\dimen122
+\caption@parindent=\dimen123
+\caption@hangindent=\dimen124
+)
+\c@ContinuedFloat=\count107
+Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
 ) (./praca.aux)
 \openout1 = `praca.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 79.
+LaTeX Font Info:    ... okay on input line 79.
 
 (c:/texlive/2017/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count107
-\scratchdimen=\dimen118
+\scratchcounter=\count108
+\scratchdimen=\dimen125
 \scratchbox=\box28
-\nofMPsegments=\count108
-\nofMParguments=\count109
+\nofMPsegments=\count109
+\nofMParguments=\count110
 \everyMPshowfont=\toks18
-\MPscratchCnt=\count110
-\MPscratchDim=\dimen119
-\MPnumerator=\count111
-\makeMPintoPDFobject=\count112
+\MPscratchCnt=\count111
+\MPscratchDim=\dimen126
+\MPnumerator=\count112
+\makeMPintoPDFobject=\count113
 \everyMPtoPDFconversion=\toks19
 ) (c:/texlive/2017/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -607,7 +635,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring OFF on input line 29.
+Package hyperref Info: Link coloring OFF on input line 79.
 
 (c:/texlive/2017/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -615,17 +643,19 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (c:/texlive/2017/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count113
+\c@section@level=\count114
 )
-LaTeX Info: Redefining \ref on input line 29.
-LaTeX Info: Redefining \pageref on input line 29.
-LaTeX Info: Redefining \nameref on input line 29.
+LaTeX Info: Redefining \ref on input line 79.
+LaTeX Info: Redefining \pageref on input line 79.
+LaTeX Info: Redefining \nameref on input line 79.
 
 (./praca.out) (./praca.out)
 \@outlinefile=\write3
 \openout3 = `praca.out'.
 
-\c@lstlisting=\count114
+\c@lstlisting=\count115
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
  (./front.tex
 LaTeX Font Info:    Try loading font information for OT4+cmss on input line 7.
 
@@ -665,94 +695,86 @@ Overfull \hbox (5.77837pt too wide) in paragraph at lines 56--56
 
 ) [2]
 Rozdzia\l  1.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 45.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 95.
 (c:/texlive/2017/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 45.
-<./img/360iQ.png, id=278, 148.30406pt x 62.48344pt>
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 95.
+<./img/360iQ.png, id=279, 148.30406pt x 62.48344pt>
 File: ./img/360iQ.png Graphic file (type png)
 <use ./img/360iQ.png>
-Package pdftex.def Info: ./img/360iQ.png  used on input line 52. on input line 
-52.
-Package pdftex.def Info: Requested size: 345.0pt x 145.37639pt on input line 52
-.
+Package pdftex.def Info: ./img/360iQ.png  used on input line 102. on input line
+ 102.
+Package pdftex.def Info: Requested size: 345.0pt x 145.37639pt on input line 10
+2.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.57 
-      [1
+l.107 
+       [1
 
 
 ]pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.58 \chapter
-             {Analiza tematu} [2 <./img/360iQ.png>]
+l.108 \chapter
+              {Analiza tematu} [2 <./img/360iQ.png>]
 Rozdzia\l  2.
-<./img/aloha_pos.png, id=289, 401.5pt x 260.975pt>
+<./img/aloha_pos.png, id=290, 401.5pt x 260.975pt>
 File: ./img/aloha_pos.png Graphic file (type png)
 <use ./img/aloha_pos.png>
-Package pdftex.def Info: ./img/aloha_pos.png  used on input line 64. on input l
-ine 64.
-Package pdftex.def Info: Requested size: 345.0pt x 224.26688pt on input line 64
-.
+Package pdftex.def Info: ./img/aloha_pos.png  used on input line 114. on input 
+line 114.
+Package pdftex.def Info: Requested size: 345.0pt x 224.26688pt on input line 11
+4.
 [3
 
 ]
-<./img/EZUniverse.png, id=297, 291.0875pt x 50.1875pt>
+<./img/EZUniverse.png, id=298, 291.0875pt x 50.1875pt>
 File: ./img/EZUniverse.png Graphic file (type png)
 <use ./img/EZUniverse.png>
-Package pdftex.def Info: ./img/EZUniverse.png  used on input line 74. on input 
-line 74.
-Package pdftex.def Info: Requested size: 345.0pt x 59.48721pt on input line 74.
-
+Package pdftex.def Info: ./img/EZUniverse.png  used on input line 124. on input
+ line 124.
+Package pdftex.def Info: Requested size: 345.0pt x 59.48721pt on input line 124
+.
  [4 <./img/aloha_pos.png> <./img/EZUniverse.png>]
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 99.
+LaTeX Font Info:    Try loading font information for OT4+cmtt on input line 148
+.
 
-(c:/texlive/2017/texmf-dist/tex/latex/base/omlcmr.fd
-File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 99.
-
-
-LaTeX Warning: Float too large for page by 79.79999pt on input line 149.
-
-
-LaTeX Warning: Float too large for page by 115.79999pt on input line 186.
-
-[5] [6] [7] [8] [9] [10] [11] [12] [13] [14
+(c:/texlive/2017/texmf-dist/tex/latex/polski/ot4cmtt.fd
+File: ot4cmtt.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
+) [5] [6] [7] [8]
+[9] [10] [11] [12] [13] [14
 
 ]
 Rozdzia\l  3.
 [15]
-Overfull \hbox (7.83386pt too wide) in paragraph at lines 300--301
+Overfull \hbox (7.83386pt too wide) in paragraph at lines 350--351
 \OT4/cmr/m/n/10 co-wana przez firm¦ EZU-ni-verse i pre-zen-tu-j¡ca wy-niki u»yt
 -kow-ni-kowi w przy-
  []
 
 
-Overfull \hbox (4.21623pt too wide) in paragraph at lines 320--320
+Overfull \hbox (4.21623pt too wide) in paragraph at lines 370--370
 []\OT4/cmr/bx/n/14.4 Analiza przy-pad-ków u»y-cia (dia-gramy UML) 
  []
 
-<./img/przypadki_uzycia_preparser.png, id=444, 365.11406pt x 389.95688pt>
+<./img/przypadki_uzycia_preparser.png, id=445, 365.11406pt x 389.95688pt>
 File: ./img/przypadki_uzycia_preparser.png Graphic file (type png)
 <use ./img/przypadki_uzycia_preparser.png>
 Package pdftex.def Info: ./img/przypadki_uzycia_preparser.png  used on input li
-ne 324. on input line 324.
-Package pdftex.def Info: Requested size: 345.0pt x 368.49335pt on input line 32
+ne 374. on input line 374.
+Package pdftex.def Info: Requested size: 345.0pt x 368.49335pt on input line 37
 4.
-<./img/przypadki_uzycia_parser.png, id=445, 385.44pt x 465.23813pt>
+<./img/przypadki_uzycia_parser.png, id=446, 385.44pt x 465.23813pt>
 File: ./img/przypadki_uzycia_parser.png Graphic file (type png)
 <use ./img/przypadki_uzycia_parser.png>
 Package pdftex.def Info: ./img/przypadki_uzycia_parser.png  used on input line 
-330. on input line 330.
-Package pdftex.def Info: Requested size: 345.0pt x 416.42458pt on input line 33
+380. on input line 380.
+Package pdftex.def Info: Requested size: 345.0pt x 416.42458pt on input line 38
 0.
 [16] [17 <./img/przypadki_uzycia_preparser.png>] [18 <./img/przypadki_uzycia_pa
 rser.png>]
@@ -760,118 +782,115 @@ Rozdzia\l  4.
 [19
 
 ]
-<./img/preparser_installation_part1.png, id=468, 375.65344pt x 291.33844pt>
+<./img/preparser_installation_part1.png, id=469, 375.65344pt x 291.33844pt>
 File: ./img/preparser_installation_part1.png Graphic file (type png)
 <use ./img/preparser_installation_part1.png>
 Package pdftex.def Info: ./img/preparser_installation_part1.png  used on input 
-line 369. on input line 369.
-Package pdftex.def Info: Requested size: 345.0pt x 267.58118pt on input line 36
+line 419. on input line 419.
+Package pdftex.def Info: Requested size: 345.0pt x 267.58118pt on input line 41
 9.
-<./img/preparser_installation_part2.png, id=469, 375.65344pt x 291.33844pt>
+<./img/preparser_installation_part2.png, id=470, 375.65344pt x 291.33844pt>
 File: ./img/preparser_installation_part2.png Graphic file (type png)
 <use ./img/preparser_installation_part2.png>
 Package pdftex.def Info: ./img/preparser_installation_part2.png  used on input 
-line 375. on input line 375.
-Package pdftex.def Info: Requested size: 345.0pt x 267.58118pt on input line 37
+line 425. on input line 425.
+Package pdftex.def Info: Requested size: 345.0pt x 267.58118pt on input line 42
 5.
 
-Overfull \hbox (2.58287pt too wide) in paragraph at lines 365--409
+Overfull \hbox (2.58287pt too wide) in paragraph at lines 415--459
 \OT4/cmr/m/n/10 cho-mi¢ plik EZ360PreParserService.Setup.v.VERSION.exe, gdzie V
 ER-SION jest
  []
 
 [20 <./img/preparser_installation_part1.png>]
-Overfull \hbox (65.52869pt too wide) in paragraph at lines 413--414
+Overfull \hbox (65.52869pt too wide) in paragraph at lines 463--464
 []\OT4/cmr/m/n/10 CommunicationConnectionString - pa-ra-me-try po-ª¡-cze-nia do
  ta-beli EZ360Communication
  []
 
 [21 <./img/preparser_installation_part2.png>]
-<./img/aloha_parser_content.png, id=486, 700.86844pt x 520.19344pt>
+<./img/aloha_parser_content.png, id=487, 700.86844pt x 520.19344pt>
 File: ./img/aloha_parser_content.png Graphic file (type png)
 <use ./img/aloha_parser_content.png>
-Package pdftex.def Info: ./img/aloha_parser_content.png  used on input line 436
-. on input line 436.
-Package pdftex.def Info: Requested size: 345.0pt x 256.06381pt on input line 43
+Package pdftex.def Info: ./img/aloha_parser_content.png  used on input line 486
+. on input line 486.
+Package pdftex.def Info: Requested size: 345.0pt x 256.06381pt on input line 48
 6.
 
-
-LaTeX Warning: Float too large for page by 105.74443pt on input line 487.
-
-
-Overfull \hbox (41.85072pt too wide) in paragraph at lines 432--489
+Overfull \hbox (41.85072pt too wide) in paragraph at lines 482--539
 \OT4/cmr/m/n/10 rze ad-mi-ni-stra-tora wy-maga r¦cz-nego roz-pa-ko-wa-nia ar-ch
 i-wum Alo-ha-Par-ser[]VERSION.zip,
  []
 
 [22]
-Overfull \hbox (65.52869pt too wide) in paragraph at lines 493--494
+Overfull \hbox (65.52869pt too wide) in paragraph at lines 543--544
 []\OT4/cmr/m/n/10 CommunicationConnectionString - pa-ra-me-try po-ª¡-cze-nia do
  ta-beli EZ360Communication
  []
 
 
-Overfull \hbox (4.75073pt too wide) in paragraph at lines 494--495
+Overfull \hbox (4.75073pt too wide) in paragraph at lines 544--545
 []\OT4/cmr/m/n/10 LaborConnectionString - pa-ra-me-try po-ª¡-cze-nia do ta-beli
  EZ360Labor w ba-
  []
 
-[23 <./img/aloha_parser_content.png>]
-Overfull \hbox (36.75082pt too wide) in paragraph at lines 498--499
+
+Overfull \hbox (36.75082pt too wide) in paragraph at lines 548--549
 []\OT4/cmr/m/n/10 ApplicationsConnectionString - pa-ra-me-try po-ª¡-cze-nia do 
 ta-beli EZ360Applications
  []
 
-<./img/startowanie_serwisu.png, id=523, 305.64188pt x 352.31625pt>
+[23 <./img/aloha_parser_content.png>]
+<./img/startowanie_serwisu.png, id=524, 305.64188pt x 352.31625pt>
 File: ./img/startowanie_serwisu.png Graphic file (type png)
 <use ./img/startowanie_serwisu.png>
-Package pdftex.def Info: ./img/startowanie_serwisu.png  used on input line 517.
- on input line 517.
-Package pdftex.def Info: Requested size: 345.0pt x 397.70415pt on input line 51
+Package pdftex.def Info: ./img/startowanie_serwisu.png  used on input line 567.
+ on input line 567.
+Package pdftex.def Info: Requested size: 345.0pt x 397.70415pt on input line 56
 7.
-<./img/zatrzymywanie_serwisu.png, id=524, 305.64188pt x 352.31625pt>
+<./img/zatrzymywanie_serwisu.png, id=525, 305.64188pt x 352.31625pt>
 File: ./img/zatrzymywanie_serwisu.png Graphic file (type png)
 <use ./img/zatrzymywanie_serwisu.png>
-Package pdftex.def Info: ./img/zatrzymywanie_serwisu.png  used on input line 52
-5. on input line 525.
-Package pdftex.def Info: Requested size: 345.0pt x 397.70415pt on input line 52
+Package pdftex.def Info: ./img/zatrzymywanie_serwisu.png  used on input line 57
+5. on input line 575.
+Package pdftex.def Info: Requested size: 345.0pt x 397.70415pt on input line 57
 5.
-[24]
-<./img/inicjalizacja_aplikacji.png, id=533, 743.02594pt x 446.41782pt>
+ [24]
+<./img/inicjalizacja_aplikacji.png, id=534, 743.02594pt x 446.41782pt>
 File: ./img/inicjalizacja_aplikacji.png Graphic file (type png)
 <use ./img/inicjalizacja_aplikacji.png>
 Package pdftex.def Info: ./img/inicjalizacja_aplikacji.png  used on input line 
-547. on input line 547.
-Package pdftex.def Info: Requested size: 345.0pt x 207.28241pt on input line 54
+597. on input line 597.
+Package pdftex.def Info: Requested size: 345.0pt x 207.28241pt on input line 59
 7.
-<./img/startowanie_aplikacji.png, id=535, 742.27313pt x 446.41782pt>
+<./img/startowanie_aplikacji.png, id=536, 742.27313pt x 446.41782pt>
 File: ./img/startowanie_aplikacji.png Graphic file (type png)
 <use ./img/startowanie_aplikacji.png>
-Package pdftex.def Info: ./img/startowanie_aplikacji.png  used on input line 55
-4. on input line 554.
-Package pdftex.def Info: Requested size: 345.0pt x 207.49358pt on input line 55
+Package pdftex.def Info: ./img/startowanie_aplikacji.png  used on input line 60
+4. on input line 604.
+Package pdftex.def Info: Requested size: 345.0pt x 207.49358pt on input line 60
 4.
-<./img/zatrzymywanie_aplikacji.png, id=537, 742.27313pt x 446.41782pt>
+<./img/zatrzymywanie_aplikacji.png, id=538, 742.27313pt x 446.41782pt>
 File: ./img/zatrzymywanie_aplikacji.png Graphic file (type png)
 <use ./img/zatrzymywanie_aplikacji.png>
 Package pdftex.def Info: ./img/zatrzymywanie_aplikacji.png  used on input line 
-562. on input line 562.
-Package pdftex.def Info: Requested size: 345.0pt x 207.49358pt on input line 56
+612. on input line 612.
+Package pdftex.def Info: Requested size: 345.0pt x 207.49358pt on input line 61
 2.
  [25]
-<./img/preparser_log.png, id=556, 950.80219pt x 524.71031pt>
+<./img/preparser_log.png, id=557, 950.80219pt x 524.71031pt>
 File: ./img/preparser_log.png Graphic file (type png)
 <use ./img/preparser_log.png>
-Package pdftex.def Info: ./img/preparser_log.png  used on input line 588. on in
-put line 588.
-Package pdftex.def Info: Requested size: 345.0pt x 190.39276pt on input line 58
+Package pdftex.def Info: ./img/preparser_log.png  used on input line 638. on in
+put line 638.
+Package pdftex.def Info: Requested size: 345.0pt x 190.39276pt on input line 63
 8.
-<./img/parser_log.png, id=557, 950.80219pt x 524.71031pt>
+<./img/parser_log.png, id=558, 950.80219pt x 524.71031pt>
 File: ./img/parser_log.png Graphic file (type png)
 <use ./img/parser_log.png>
-Package pdftex.def Info: ./img/parser_log.png  used on input line 594. on input
- line 594.
-Package pdftex.def Info: Requested size: 345.0pt x 190.39276pt on input line 59
+Package pdftex.def Info: ./img/parser_log.png  used on input line 644. on input
+ line 644.
+Package pdftex.def Info: Requested size: 345.0pt x 190.39276pt on input line 64
 4.
  [26] [27] [28 <./img/startowanie_serwisu.png>] [29 <./img/zatrzymywanie_serwis
 u.png>] [30 <./img/inicjalizacja_aplikacji.png> <./img/startowanie_aplikacji.pn
@@ -879,307 +898,295 @@ g>] [31 <./img/zatrzymywanie_aplikacji.png> <./img/preparser_log.png>] [32 <./i
 mg/parser_log.png>]
 Rozdzia\l  5.
 
-Overfull \hbox (2.63943pt too wide) in paragraph at lines 607--608
+Overfull \hbox (2.63943pt too wide) in paragraph at lines 657--658
 []\OT4/cmr/m/n/10 Dane wy-ni-kowe z Pre-Par-ser prze-ka-zy-wane s¡ do EZ360Data
 Interface, który
  []
 
-<./img/schemat_przeplywu_danych.png, id=641, 740.0147pt x 284.56313pt>
+<./img/schemat_przeplywu_danych.png, id=642, 740.0147pt x 284.56313pt>
 File: ./img/schemat_przeplywu_danych.png Graphic file (type png)
 <use ./img/schemat_przeplywu_danych.png>
 Package pdftex.def Info: ./img/schemat_przeplywu_danych.png  used on input line
- 613. on input line 613.
-Package pdftex.def Info: Requested size: 345.0pt x 132.6635pt on input line 613
+ 663. on input line 663.
+Package pdftex.def Info: Requested size: 345.0pt x 132.6635pt on input line 663
 .
 [33
 
 ]
-<./img/preparser_database_schema.png, id=649, 483.30562pt x 1028.34187pt>
+<./img/preparser_database_schema.png, id=650, 483.30562pt x 1028.34187pt>
 File: ./img/preparser_database_schema.png Graphic file (type png)
 <use ./img/preparser_database_schema.png>
 Package pdftex.def Info: ./img/preparser_database_schema.png  used on input lin
-e 630. on input line 630.
-Package pdftex.def Info: Requested size: 345.0pt x 734.09773pt on input line 63
+e 680. on input line 680.
+Package pdftex.def Info: Requested size: 345.0pt x 734.09773pt on input line 68
 0.
 
 
-LaTeX Warning: Float too large for page by 160.04218pt on input line 633.
+LaTeX Warning: Float too large for page by 158.09773pt on input line 683.
 
-<./img/parser_database_schema.png, id=651, 892.83563pt x 1446.15282pt>
+<./img/parser_database_schema.png, id=652, 892.83563pt x 1446.15282pt>
 File: ./img/parser_database_schema.png Graphic file (type png)
 <use ./img/parser_database_schema.png>
 Package pdftex.def Info: ./img/parser_database_schema.png  used on input line 6
-47. on input line 647.
-Package pdftex.def Info: Requested size: 345.0pt x 558.8117pt on input line 647
+97. on input line 697.
+Package pdftex.def Info: Requested size: 345.0pt x 558.8117pt on input line 697
 .
 [34 <./img/schemat_przeplywu_danych.png>]
-<./img/preparser_diagram_klas.png, id=661, 435.12563pt x 225.84375pt>
+<./img/preparser_diagram_klas.png, id=663, 435.12563pt x 225.84375pt>
 File: ./img/preparser_diagram_klas.png Graphic file (type png)
 <use ./img/preparser_diagram_klas.png>
-Package pdftex.def Info: ./img/preparser_diagram_klas.png  used on input line 6
-81. on input line 681.
-Package pdftex.def Info: Requested size: 345.0pt x 179.07625pt on input line 68
+Package pdftex.def Info: ./img/preparser_diagram_klas.png  used on input line 7
+31. on input line 731.
+Package pdftex.def Info: Requested size: 345.0pt x 179.07625pt on input line 73
 1.
-<./img/parser_diagram_klas.png, id=662, 447.92343pt x 222.8325pt>
+<./img/parser_diagram_klas.png, id=664, 447.92343pt x 222.8325pt>
 File: ./img/parser_diagram_klas.png Graphic file (type png)
 <use ./img/parser_diagram_klas.png>
-Package pdftex.def Info: ./img/parser_diagram_klas.png  used on input line 687.
- on input line 687.
-Package pdftex.def Info: Requested size: 345.0pt x 171.63596pt on input line 68
+Package pdftex.def Info: ./img/parser_diagram_klas.png  used on input line 737.
+ on input line 737.
+Package pdftex.def Info: Requested size: 345.0pt x 171.63596pt on input line 73
 7.
  [35]
-Overfull \hbox (4.33281pt too wide) in paragraph at lines 718--719
+Overfull \hbox (4.33281pt too wide) in paragraph at lines 768--769
 []\OT4/cmr/m/n/10 W sys-te-mie wy-ko-rzy-stane zo-staªy na-st¦-pu-j¡ce al-go-ry
 tmy prze-twa-rza-j¡ce i roz-
  []
 
 
-LaTeX Warning: Float too large for page by 21.74443pt on input line 774.
-
-
-LaTeX Warning: Float too large for page by 105.74443pt on input line 822.
-
-
-Overfull \hbox (2.08392pt too wide) in paragraph at lines 848--849
+Overfull \hbox (2.08392pt too wide) in paragraph at lines 898--899
 \OT4/cmr/m/n/10 Do-star-cza on roz-sze-rzo-nych in-for-ma-cji o przed-mio-tach 
 i ich ka-te-go-riach. W Aloha
  []
 
 [36]
-Overfull \hbox (7.75055pt too wide) in paragraph at lines 862--863
+Overfull \hbox (7.75055pt too wide) in paragraph at lines 912--913
 []\OT4/cmr/m/n/10 Od tego mo-mentu zda-rze-nie za-wiera wszyst-kie po-trzebne i
 n-for-ma-cje o przed-
  []
-
-
-LaTeX Warning: Float too large for page by 105.74443pt on input line 903.
-
-
-LaTeX Warning: Float too large for page by 45.74443pt on input line 951.
 
 [37] [38 <./img/preparser_database_schema.png>] [39 <./img/parser_database_sche
 ma.png>] [40 <./img/preparser_diagram_klas.png> <./img/parser_diagram_klas.png>
 ] [41] [42] [43] [44] [45] [46]
 Rozdzia\l  6.
 
-Underfull \hbox (badness 10000) in paragraph at lines 986--986
+Underfull \hbox (badness 10000) in paragraph at lines 1036--1036
 []\OT4/cmr/m/n/10 Zawarto±¢ ta-beli
  []
 
 
-Underfull \hbox (badness 3895) in paragraph at lines 986--986
+Underfull \hbox (badness 3895) in paragraph at lines 1036--1036
 []\OT4/cmr/m/n/10 RAWDATA. Ilo±¢ zda-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 986--986
+Underfull \hbox (badness 10000) in paragraph at lines 1036--1036
 \OT4/cmr/m/n/10 rze« do prze-two-rze-nia
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 986--987
+Underfull \hbox (badness 10000) in paragraph at lines 1036--1037
 []\OT4/cmr/m/n/10 Liczba prze-two-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 986--987
+Underfull \hbox (badness 10000) in paragraph at lines 1036--1037
 \OT4/cmr/m/n/10 rzo-nych da-nych:
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 986--987
+Underfull \hbox (badness 10000) in paragraph at lines 1036--1037
 \OT4/cmr/m/n/10 Aloha[]Transactions
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 986--987
+Underfull \hbox (badness 10000) in paragraph at lines 1036--1037
 \OT4/cmr/m/n/10 - 3700,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 986--987
+Underfull \hbox (badness 10000) in paragraph at lines 1036--1037
 \OT4/cmr/m/n/10 Aloha[]CashOperations -
  []
 
 
-Underfull \hbox (badness 2460) in paragraph at lines 988--988
+Underfull \hbox (badness 2460) in paragraph at lines 1038--1038
 []\OT4/cmr/m/n/10 Przypadek pu-stej ta-beli
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 988--988
+Underfull \hbox (badness 10000) in paragraph at lines 1038--1038
 []\OT4/cmr/m/n/10 Zawarto±¢ ta-beli
  []
 
 
-Underfull \hbox (badness 3895) in paragraph at lines 988--988
+Underfull \hbox (badness 3895) in paragraph at lines 1038--1038
 []\OT4/cmr/m/n/10 RAWDATA. Ilo±¢ zda-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 988--988
+Underfull \hbox (badness 10000) in paragraph at lines 1038--1038
 \OT4/cmr/m/n/10 rze« do prze-two-rze-nia
  []
 
 
-Underfull \hbox (badness 2418) in paragraph at lines 990--990
+Underfull \hbox (badness 2418) in paragraph at lines 1040--1040
 []\OT4/cmr/m/n/10 Przypadek ta-beli z da-
  []
 
 
-Underfull \hbox (badness 1484) in paragraph at lines 990--990
+Underfull \hbox (badness 1484) in paragraph at lines 1040--1040
 \OT4/cmr/m/n/10 ra-j¡-cymi jedn¡ nie-peªn¡
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 990--990
+Underfull \hbox (badness 10000) in paragraph at lines 1040--1040
 []\OT4/cmr/m/n/10 Zawarto±¢ ta-beli
  []
 
 
-Underfull \hbox (badness 3895) in paragraph at lines 990--990
+Underfull \hbox (badness 3895) in paragraph at lines 1040--1040
 []\OT4/cmr/m/n/10 RAWDATA. Ilo±¢ zda-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 990--990
+Underfull \hbox (badness 10000) in paragraph at lines 1040--1040
 \OT4/cmr/m/n/10 rze« do prze-two-rze-nia
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 990--990
+Underfull \hbox (badness 10000) in paragraph at lines 1040--1040
 \OT4/cmr/m/n/10 - 9. Brak zda-rze-nia
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 990--991
+Underfull \hbox (badness 10000) in paragraph at lines 1040--1041
 []\OT4/cmr/m/n/10 Dane zo-staj¡ prze-two-
  []
 
 
-Underfull \hbox (badness 4660) in paragraph at lines 990--991
+Underfull \hbox (badness 4660) in paragraph at lines 1040--1041
 \OT4/cmr/m/n/10 nie-wa» Pre-Par-ser czeka
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 990--991
+Underfull \hbox (badness 10000) in paragraph at lines 1040--1041
 \OT4/cmr/m/n/10 na przyj-±cie zda-rze-nia
  []
 
 
-Underfull \hbox (badness 2418) in paragraph at lines 992--992
+Underfull \hbox (badness 2418) in paragraph at lines 1042--1042
 []\OT4/cmr/m/n/10 Przypadek ta-beli z da-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 992--992
+Underfull \hbox (badness 10000) in paragraph at lines 1042--1042
 \OT4/cmr/m/n/10 nymi wej-±cio-wymi za-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 992--992
+Underfull \hbox (badness 10000) in paragraph at lines 1042--1042
 []\OT4/cmr/m/n/10 Zawarto±¢ ta-beli
  []
 
 
-Underfull \hbox (badness 3895) in paragraph at lines 992--992
+Underfull \hbox (badness 3895) in paragraph at lines 1042--1042
 []\OT4/cmr/m/n/10 RAWDATA. Ilo±¢ zda-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 992--992
+Underfull \hbox (badness 10000) in paragraph at lines 1042--1042
 \OT4/cmr/m/n/10 rze« do prze-two-rze-nia
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 992--993
+Underfull \hbox (badness 10000) in paragraph at lines 1042--1043
 []\OT4/cmr/m/n/10 Dane zo-staj¡ prze-two-
  []
 
 
-Overfull \hbox (32.43306pt too wide) in paragraph at lines 982--996
+Overfull \hbox (32.43306pt too wide) in paragraph at lines 1032--1046
  [][] 
  []
 
 
-Overfull \hbox (36.11736pt too wide) in paragraph at lines 977--997
+Overfull \hbox (36.11736pt too wide) in paragraph at lines 1027--1047
 \OT4/cmr/m/n/10 ana-lizy po-winny zo-sta¢ umiesz-czone w ta-be-lach: Aloha[]Tra
 nsactions, Aloha[]TimeClocks,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1007--1007
+Underfull \hbox (badness 10000) in paragraph at lines 1057--1057
 []\OT4/cmr/m/n/10 Zawarto±¢ ta-beli
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1007--1008
+Underfull \hbox (badness 10000) in paragraph at lines 1057--1058
 []\OT4/cmr/m/n/10 Dodano 3700 no-wych
  []
 
 
-Underfull \hbox (badness 5490) in paragraph at lines 1009--1009
+Underfull \hbox (badness 5490) in paragraph at lines 1059--1059
 []\OT4/cmr/m/n/10 Procesowanie wpªa-t/wy-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1009--1009
+Underfull \hbox (badness 10000) in paragraph at lines 1059--1059
 []\OT4/cmr/m/n/10 Zawarto±¢ ta-beli
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1009--1009
+Underfull \hbox (badness 10000) in paragraph at lines 1059--1059
 \OT4/cmr/m/n/10 Aloha[]CashOperations.
  []
 
 
-Underfull \hbox (badness 5490) in paragraph at lines 1011--1011
+Underfull \hbox (badness 5490) in paragraph at lines 1061--1061
 []\OT4/cmr/m/n/10 Procesowanie wpªa-t/wy-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1011--1011
+Underfull \hbox (badness 10000) in paragraph at lines 1061--1061
 []\OT4/cmr/m/n/10 Zawarto±¢ ta-beli
  []
 
 
-Underfull \hbox (badness 7540) in paragraph at lines 1011--1011
+Underfull \hbox (badness 7540) in paragraph at lines 1061--1061
 \OT4/cmr/m/n/10 Aloha[]TimeClocks. Ilo±¢
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1013--1013
+Underfull \hbox (badness 10000) in paragraph at lines 1063--1063
 []\OT4/cmr/m/n/10 Pusta ta-bela
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1015--1015
+Underfull \hbox (badness 10000) in paragraph at lines 1065--1065
 []\OT4/cmr/m/n/10 Tabela
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1015--1015
+Underfull \hbox (badness 10000) in paragraph at lines 1065--1065
 \OT4/cmr/m/n/10 Aloha[]Transactions
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1015--1016
+Underfull \hbox (badness 10000) in paragraph at lines 1065--1066
 \OT4/cmr/m/n/10 sta-tu-sem i kon-ty-nu-uje
  []
 
 
-Overfull \hbox (32.43306pt too wide) in paragraph at lines 1003--1019
+Overfull \hbox (32.43306pt too wide) in paragraph at lines 1053--1069
  [][] 
  []
 
 
-Overfull \hbox (13.88954pt too wide) in paragraph at lines 998--1020
+Overfull \hbox (13.88954pt too wide) in paragraph at lines 1048--1070
 \OT4/cmr/m/n/10 tion.Receipts, Trans-ac-tion.Products, Trans-ac-tion.Payments, 
 Trans-ac-tion.Discounts
  []
 
 
-Overfull \hbox (38.6952pt too wide) in paragraph at lines 998--1020
+Overfull \hbox (38.6952pt too wide) in paragraph at lines 1048--1070
 \OT4/cmr/m/n/10 (EZ360Sales) oraz Em-ployee.Employees, Em-ployee.EmployeeAttend
 ances (EZ360Labor).
  []
@@ -1189,13 +1196,13 @@ ances (EZ360Labor).
 ] [48]
 Rozdzia\l  7.
 
-Overfull \hbox (8.91724pt too wide) in paragraph at lines 1022--1023
+Overfull \hbox (8.91724pt too wide) in paragraph at lines 1072--1073
 []\OT4/cmr/m/n/10 Opisywane w po-przed-nich roz-dzia-ªach za-gad-nie-nie zo-sta
 ªo zre-ali-zo-wane w stop-
  []
 
 
-Overfull \hbox (4.63965pt too wide) in paragraph at lines 1024--1025
+Overfull \hbox (4.63965pt too wide) in paragraph at lines 1074--1075
 \OT4/cmr/m/n/10 ma-gaªo to im-ple-men-ta-cji funk-cjo-nal-no-±ci ª¡-cz¡-cej zda
 -rze-nia w grupy, który mo»na
  []
@@ -1209,51 +1216,47 @@ Rozdzia\l  8.
 (./praca.bbl [51] [52
 
 ]
-LaTeX Font Info:    Try loading font information for OT4+cmtt on input line 5.
- (c:/texlive/2017/texmf-dist/tex/latex/polski/ot4cmtt.fd
-File: ot4cmtt.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
-)
 Underfull \hbox (badness 2698) in paragraph at lines 4--7
 []\OT4/cmr/m/n/10 T-SQL Re-fe-rence.  []$\OT4/cmtt/m/n/10 https : / / docs . mi
 crosoft . com / en-[]us / sql / t-[]sql /
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1038.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1088.
  [53]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1038.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1088.
  (./praca.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1038.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1038.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1088.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1088.
 
 Package rerunfilecheck Info: File `praca.out' has not changed.
 (rerunfilecheck)             Checksum: 23BF9C6949EE09339BDA1B31B18F76C6;3737.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1038.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1088.
  ) 
 Here is how much of TeX's memory you used:
- 8907 strings out of 492985
- 126322 string characters out of 6136283
- 950435 words of memory out of 5000000
- 11853 multiletter control sequences out of 15000+600000
- 12933 words of font info for 33 fonts, out of 8000000 for 9000
+ 9920 strings out of 492985
+ 144698 string characters out of 6136283
+ 976647 words of memory out of 5000000
+ 12858 multiletter control sequences out of 15000+600000
+ 13725 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 33i,11n,58p,1264b,1407s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,12n,40p,1264b,1385s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2017/texmf-dist/fonts/enc/dvips/pl/plit.enc}{c:/texlive/2017/texm
 f-dist/fonts/enc/dvips/pl/pltt.enc}{c:/texlive/2017/texmf-dist/fonts/enc/dvips/
 pl/plsc.enc}{c:/texlive/2017/texmf-dist/fonts/enc/dvips/pl/plrm.enc}<c:/texlive
-/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2017/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2017/texmf-dist/f
-onts/type1/public/pl/plbx10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/
-pl/plbx12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/pl/plr10.pfb><c:/t
-exlive/2017/texmf-dist/fonts/type1/public/pl/plr5.pfb><c:/texlive/2017/texmf-di
-st/fonts/type1/public/pl/plsl10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/pub
-lic/pl/plss12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/pl/plssbx10.pf
-b><c:/texlive/2017/texmf-dist/fonts/type1/public/pl/plti10.pfb><c:/texlive/2017
-/texmf-dist/fonts/type1/public/pl/pltt10.pfb>
-Output written on praca.pdf (57 pages, 1473767 bytes).
+/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2017/tex
+mf-dist/fonts/type1/public/pl/plbx10.pfb><c:/texlive/2017/texmf-dist/fonts/type
+1/public/pl/plbx12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/pl/plr10.
+pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/pl/plr5.pfb><c:/texlive/2017
+/texmf-dist/fonts/type1/public/pl/plsl10.pfb><c:/texlive/2017/texmf-dist/fonts/
+type1/public/pl/plss12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/pl/pl
+ssbx10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/pl/plti10.pfb><c:/tex
+live/2017/texmf-dist/fonts/type1/public/pl/pltt10.pfb><c:/texlive/2017/texmf-di
+st/fonts/type1/public/pl/pltt8.pfb>
+Output written on praca.pdf (57 pages, 1480587 bytes).
 PDF statistics:
- 1132 PDF objects out of 1200 (max. 8388607)
- 1010 compressed objects within 11 object streams
- 497 named destinations out of 1000 (max. 500000)
+ 1133 PDF objects out of 1200 (max. 8388607)
+ 1011 compressed objects within 11 object streams
+ 498 named destinations out of 1000 (max. 500000)
  498 words of extra memory for PDF output out of 10000 (max. 10000000)
 

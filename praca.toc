@@ -9,17 +9,17 @@
 \contentsline {subsection}{\numberline {2.1.5}Etap wst\IeC {\k e}pnego przetwarzania}{7}{subsection.2.1.5}
 \contentsline {subsection}{\numberline {2.1.6}Etap w\IeC {\l }a\IeC {\'s}ciwego przetwarzania}{7}{subsection.2.1.6}
 \contentsline {subsection}{\numberline {2.1.7}Przypadki niestandardowe}{8}{subsection.2.1.7}
-\contentsline {subsubsection}{Wadliwe dane wej\IeC {\'s}ciowe}{8}{section*.2}
-\contentsline {subsubsection}{Niezamkni\IeC {\k e}te transakcje}{8}{section*.3}
-\contentsline {subsubsection}{Dodawanie przedmiot\IeC {\'o}w do rachunku z u\IeC {\.z}yciem ich pe\IeC {\l }nej nazwy oraz p\IeC {\'o}\IeC {\'z}niejsze usuwanie, przy wykorzystaniu ich skr\IeC {\'o}conej nazwy}{9}{section*.4}
-\contentsline {subsubsection}{Dodawanie promocji bez uwzgl\IeC {\k e}dnienia odpowiednich przedmiot\IeC {\'o}w, kt\IeC {\'o}re okre\IeC {\'s}lona promocja powinna dodawa\IeC {\'c}}{9}{section*.5}
-\contentsline {subsubsection}{W regionach innych ni\IeC {\.z} Stany Zjednoczone cz\IeC {\k e}stym problemem jest brak informacji o podatkach}{9}{section*.6}
+\contentsline {subsubsection}{Wadliwe dane wej\IeC {\'s}ciowe}{8}{section*.9}
+\contentsline {subsubsection}{Niezamkni\IeC {\k e}te transakcje}{8}{section*.10}
+\contentsline {subsubsection}{Dodawanie przedmiot\IeC {\'o}w do rachunku z u\IeC {\.z}yciem ich pe\IeC {\l }nej nazwy oraz p\IeC {\'o}\IeC {\'z}niejsze usuwanie, przy wykorzystaniu ich skr\IeC {\'o}conej nazwy}{9}{section*.11}
+\contentsline {subsubsection}{Dodawanie promocji bez uwzgl\IeC {\k e}dnienia odpowiednich przedmiot\IeC {\'o}w, kt\IeC {\'o}re okre\IeC {\'s}lona promocja powinna dodawa\IeC {\'c}}{9}{section*.12}
+\contentsline {subsubsection}{W regionach innych ni\IeC {\.z} Stany Zjednoczone cz\IeC {\k e}stym problemem jest brak informacji o podatkach}{9}{section*.13}
 \contentsline {section}{\numberline {2.2}Opis technologii i wykorzystanych narz\IeC {\k e}dzi}{10}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}\IeC {\'S}rodowisko pracy i j\IeC {\k e}zyk programowania}{10}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}Baza danych}{10}{subsection.2.2.2}
 \contentsline {subsection}{\numberline {2.2.3}Modu\IeC {\l }y wspieraj\IeC {\k a}ce}{11}{subsection.2.2.3}
-\contentsline {subsubsection}{AlohaSpyRelay}{11}{section*.7}
-\contentsline {subsubsection}{EZ360DataInterface}{11}{section*.8}
+\contentsline {subsubsection}{AlohaSpyRelay}{11}{section*.14}
+\contentsline {subsubsection}{EZ360DataInterface}{11}{section*.15}
 \contentsline {chapter}{\numberline {3}Wymagania}{15}{chapter.3}
 \contentsline {section}{\numberline {3.1}Wymagania funkcjonalne}{15}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Modu\IeC {\l } wst\IeC {\k e}pnego przetwarzania danych - PreParser}{15}{subsection.3.1.1}
@@ -32,18 +32,18 @@
 \contentsline {section}{\numberline {4.1}Wymagania sprz\IeC {\k e}towe i programowe}{19}{section.4.1}
 \contentsline {section}{\numberline {4.2}Instalacja}{20}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}Instalacja PreParser-a na kontrolerze u klienta}{20}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Instalacja Parser-a po stronie administratora}{23}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.2}Instalacja Parser-a po stronie administratora}{22}{subsection.4.2.2}
 \contentsline {section}{\numberline {4.3}Obs\IeC {\l }uga systemu i administrowanie nim}{24}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}PreParser}{24}{subsection.4.3.1}
-\contentsline {subsubsection}{Startowanie serwisu}{24}{section*.9}
-\contentsline {subsubsection}{Zatrzymywanie serwisu}{24}{section*.10}
-\contentsline {subsubsection}{Dezinstalacja serwisu}{25}{section*.11}
-\contentsline {subsubsection}{Diagnostyka i logowanie}{25}{section*.12}
+\contentsline {subsubsection}{Startowanie serwisu}{24}{section*.23}
+\contentsline {subsubsection}{Zatrzymywanie serwisu}{24}{section*.25}
+\contentsline {subsubsection}{Dezinstalacja serwisu}{25}{section*.27}
+\contentsline {subsubsection}{Diagnostyka i logowanie}{25}{section*.28}
 \contentsline {subsection}{\numberline {4.3.2}Parser}{25}{subsection.4.3.2}
-\contentsline {subsubsection}{Uruchamianie aplikacji}{25}{section*.13}
-\contentsline {subsubsection}{Zatrzymywanie aplikacji}{25}{section*.14}
-\contentsline {subsubsection}{Dezinstalacja aplikacji}{25}{section*.15}
-\contentsline {subsubsection}{Diagnostyka i logowanie}{26}{section*.16}
+\contentsline {subsubsection}{Uruchamianie aplikacji}{25}{section*.29}
+\contentsline {subsubsection}{Zatrzymywanie aplikacji}{25}{section*.32}
+\contentsline {subsubsection}{Dezinstalacja aplikacji}{25}{section*.34}
+\contentsline {subsubsection}{Diagnostyka i logowanie}{26}{section*.35}
 \contentsline {section}{\numberline {4.4}Bezpiecze\IeC {\'n}stwo}{26}{section.4.4}
 \contentsline {section}{\numberline {4.5}Przyk\IeC {\l }ad dzia\IeC {\l }ania}{26}{section.4.5}
 \contentsline {chapter}{\numberline {5}Specyfikacja wewn\IeC {\k e}trzna}{33}{chapter.5}
