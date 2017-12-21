@@ -92,8 +92,8 @@
 \chapter{Wstęp}
 Celem pracy dyplomowej jest zaprojektowanie i implementacja systemu informatycznego, który umożliwiałby gromadzenie oraz przetwarzanie danych generowanych przez kasy sklepowe Aloha. System ten miałby na  celu dostarczenie użytkownikowi informacji o funkcjonowaniu sklepu, w którym aplikacja została zainstalowana. Umożliwi to kompleksowy monitoring i analizę danych sprzedażowych. System będzie pobierał dane generowane przez kasę i poddawał je szczegółowej analizie, która pozwoli na tworzenie z nich struktur  obrazujących rzeczywiste czynności wykonywane przy użyciu kas Aloha (szczególnie popularny model kasy w Stanach Zjednoczonych). Takie przetwarzanie przychodzących danych pozwoli użytkownikowi na wejrzenie w dane szczegółowe konkretnej transakcji, zobaczenie materiału wideo z jej przebiegu oraz generowanie raportów i~paragonów. Dzięki takim funkcjonalnościom system powinien umożliwić optymalizację sprzedaży oraz wprowadzanie oszczędności wynikających z usunięcia nieprawidłowości zaistniałych podczas pracy sklepu. Aplikacja będzie składała się z dwóch warstw:
 \begin{itemize}
-	\item modułu wstępnego przetwarzania danych (PreParser-a)
-	\item modułu właściwego przetwarzania danych (Parser-a)
+	\item modułu wstępnego przetwarzania danych (PreParser-a),
+	\item modułu właściwego przetwarzania danych (Parser-a).
 \end{itemize}
 PreParser będzie działał jako serwis po stronie użytkownika i wprowadzi konieczność jego instalacji na tzw. kontrolerze w sklepie użytkownika, czyli komputerze gromadzącym dane przychodzące z kas w danym sklepie i poddającym je etapowi wstępnej obróbki (preprasing) oraz wysyłającym dane wynikowe do bazy danych dostarczanej przez twórcę systemu, gdzie dalszym ich przetwarzaniem zajmie się Parser. Zadaniem modułu właściwego przetwarzania danych, będzie obróbka wstępnie przetworzonych informacji przez PreParser i zamiana ich na format mogący być analizowany przez system i zaprezentowany użytkownikowi. Pomysł na stworzenie takiego oprogramowania zrodził się z faktu zajmowania się tą tematyką zawodowo przez autora niniejszej pracy. Autor postanowił wykorzystać wiedzę i doświadczenie zdobyte podczas pracy zawodowej oraz studiów, by stworzyć system mający być częścią oprogramowania 360iQ dostarczanego przez firmę EZUniverse Inc. Dzięki regularnej pracy nad zagadnieniem podczas wykonywaniu obowiązków zawodowych, możliwe było dokładne dostosowanie systemu pod wymagania użytkownika oraz jego solidne przetestowanie przy działu z wykorzystaniem realnych danych i przypadków użycia.
 
@@ -127,17 +127,17 @@ Po wstępnym przetworzeniu danych zostają one wysłane do bazy ulokowanej po st
 \end{figure}
 AlohaPreParser oraz AlohaParser są bezpośrednimi składowymi systemu 360iQ dostarczanemu przez firmę EZUniverse (rys. \ref{fig:EZUniverse}). System ten składa się z~całej infrastruktury nakierowanej na dostarczenie klientowi maksymalnej liczby informacji mogących wesprzeć funkcjonowanie biznesu klienta. Wspierane są duże ilości modeli kas, które mogą być zainstalowane w klepie klienta, między innymi:
 \begin{itemize}
-	\item Aloha
-	\item Micros
-	\item Sicom
-	\item Radiant
-	\item Subshop2000
-	\item ProfiTrack
-	\item Panasonic7900
-	\item Comtrex
-	\item Gilbarco
-	\item Par
-	\item SubwayPOS
+	\item Aloha,
+	\item Micros,
+	\item Sicom,
+	\item Radiant,
+	\item Subshop2000,
+	\item ProfiTrack,
+	\item Panasonic7900,
+	\item Comtrex,
+	\item Gilbarco,
+	\item Par,
+	\item SubwayPOS.
 \end{itemize}
 
 Dzięki wsparciu dla dużej ilości modeli kas oraz współpracy z największymi sieciami sklepów (np. Subway, Burger King) system 360iQ jest kompleksowa platformą do wspomagania biznesu klienta.
@@ -238,62 +238,62 @@ Słowniki te gromadzone są przez moduł wstępnego przetwarzania danych i wykor
 \subsection{Typy zdarzeń generowanych przez kasę Aloha}
 Kasa Aloha jest zdolna do wygenerowania szeregu typów zdarzeń. Są to między innymi:
 \begin{itemize}
-	\item Zalogowanie pracownika w kasie
-	\item Wylogowanie pracownika z kasy
-	\item Przerwa w pracy
-	\item Zakończenie przerwy w pracy
-	\item Otwarcie kasy
-	\item Dodanie nowego przedmiotu do transakcji
-	\item Anulowanie dodanego przedmiotu
-	\item Usunięcie przedmiotu z transakcji
-	\item Otwarcie nowego zamówienia
-	\item Drukowanie rachunku
-	\item Zamknięcie zamówienia
-	\item Ponowne otwarcie zamówienia
-	\item Przyjęcie płatności
-	\item Autoryzacja płatności
-	\item Odrzucenie płatności
-	\item Modyfikacja płatności
-	\item Usunięcie płatności
-	\item Dodaj promocje
-	\item Usuń promocje
-	\item Wartość podatku
-	\item Wartość netto transakcji
-	\item Wartość brutto transakcji
-	\item Dodatek do potrawy
+	\item Zalogowanie pracownika w kasie,
+	\item Wylogowanie pracownika z kasy,
+	\item Przerwa w pracy,
+	\item Zakończenie przerwy w pracy,
+	\item Otwarcie kasy,
+	\item Dodanie nowego przedmiotu do transakcji,
+	\item Anulowanie dodanego przedmiotu,
+	\item Usunięcie przedmiotu z transakcji,
+	\item Otwarcie nowego zamówienia,
+	\item Drukowanie rachunku,
+	\item Zamknięcie zamówienia,
+	\item Ponowne otwarcie zamówienia,
+	\item Przyjęcie płatności,
+	\item Autoryzacja płatności,
+	\item Odrzucenie płatności,
+	\item Modyfikacja płatności,
+	\item Usunięcie płatności,
+	\item Dodaj promocje,
+	\item Usuń promocje,
+	\item Wartość podatku,
+	\item Wartość netto transakcji,
+	\item Wartość brutto transakcji,
+	\item Dodatek do potrawy.
 \end{itemize}
 Jest to lista wszystkich obsługiwanych typów zdarzeń. Są one identyfikowane przez PreParser na podstawie przypisanych im unikalnych identyfikatorów. Istnieje  jeden typ zdarzenia, który nie został uwzględniony w wyżej wymienionej liście, mianowicie zdarzanie nie będące elementem transakcji zakończonej sprzedażą. Takie przypadki to tzw. transakcje typu NO\_SALE i są  one analizowane z~wykorzystaniem szczególnego podejścia. Jest ono szerzej opisane w następnych rozdziałach.
 \subsection{Etap wstępnego przetwarzania}
 Każdy sklep korzystający z oprogramowania będącego przedmiotem niniejszej pracy wymaga instalacji specjalnego modułu działającego jako serwis na komputerze zwanym kontrolerem. Urządzenie to gromadzi zdarzenia generowane przez kasy działające w obrębie omawianego sklepu. Odebrane informacje są przechwytywane przez działający w systemie moduł wstępnego przetwarzania, który poddaje je wstępnej analizie. Możemy wyodrębnić kluczowe etapy składające się na przeprowadzenie wspomnianego procesu:
 \begin{itemize}
-	\item Sprawdzanie danych pod kątem duplikatów i ich odpowiednie odfiltrowanie
-	\item Analiza możliwości wystąpienia niezamkniętych lub błędnych transakcji i~ich odpowiednia obsługa
-	\item Grupowanie zdarzeń przychodzących z kasy w kolekcje związane z jedną transakcją
-	\item Przeszukiwanie transakcji, które zostały pogrupowane i sprawdzanie czy wymagana jest korekcja cen produktów lub płatności
-	\item Przetwarzanie całych grup transakcji, rozbudowa zdarzeń z wykorzystaniem algorytmów analizy promocji oraz kategorii produktów
-	\item Konwersja zgrupowanych zdarzeń na obiekty XML (Transakcje, Wpłaty/Wypłaty z kasy, Obecności pracowników)
-	\item Wysyłanie XML-i do bazy danych w celu ich przetworzenia przez moduł właściwego przetwarzania
+	\item Sprawdzanie danych pod kątem duplikatów i ich odpowiednie odfiltrowanie,
+	\item Analiza możliwości wystąpienia niezamkniętych lub błędnych transakcji i~ich odpowiednia obsługa,
+	\item Grupowanie zdarzeń przychodzących z kasy w kolekcje związane z jedną transakcją,
+	\item Przeszukiwanie transakcji, które zostały pogrupowane i sprawdzanie czy wymagana jest korekcja cen produktów lub płatności,
+	\item Przetwarzanie całych grup transakcji, rozbudowa zdarzeń z wykorzystaniem algorytmów analizy promocji oraz kategorii produktów,
+	\item Konwersja zgrupowanych zdarzeń na obiekty XML (Transakcje, Wpłaty/Wypłaty z kasy, Obecności pracowników),
+	\item Wysyłanie XML-i do bazy danych w celu ich przetworzenia przez moduł właściwego przetwarzania.
 \end{itemize}
 \subsection{Etap właściwego przetwarzania}
 Po wstępnym przetworzeniu danych, gdy moduł wstępnego procesowania informacji przekaże je do bazy danych udostępnianej przez administratora systemu, są one przechwytywane przez działający w środowisku dostarczyciela usługi moduł właściwego przetwarzania danych. Pobiera on z tabel dane w~formacie XML, które dzięki wstępnej pracy wykonanej przez PreParser są już odpowiednio pogrupowane i oznaczone. Umożliwia to Parserowi zejście poziom niżej w analizie danych, podczas gdy PreParser analizował zdarzenia pod kątem grupowania ich w struktury, Parser może analizować same zdarzenia i wyciągać z~nich informacje, które są konieczne do zbudowania wyczerpującego opisu transakcji, bądź innego zdarzenia, które miało miejsce na kasie.
 Moduł ten analizuje każde zdarzenie i krok po kroku tworzy obiekt, który na sam koniec procesowania danych zostanie umieszczony w wynikowej bazie. Udostępnia ona bezpośrednio dane mogące być analizowane przez klienta za pośrednictwem specjalnej aplikacji webowej będącej częścią systemu 360iQ. Schemat analizy danych przez moduł właściwego przetwarzania wygląda następująco:
 \begin{itemize}
-\item Sprawdzanie danych pod kątem duplikatów i ich odpowiednie odfiltrowanie
-\item Wykrywanie typu zdarzenia jakie zostało zgrupowane w wejściowy XML: (Transakcja, Wpłata/Wypłata, Obecność pracownika)
-\item Uruchamianie odpowiedniego schematu przetwarzania zależnie od wykrytego typu wiadomości
-\item Analiza danych w formacie XML krok po kroku i tworzenie cyfrowego modelu będącego odpowiednikiem realnej czynności wykonanej przez pracownika sklepu.
-\item Sprawdzanie poprawności stworzonych modeli i dokonywanie koniecznych poprawek, jak również oznaczenie tych, które zawierają wartości odbiegające od normy (ten fakt jest później odpowiednio prezentowany użytkownikowi w aplikacji webowej)
-\item Generowanie paragonów do wglądu przez klienta
+\item Sprawdzanie danych pod kątem duplikatów i ich odpowiednie odfiltrowanie,
+\item Wykrywanie typu zdarzenia jakie zostało zgrupowane w wejściowy XML: (Transakcja, Wpłata/Wypłata, Obecność pracownika),
+\item Uruchamianie odpowiedniego schematu przetwarzania zależnie od wykrytego typu wiadomości,
+\item Analiza danych w formacie XML krok po kroku i tworzenie cyfrowego modelu będącego odpowiednikiem realnej czynności wykonanej przez pracownika sklepu,
+\item Sprawdzanie poprawności stworzonych modeli i dokonywanie koniecznych poprawek, jak również oznaczenie tych, które zawierają wartości odbiegające od normy (ten fakt jest później odpowiednio prezentowany użytkownikowi w aplikacji webowej),
+\item Generowanie paragonów do wglądu przez klienta,
 \item Wysyłanie przetworzony modeli do odpowiednich tabel wynikowej bazy danych w zależności od typu przetwarzanych wiadomości.
 \end{itemize}
 \subsection{Przypadki niestandardowe}
 Terminale kasowe Aloha są dość bogate w przypadki, które można uznać za niestandardowe. Do najczęstszych takich sytuacji możemy zaliczyć:
  \begin{itemize}
- 	\item Wadliwe dane wejściowe
- 	\item Niezamknięte transakcje
- 	\item Dodawanie przedmiotów do rachunku z użyciem ich pełnej nazwy oraz późniejsze usuwanie z wykorzystaniem jej skróconej wersji 
- 	\item Dodawanie promocji bez uwzględnienia odpowiednich przedmiotów, które powinna dodana promocja dodawać
- 	\item W regionach innych niż Stany Zjednoczone częstym problemem jest brak informacji o podatkach
+ 	\item Wadliwe dane wejściowe,
+ 	\item Niezamknięte transakcje,
+ 	\item Dodawanie przedmiotów do rachunku z użyciem ich pełnej nazwy oraz późniejsze usuwanie z wykorzystaniem jej skróconej wersji,
+ 	\item Dodawanie promocji bez uwzględnienia odpowiednich przedmiotów, które powinna dodana promocja dodawać,
+ 	\item W regionach innych niż Stany Zjednoczone częstym problemem jest brak informacji o podatkach.
  \end{itemize}
 \subsubsection{Wadliwe dane wejściowe}
 Z racji faktu, że moduł wstępnego przetwarzania otrzymuje dane z terminali kasowych Aloha w formacie XML, często zdarza się sytuacja, że jest on wadliwy (np. ucięty), lub też występują jego duplikaty. W takich przypadkach PreParser ustawia odpowiednie statusy tych wiadomości (mogą być one potem zweryfikowane przez użytkownika) i pomija je w procedurze wstępnej analizy.
@@ -302,9 +302,9 @@ Jednym z najrzadziej występujących przypadków niestandardowych jest sytuacja,
 \subsubsection{Dodawanie przedmiotów do rachunku z użyciem ich pełnej nazwy oraz późniejsze usuwanie, przy wykorzystaniu ich skróconej nazwy}
 Przedmioty dodawane przez kasę Aloha do rachunków niestety często charakteryzują się niejednolitym nazewnictwem. Ten sam przedmiot może być nazywany z wykorzystaniem:
  \begin{itemize}
-	\item nazwy skróconej
-	\item pełnej nazwy przedmiotu
-	\item ID przedmiotu, bądź jego oznaczenia kodowego
+	\item nazwy skróconej,
+	\item pełnej nazwy przedmiotu,
+	\item ID przedmiotu, bądź jego oznaczenia kodowego.
 \end{itemize}
 Powoduje to problemy przy usuwaniu z rachunku już dodanych przedmiotów. Przedmiot dodany do transakcji pod nazwą X może być z niej usuwany pod nazwą Y. W celu uzyskania spójności i powiązania ze sobą przedmiotów wykorzystywany jest algorytm rozszerzania danych przekazywanych przez zdarzenie. Korzysta on ze słownika kategorii przedmiotów, który jest dostarczany raz dziennie przez właściciela sklepu jako specjalne zdarzenie terminala Aloha i przechowywany przez kontroler. Dzięki temu słownikowi możliwe jest powiązanie ze sobą tych samych przedmiotów występujących pod różną nazwą, wykorzystując fakt, że każdy przedmiot ma swoje unikalne ID, które jest udostępniane za pośrednictwem słownika kategorii produktów. Takie rozwiązanie gwarantuje, że w wynikowej transakcji przedmioty będą powiązane i usunięte w sposób prawidłowy niezależnie od zastosowania pełnej, bądź jego skróconej nazwy.
 \subsubsection{Dodawanie promocji bez uwzględnienia odpowiednich przedmiotów, które określona promocja powinna dodawać}
@@ -325,8 +325,8 @@ Dane wykorzystywane w niniejszym projekcie są backupami realnych danych źród�
 \subsection{Moduły wspierające}
 Opisywana w niniejszej pracy aplikacja jest wspierana przez następujące oprogramowanie, które jest częścią systemy 360iQ i zostało opracowane przez firmę EZUniverse:
  \begin{itemize}
- 	\item AlohaSpyRelay
- 	\item EZ360DataInterface
+ 	\item AlohaSpyRelay,
+ 	\item EZ360DataInterface.
  \end{itemize}
 \subsubsection{AlohaSpyRelay}
 AlohaSpyRelay jest aplikacją zapewniającą transmisje danych z kasy Aloha do kontrolera gdzie zainstalowany jest moduł wstępnego przetwarzania. Pobiera ona dane bezpośrednio z terminala, zamienia ja na zdarzenia zapisane w formacie XML i przekazuje do kontrolera.
@@ -337,35 +337,35 @@ Rozdział ten opisuje wymagania konieczne do uruchomienia oprogramowania po stro
 \section{Wymagania funkcjonalne}
 \subsection{Moduł wstępnego przetwarzania danych - PreParser}
 \begin{itemize}
-	\item Serwis powinien być wstanie odczytywać pobrane dane z lokalnej bazy danych kontrolera, gdzie przechowywane są informację o zdarzeniach, które nadesłał terminal Aloha
-	\item Powinna istnieć możliwość przetwarzania dany na etapie wstępnej analizy w celu eliminacji duplikatów i wadliwych wiadomości
-	\item Kluczową kwestią jest zastosowanie algorytmów dodających potrzebne produkty z promocji oraz rozszerzające nazwy wspomnianych wcześniej produktów, by można było je łatwo ze sobą powiązać
-	\item Serwis powinien informować użytkownika na bieżąco o stanie swojej aktywności za pośrednictwem komunikatów w pliku logów.
-	\item Serwis powinien być zdolny grupować wiadomości w kolekcje i konwertować je na odpowiednio zdefiniowane XML-e, a następnie wysyłać je do bazy danych po stronie administratora, by mogły być one dalej analizowane
+	\item Serwis powinien być wstanie odczytywać pobrane dane z lokalnej bazy danych kontrolera, gdzie przechowywane są informację o zdarzeniach, które nadesłał terminal Aloha,
+	\item Powinna istnieć możliwość przetwarzania dany na etapie wstępnej analizy w celu eliminacji duplikatów i wadliwych wiadomości,
+	\item Kluczową kwestią jest zastosowanie algorytmów dodających potrzebne produkty z promocji oraz rozszerzające nazwy wspomnianych wcześniej produktów, by można było je łatwo ze sobą powiązać,
+	\item Serwis powinien informować użytkownika na bieżąco o stanie swojej aktywności za pośrednictwem komunikatów w pliku logów,
+	\item Serwis powinien być zdolny grupować wiadomości w kolekcje i konwertować je na odpowiednio zdefiniowane XML-e, a następnie wysyłać je do bazy danych po stronie administratora, by mogły być one dalej analizowane.
 \end{itemize}
 \subsection{Moduł właściwego przetwarzania danych - Parser}
 \begin{itemize}
-	\item Aplikacja powinna móc odczytywać dane z odpowiednich tabel w bazie danych, gdzie w sposób ciągły pojawiają się nowe dane przysyłane z bliżej nie określonej liczby kontrolerów, gdzie zostały one wstępnie obrobione przez moduł wstępnego przetwarzania
-	\item Oprogramowanie musi wspierać różne typy przychodzących wiadomości (transakcje, wpłaty/wypłaty, obecności pracowników) i stosować dla nich właściwe formy analizy i przetwarzania
-	\item Wynikowe dane powinny zostać zapisane w bazie danych, z której może korzystać aplikacja webowa dostarczana jako element systemu 360iQ i~opracowana przez firmę EZUniverse i prezentująca wyniki użytkownikowi w~przyjaznej dla niego formie. Rezultat przetwarzania powinien być możliwie jak najdokładniejszym odwzorowaniem zdarzenia jakie zaszło w danej chwili czasu na kasie w sklepie użytkownika. Ważne jest zachowanie odpowiednich stref czasowych i synchronizacja czasu wideo.
-	\item Oprogramowanie powinno udostępniać prosty i intuicyjny interfejs użytkownika
-	\item W przypadku wystąpienia błędu podczas analizy danych, aplikacja powinna zamieści odpowiednią informację na ekranie interfejsu użytkownika
+	\item Aplikacja powinna móc odczytywać dane z odpowiednich tabel w bazie danych, gdzie w sposób ciągły pojawiają się nowe dane przysyłane z bliżej nie określonej liczby kontrolerów, gdzie zostały one wstępnie obrobione przez moduł wstępnego przetwarzania,
+	\item Oprogramowanie musi wspierać różne typy przychodzących wiadomości (transakcje, wpłaty/wypłaty, obecności pracowników) i stosować dla nich właściwe formy analizy i przetwarzania,
+	\item Wynikowe dane powinny zostać zapisane w bazie danych, z której może korzystać aplikacja webowa dostarczana jako element systemu 360iQ i~opracowana przez firmę EZUniverse i prezentująca wyniki użytkownikowi w~przyjaznej dla niego formie. Rezultat przetwarzania powinien być możliwie jak najdokładniejszym odwzorowaniem zdarzenia jakie zaszło w danej chwili czasu na kasie w sklepie użytkownika. Ważne jest zachowanie odpowiednich stref czasowych i synchronizacja czasu wideo,
+	\item Oprogramowanie powinno udostępniać prosty i intuicyjny interfejs użytkownika,
+	\item W przypadku wystąpienia błędu podczas analizy danych, aplikacja powinna zamieści odpowiednią informację na ekranie interfejsu użytkownika.
 \end{itemize}
 \section{Wymagania niefunkcjonalne}
 \subsection{Moduł wstępnego przetwarzania danych - PreParser}
 \begin{itemize}
-	\item Stabilnie działający serwis po stronie kontrolera
-	\item Personalizacja za pomocą jednego pliku konfiguracyjnego
-	\item Prosty sposób instalacji oraz włączania serwisu
-	\item Szczegółowy system logów pomagający w diagnostyce usterek i monitoringu działania aplikacji
-	\item Niskie wymagania sprzętowe, serwis powinien się uruchamiać i pracować bez widocznych strat na wydajności będąc zainstalowanym na stosunkowo taniej i mało wydajnej maszynie
+	\item Stabilnie działający serwis po stronie kontrolera,
+	\item Personalizacja za pomocą jednego pliku konfiguracyjnego,
+	\item Prosty sposób instalacji oraz włączania serwisu,
+	\item Szczegółowy system logów pomagający w diagnostyce usterek i monitoringu działania aplikacji,
+	\item Niskie wymagania sprzętowe, serwis powinien się uruchamiać i pracować bez widocznych strat na wydajności będąc zainstalowanym na stosunkowo taniej i mało wydajnej maszynie.
 \end{itemize}
 \subsection{Moduł właściwego przetwarzania danych - Parser} 
  \begin{itemize}
- 	\item Stabilnie działająca aplikacja desktopowa z intuicyjnym interfejsem użytkownika
- 	\item Pełne wsparcie dla przetwarzania danych z kas Aloha oraz integracja z~pozostałymi parserami z innych kas działającymi w systemie
- 	\item Łatwość wystartowania i zastopowania aplikacji
- 	\item Dążenie do jak najniższego wykorzystania zasobów systemu, w którym aplikacja jest zainstalowana
+ 	\item Stabilnie działająca aplikacja desktopowa z intuicyjnym interfejsem użytkownika,
+ 	\item Pełne wsparcie dla przetwarzania danych z kas Aloha oraz integracja z~pozostałymi parserami z innych kas działającymi w systemie,
+ 	\item Łatwość wystartowania i zastopowania aplikacji,
+ 	\item Dążenie do jak najniższego wykorzystania zasobów systemu, w którym aplikacja jest zainstalowana.
  \end{itemize}
 \section{Analiza przypadków użycia (diagramy UML)}
 W niniejszej sekcji zaprezentowano przypadki użycia dla modułu wstępnego przetwarzania (rys. \ref{fig:przypadki_uzycia_preparser}) oraz dla części odpowiadającej za właściwe przetwarzanie (rys. \ref{fig:przypadki_uzycia_parser}).
@@ -387,28 +387,28 @@ Rozdział ten opisuje wymagania sprzętowe i programowe, które należy spełni�
 Opisywana aplikacja została przetestowana, na dwóch konfiguracjach sprzętowych:
  \begin{itemize}
 	\item Komputer stacjonarny:
-	\subitem Procesor - i5 4690K @ 4.5 GHz, 4.4GHz Uncore
-	\subitem Pamięć RAM - 8GB DDR3 @ 2133MHz CL9.11.12 T1
-	\subitem Dysk - SSD 128 GB TLC
-	\subitem System operacyjny - Windows 10 PRO
+	\subitem Procesor - i5 4690K @ 4.5 GHz, 4.4GHz Uncore,
+	\subitem Pamięć RAM - 8GB DDR3 @ 2133MHz CL9.11.12 T1,
+	\subitem Dysk - SSD 128 GB TLC,
+	\subitem System operacyjny - Windows 10 PRO.
 	\item Laptop:
-	\subitem Procesor - i5 7200U @ 2.5 GHz
-	\subitem Pamięć RAM - 16GB DDR4 @ 2133MHz CL15
-	\subitem Dysk - SSD 256 GB MLC
-	\subitem System operacyjny - Windows 10 PRO
+	\subitem Procesor - i5 7200U @ 2.5 GHz,
+	\subitem Pamięć RAM - 16GB DDR4 @ 2133MHz CL15,
+	\subitem Dysk - SSD 256 GB MLC,
+	\subitem System operacyjny - Windows 10 PRO.
 \end{itemize}
 Obydwie konfiguracje gwarantowały satysfakcjonującą płynność i szybkość działania aplikacji.
 Na podstawie testów z użyciem wyżej wymienionych zestawów zdefiniowano przybliżone wymagania sprzętowe oraz programowe:
 \begin{itemize}
 	\item Minimalne wymagania sprzętowe:
-	\subitem Procesor - i3 2 generacji Intel Core lub odpowiednik AMD
-	\subitem Pamięci RAM - 4GB pamięci operacyjnej
-	\subitem Dysk - 100mb wolnej przestrzeni dyskowej
-	\subitem Stały dostęp do internetu
+	\subitem Procesor - i3 2 generacji Intel Core lub odpowiednik AMD,
+	\subitem Pamięci RAM - 4GB pamięci operacyjnej,
+	\subitem Dysk - 100mb wolnej przestrzeni dyskowej,
+	\subitem Stały dostęp do internetu.
 	\item Minimalne wymagania programowe:
-	\subitem System operacyjny - Windows w wersji 7 lub nowszej
-	\subitem Microsoft SQL Server Management Studio oraz MS SQL Server w wersji 2012 lub nowszej
-	\subitem .NET Framework w wersji 3.5 lub nowszej
+	\subitem System operacyjny - Windows w wersji 7 lub nowszej,
+	\subitem Microsoft SQL Server Management Studio oraz MS SQL Server w wersji 2012 lub nowszej,
+	\subitem .NET Framework w wersji 3.5 lub nowszej.
 \end{itemize}
 \section{Instalacja}
 \subsection{Instalacja PreParser-a na kontrolerze u klienta}
@@ -457,26 +457,26 @@ Następnie należy dokonać konfiguracji zainstalowanego serwisu. W tym celu otw
 \end{figure}
 Skrócony opis poszczególnych parametrów:
 \begin{itemize}
-	\item ProcessID - id procesu działającego na danym kontrolerze
-	\item ParserType - typ parsera komunikującego się z kontrolerem
-	\item ObjectsConnectionString - parametry połączenia do tabeli EZ360Objects w bazie danych
-	\item CommunicationConnectionString - parametry połączenia do tabeli EZ360Communication w bazie danych
-	\item TransactionWebservice - adres url do webservice-u obsługującego transakcje
-	\item ActionWebservice - adres url do webservice-u obsługującego akcje
-	\item CashOperationWebservice - adres url do webservice-u obsługującego wpłaty/wypłaty
-	\item TimeClockWebservice - adres url do webservice-u obsługującego obecności pracowników
-	\item DataWebservice - adres url do webservice-u obsługującego dane dodatkowe
-	\item TimerInterval - czas pomiędzy kolejnymi sprawdzeniami czy nie przyszły nowe zdarzenia (w milisekundach)
-	\item DatabaseTimeout - maksymalny czas w jakim może zostać wykonywane zapytanie do bazy danych (w sekundach)
-	\item DatabaseTimeoutInterval - przerwa pomiędzy kolejnymi zapytaniami do bazy danych (w sekundach)
-	\item DelayAfterDatabaseError - czas do ponownej próby połączenia z bazą danych po wystąpieniu błędu
-	\item DelayDeleteNotServedTransaction - czas po jakim nieobsługiwana transakcja jest usuwana
-	\item Rows - maksymalna liczba wierszy możliwa do procesowania
-	\item SenderTimerInterval - interwał z jakim wysyłane są dane do bazy
-	\item MaxRowsToSend - maksymalna liczba wierszy przesłana w jednym zapytaniu
-	\item MaxSenderQueues - limit liczby obiektów w kolejce do wysłania
-	\item CompressWebRequest - kompresowanie wysyłanych danych
-	\item ControllerWebURL - adres URL kontrolera
+	\item ProcessID - id procesu działającego na danym kontrolerze,
+	\item ParserType - typ parsera komunikującego się z kontrolerem,
+	\item ObjectsConnectionString - parametry połączenia do tabeli EZ360Objects w bazie danych,
+	\item CommunicationConnectionString - parametry połączenia do tabeli EZ360Communication w bazie danych,
+	\item TransactionWebservice - adres url do webservice-u obsługującego transakcje,
+	\item ActionWebservice - adres url do webservice-u obsługującego akcje,
+	\item CashOperationWebservice - adres url do webservice-u obsługującego wpłaty/wypłaty,
+	\item TimeClockWebservice - adres url do webservice-u obsługującego obecności pracowników,
+	\item DataWebservice - adres url do webservice-u obsługującego dane dodatkowe,
+	\item TimerInterval - czas pomiędzy kolejnymi sprawdzeniami czy nie przyszły nowe zdarzenia (w milisekundach),
+	\item DatabaseTimeout - maksymalny czas w jakim może zostać wykonywane zapytanie do bazy danych (w sekundach),
+	\item DatabaseTimeoutInterval - przerwa pomiędzy kolejnymi zapytaniami do bazy danych (w sekundach),
+	\item DelayAfterDatabaseError - czas do ponownej próby połączenia z bazą danych po wystąpieniu błędu,
+	\item DelayDeleteNotServedTransaction - czas po jakim nieobsługiwana transakcja jest usuwana,
+	\item Rows - maksymalna liczba wierszy możliwa do procesowania,
+	\item SenderTimerInterval - interwał z jakim wysyłane są dane do bazy,
+	\item MaxRowsToSend - maksymalna liczba wierszy przesłana w jednym zapytaniu,
+	\item MaxSenderQueues - limit liczby obiektów w kolejce do wysłania,
+	\item CompressWebRequest - kompresowanie wysyłanych danych,
+	\item ControllerWebURL - adres URL kontrolera.
 \end{itemize}
 \subsection{Instalacja Parser-a po stronie administratora}
 Poprawna instalacja modułu właściwego przetwarzania danych na komputerze administratora wymaga ręcznego rozpakowania archiwum AlohaParser\_VERSION.zip, gdzie VERSION jest numerem wersji. Po rozpakowaniu archiwum w miejscu wybranym przez administratora, powinny być dostępne pliki (rys. \ref{fig:aloha_parser_content}) potrzebne do uruchomienia modułu właściwego przetwarzania danych.
@@ -537,26 +537,26 @@ Następnie należy dokonać konfiguracji zainstalowanej aplikacji. W tym celu ot
 \end{figure}
 Skrócony opis poszczególnych parametrów:
 \begin{itemize}
-	\item ProcessID - id procesu działającego na komputerze administratora
-	\item ParserType - typ parsera, którego dotyczy konfiguracja
-	\item AccessConnectionString - parametry połączenia do tabeli EZ360Access w~bazie danych
-	\item CommunicationConnectionString - parametry połączenia do tabeli EZ360Communication w bazie danych
-	\item LaborConnectionString - parametry połączenia do tabeli EZ360Labor w~bazie danych
-	\item ObjectsConnectionString - parametry połączenia do tabeli EZ360Objects w bazie danych
-	\item SalesConnectionString - parametry połączenia do tabeli EZ360Sales w bazie danych
-	\item ReportsConnectionString - parametry połączenia do tabeli EZ360Reports w bazie danych
-	\item ApplicationsConnectionString - parametry połączenia do tabeli EZ360Applications w bazie danych
-	\item TimerInterval - czas pomiędzy kolejnymi sprawdzeniami czy nie przyszły nowe dane (w milisekundach)
-	\item DatabaseTimeout - maksymalny czas w jakim może zostać wykonywane zapytanie do bazy danych (w sekundach)
-	\item DatabaseTimeoutInterval - przerwa pomiędzy kolejnymi zapytaniami do bazy danych (w sekundach)
-	\item DelayAfterDatabaseError - czas do ponownej próby połączenia z bazą danych po wystąpieniu błędu
-	\item EnablePreserveSaveTransactions - definiuje czy włączyć funkcjonalność zachowywania transakcji
-	\item DeletePreserveTransactionsAfter - definiuje po jakim czasie powinny być usuwane zachowane transakcje (podane w godzinach) 
-	\item Rows - maksymalna liczba wierszy możliwa do procesowania
-	\item VideoTimeOffset - przesunięcie w minutach uwzględniane przy wyliczaniu czasu wideo
-	\item IdentificationPrefix - prefix pomagający zidentyfikować dane
-	\item IdentificationNumer - numer pomagający zidentyfikować dane
-	\item Dalsze ustawienia definiują, które typy danych powinny być przetwarzane
+	\item ProcessID - id procesu działającego na komputerze administratora,
+	\item ParserType - typ parsera, którego dotyczy konfiguracja,
+	\item AccessConnectionString - parametry połączenia do tabeli EZ360Access w~bazie danych,
+	\item CommunicationConnectionString - parametry połączenia do tabeli EZ360Communication w bazie danych,
+	\item LaborConnectionString - parametry połączenia do tabeli EZ360Labor w~bazie danych,
+	\item ObjectsConnectionString - parametry połączenia do tabeli EZ360Objects w bazie danych,
+	\item SalesConnectionString - parametry połączenia do tabeli EZ360Sales w bazie danych,
+	\item ReportsConnectionString - parametry połączenia do tabeli EZ360Reports w bazie danych,
+	\item ApplicationsConnectionString - parametry połączenia do tabeli EZ360Applications w bazie danych,
+	\item TimerInterval - czas pomiędzy kolejnymi sprawdzeniami czy nie przyszły nowe dane (w milisekundach),
+	\item DatabaseTimeout - maksymalny czas w jakim może zostać wykonywane zapytanie do bazy danych (w sekundach),
+	\item DatabaseTimeoutInterval - przerwa pomiędzy kolejnymi zapytaniami do bazy danych (w sekundach),
+	\item DelayAfterDatabaseError - czas do ponownej próby połączenia z bazą danych po wystąpieniu błędu,
+	\item EnablePreserveSaveTransactions - definiuje czy włączyć funkcjonalność zachowywania transakcji,
+	\item DeletePreserveTransactionsAfter - definiuje po jakim czasie powinny być usuwane zachowane transakcje (podane w godzinach),
+	\item Rows - maksymalna liczba wierszy możliwa do procesowania,
+	\item VideoTimeOffset - przesunięcie w minutach uwzględniane przy wyliczaniu czasu wideo,
+	\item IdentificationPrefix - prefix pomagający zidentyfikować dane,
+	\item IdentificationNumer - numer pomagający zidentyfikować dane,
+	\item Dalsze ustawienia definiują, które typy danych powinny być przetwarzane.
 \end{itemize}
 \section{Obsługa systemu i administrowanie nim}
 \subsection{PreParser}
@@ -585,9 +585,9 @@ Serwis podczas pracy regularnie generuje szereg komunikatów o statusie swojego 
 Są one zapisywane w plikach logów, które przechowywane są w folderze "logs". Przechowywanych jest do 30 plików logów, które następnie po pojawieniu się następnych logów są usuwane.
 Wyróżniamy następujące typy wiadomości składowanych w logach:
 \begin{itemize}
-	\item INFO - informuję użytkownika o statusie działa serwisu
-	\item WARN - komunikuje pojawienie się problemu podczas analizy danych, co w większości przypadków oznacza brak wsparcia dla konkretnego typu danych i nie powoduje błędnego działania systemu
-	\item ERROR - zawiadamia o wystąpieniu poważnego problemu, który powinien zostać zgłoszony do administratora w celu jego rozwiązania
+	\item INFO - informuję użytkownika o statusie działa serwisu,
+	\item WARN - komunikuje pojawienie się problemu podczas analizy danych, co w większości przypadków oznacza brak wsparcia dla konkretnego typu danych i nie powoduje błędnego działania systemu,
+	\item ERROR - zawiadamia o wystąpieniu poważnego problemu, który powinien zostać zgłoszony do administratora w celu jego rozwiązania.
 \end{itemize}
 \subsection{Parser}
 \subsubsection{Uruchamianie aplikacji}
@@ -618,20 +618,20 @@ Dezinstalacja aplikacji sprowadza się do usunięcia zawartości folderu, w któ
 \subsubsection{Diagnostyka i logowanie}
 Podobnie jak w przypadku modułu wstępnego przetwarzania, tutaj również zaimplementowano system logowania komunikatów. Komunikaty informujące o~stanie działania aplikacji przechowywane są w folderze "logs" oraz wyświetlane w interfejsie użytkownika, który udostępnia oprogramowanie. W tym wypadku typy komunikatów wyświetlane użytkownikowi są określane przez odpowiedni kolor czcionki:
  \begin{itemize}
- 	\item INFO - Czarny
- 	\item WARN - Zielony
- 	\item ERROR - Czerwony
+ 	\item INFO - Czarny,
+ 	\item WARN - Zielony,
+ 	\item ERROR - Czerwony.
  \end{itemize}
 \section{Bezpieczeństwo}
 Ważną kwestią uwzględnianą podczas procesu tworzenia oprogramowania będącego przedmiotem niniejszej pracy jest bezpieczeństwo. W celu zapewnienia uwarunkowań sprzyjających bezpieczeństwu przetwarzanych danych moduł właściwego przetwarzania oraz wszystkie bazy przechowujące informacje przychodzące od strony użytkownika składowane są po stronie administratora systemu. Zapewnia on szereg zabezpieczeń i ciągłe wsparcie techniczne. Po stronie użytkownika zainstalowany jest tylko serwis modułu wstępnego przetwarzania na kontrolerze, który tylko przetwarzana lokalne dane i wysyła je do głównego centrum danych, więc nie ma możliwości dostępu do informacji zgromadzonych przez innych użytkowników.
 \section{Przykład działania}
  \begin{itemize}
-	\item Startowanie preparsera \ref{fig:startowanie_serwisu}
-	\item Zatrzymywanie preparser \ref{fig:zatrzymywanie_serwisu}
-	\item Startowanie aplikacji \ref{fig:startowanie_aplikacji}
-	\item Zatrzymywanie aplikacji \ref*{fig:zatrzymywanie_aplikacji}
-	\item Logi modułu wstępnego przetwarzania \ref{fig:preparser_log}
-	\item Logi modułu właściwego przetwarzania \ref{fig:parser_log}
+	\item Startowanie preparsera \ref{fig:startowanie_serwisu},
+	\item Zatrzymywanie preparser \ref{fig:zatrzymywanie_serwisu},
+	\item Startowanie aplikacji \ref{fig:startowanie_aplikacji},
+	\item Zatrzymywanie aplikacji \ref*{fig:zatrzymywanie_aplikacji},
+	\item Logi modułu wstępnego przetwarzania \ref{fig:preparser_log},
+	\item Logi modułu właściwego przetwarzania \ref{fig:parser_log}.
 \end{itemize}
 \begin{figure}[t]
 	\centering
@@ -651,12 +651,12 @@ W niniejszym rozdziale podjęta została kwestia architektury oprogramowania. Pr
 Schemat (rys. \ref{fig:schemat_przeplywu_danych}) przedstawia przepływ danych w systemie realizującym przetwarzanie informacji z kas Aloha.
 Jak już wielokrotnie wspominano w niniejszej pracy, dane wychodzące z terminala kasy Aloha mają pewną ścieżkę, którą muszą pokonać zanim zostaną one przekształcone w model, mogący być prezentowany użytkownikowi i analizowany przez niego. Wspominany proces wygląda następująco:
  \begin{itemize}
-	\item Terminal kasy Aloha wysyła komunikat o zdarzeniu
-	\item AlohaSpyRelay przechwytuje informację przychodzącą z terminala i przetwarza ją na format rozpoznawalny przez moduł wstępnego przetwarzania
-	\item Moduł wstępnego przetwarzania zainstalowany na kontrolerze odczytuje dane przychodzące z terminala i opracowane przez AlohaSpyRelay, a następnie dokonuje ich wstępnej analizy
-	\item Dane wynikowe z PreParser przekazywane są do EZ360DataInterface, który przesyła je do bazy danych ulokowanej po stronie administratora systemu
-	\item Moduł właściwego przetwarzania danych, odczytuje z bazy wiadomości i~przetwarza je na format mogący być analizowany i oglądany przez użytkownika
-	\item Dane wyjściowe z Parsersa prezentowane są w aplikacji webowej, będącej częścią systemu 360iQ dostarczanego przez firmę EZUniverse
+	\item Terminal kasy Aloha wysyła komunikat o zdarzeniu,
+	\item AlohaSpyRelay przechwytuje informację przychodzącą z terminala i przetwarza ją na format rozpoznawalny przez moduł wstępnego przetwarzania,
+	\item Moduł wstępnego przetwarzania zainstalowany na kontrolerze odczytuje dane przychodzące z terminala i opracowane przez AlohaSpyRelay, a następnie dokonuje ich wstępnej analizy,
+	\item Dane wynikowe z PreParser przekazywane są do EZ360DataInterface, który przesyła je do bazy danych ulokowanej po stronie administratora systemu,
+	\item Moduł właściwego przetwarzania danych, odczytuje z bazy wiadomości i~przetwarza je na format mogący być analizowany i oglądany przez użytkownika,
+	\item Dane wyjściowe z Parsersa prezentowane są w aplikacji webowej, będącej częścią systemu 360iQ dostarczanego przez firmę EZUniverse.
 \end{itemize}
 \begin{figure}[t]
 	\centering
@@ -667,12 +667,12 @@ Jak już wielokrotnie wspominano w niniejszej pracy, dane wychodzące z terminal
 \section{Organizacja i struktura baz danych}
 Moduł wstępnego przetwarzania danych:
  \begin{itemize}
-	\item \_RAWDATA
-	\item ALOHA\_Transactions
-	\item ALOHA\_CashOperations
-	\item ALOHA\_TimeClocks
-	\item ALOHA\_Data
-	\item ALOHA\_Actions
+	\item \_RAWDATA,
+	\item ALOHA\_Transactions,
+	\item ALOHA\_CashOperations,
+	\item ALOHA\_TimeClocks,
+	\item ALOHA\_Data,
+	\item ALOHA\_Actions.
 \end{itemize}
 Schemat bazy danych - \ref{fig:preparser_database_schema}
 \begin{figure}[t]
@@ -684,12 +684,12 @@ Schemat bazy danych - \ref{fig:preparser_database_schema}
 \newline
 Moduł właściwego przetwarzania danych:
 \begin{itemize}
-	\item Transactions
-	\item TransactionProducts
-	\item TransactionPayments
-	\item TransactionDiscounts
-	\item TransactionReceipts
-	\item TransactioActions
+	\item Transactions,
+	\item TransactionProducts,
+	\item TransactionPayments,
+	\item TransactionDiscounts,
+	\item TransactionReceipts,
+	\item TransactioActions.
 \end{itemize}
 Schemat bazy danych - \ref{fig:parser_database_schema}
 \begin{figure}[t]
@@ -701,30 +701,30 @@ Schemat bazy danych - \ref{fig:parser_database_schema}
 \section{Wykorzystane biblioteki}
 Podczas realizowania zagadnienia omówionego w niniejszej pracy korzystano z następujących bibliotek .NET:
 \begin{itemize}
-	\item Microsoft.AspNet.WebApi.Client
-	\item Microsoft.Bcl
-	\item Microsoft.Bcl.Build
-	\item Microsoft.Net.Http
-	\item Newtonsoft.Json
-	\item System.ValueTuple
+	\item Microsoft.AspNet.WebApi.Client,
+	\item Microsoft.Bcl,
+	\item Microsoft.Bcl.Build,
+	\item Microsoft.Net.Http,
+	\item Newtonsoft.Json,
+	\item System.ValueTuple.
 \end{itemize}
 Wszystkie wyżej wymienione biblioteki są udostępnia przez menadżer pakietów NuGet, będący zintegrowany z Visual Studio.
 \section{Model klas}
 Niniejsza sekcja opisuje najważniejsze klasy wykorzystywane w projekcie. W~zależności od modułu są to:
 \begin{itemize}
-	\item Moduł wstępnego przetwarzania danych (schemat \ref{fig:preparser_diagram_klas})
-	\subitem PreParser
-	\subitem AlohaPreParser
-	\subitem TransactionPreParser
-	\subitem TimeClockPreParser
-	\subitem CashDropPreParser
-	\item Moduł właściwego przetwarzania danych (schemat \ref{fig:parser_diagram_klas})
-	\subitem Parser
-	\subitem AlohaParser
-	\subitem TransactionParser
-	\subitem TimeClockParser
-	\subitem CashDropParser
-	\subitem DataParser
+	\item Moduł wstępnego przetwarzania danych (schemat \ref{fig:preparser_diagram_klas}),
+	\subitem PreParser,
+	\subitem AlohaPreParser,
+	\subitem TransactionPreParser,
+	\subitem TimeClockPreParser,
+	\subitem CashDropPreParser,.
+	\item Moduł właściwego przetwarzania danych (schemat \ref{fig:parser_diagram_klas}).
+	\subitem Parser,
+	\subitem AlohaParser,
+	\subitem TransactionParser,
+	\subitem TimeClockParser,
+	\subitem CashDropParser,
+	\subitem DataParser.
 \end{itemize}
 \begin{figure}[t]
 	\centering
@@ -741,21 +741,21 @@ Niniejsza sekcja opisuje najważniejsze klasy wykorzystywane w projekcie. W~zale
 \section{Szczegółowa analiza danych wejściowych}
 Na podstawie przykładowych danych wejściowych przestawionych na listingu \ref{lst:przykladoweZdarzenieAloha2}. Każde zdarzenie w formacie XML zawiera następujące atrybuty:
 \begin{itemize}
-	\item TerminalID - numer terminala kasowego
-	\item EventTime - czas wystąpienia zdarzenia
-	\item EmployeeID - ID pracownika
-	\item EmployeeName - imię i nazwisko pracownika
-	\item ManagerID - ID managera
-	\item ManagerName - imię i nazwisko managera
-	\item TableID - ID stanowiska, na którym ulokowany jest terminal
-	\item CheckID - numer transakcji
-	\item TransactionTypeID - ID typu zdarzenia
-	\item TransactionType - nazwa typu zdarzenia
-	\item Description - opis zdarzenia
-	\item Amount - wartość pieniężna związana ze zdarzeniem
-	\item Quantity - ilość sztuk (w przypadku produktów i płatności)
-	\item Sender - adres IP urządzenia wysyłającego
-	\item ReceivedOn - data otrzymania zdarzenia po stronie kontrolera
+	\item TerminalID - numer terminala kasowego,
+	\item EventTime - czas wystąpienia zdarzenia,
+	\item EmployeeID - ID pracownika,
+	\item EmployeeName - imię i nazwisko pracownika,
+	\item ManagerID - ID managera,
+	\item ManagerName - imię i nazwisko managera,
+	\item TableID - ID stanowiska, na którym ulokowany jest terminal,
+	\item CheckID - numer transakcji,
+	\item TransactionTypeID - ID typu zdarzenia,
+	\item TransactionType - nazwa typu zdarzenia,
+	\item Description - opis zdarzenia,
+	\item Amount - wartość pieniężna związana ze zdarzeniem,
+	\item Quantity - ilość sztuk (w przypadku produktów i płatności),
+	\item Sender - adres IP urządzenia wysyłającego,
+	\item ReceivedOn - data otrzymania zdarzenia po stronie kontrolera.
 \end{itemize}
 \begin{figure}[t]
 	\begin{lstlisting}[frame=single, breaklines=true]
@@ -768,13 +768,13 @@ Na podstawie przykładowych danych wejściowych przestawionych na listingu \ref{
 W systemie wykorzystane zostały następujące algorytmy przetwarzające i~rozszerzające dane wejściowe w formacie XML:
 \begin{itemize}
 	\item Dodawanie brakujących przedmiotów będących częścią promocji do transakcji (listing został podzielony na części - kolejno: \ref{lst:brakujaceProdukty1}, \ref{lst:brakujaceProdukty2}, \ref{lst:brakujaceProdukty3})
-	\item Rozszerzanie zdarzenia XML o rozszerzone nazwy przedmiotów i wartości podatków (listing został podzielony na części - kolejno: \ref{lst:rozszerzanieXML1}, \ref{lst:rozszerzanieXML2}, \ref{lst:rozszerzanieXML3})
+	\item Rozszerzanie zdarzenia XML o rozszerzone nazwy przedmiotów i wartości podatków (listing został podzielony na części - kolejno: \ref{lst:rozszerzanieXML1}. \ref{lst:rozszerzanieXML2}, \ref{lst:rozszerzanieXML3})
 \end{itemize}
 \subsection{Dodawanie brakujących przedmiotów będących częścią promocji do transakcji}
 Od czasu do czasu otrzymywana jest wiadomość zawierająca PromotionsXML. Za każdym razem, gdy taka informacja jest odbierana, zapisana zostaje do pliku lub aktualizowana, jeśli już istnieje. PreParser zawiera również obiekt, który przechowuje dane pochodzące ze słownika PromotionsXML. Wspomniana wiadomość jest konwertowana na instancję klasy PromotionBundle, która przechowuje informacje o promocjach i elementach w niej zawartych. Metoda bezpośrednio zaangażowana w przetwarzanie promocji nazywa się ProcessAddPromo. Zapewnia funkcjonalność, która wykrywa, czy nastąpiła zmiana promocji i wstawia produkty, których brakuje. System obsługuje także zdarzenie DELETE\_PROMO. To, co dokładnie dzieje się w wykrywaniu algorytmów promocji, można podsumować w prostych krokach:
 \begin{itemize}
-	\item Przechowywana jest historia przetworzonych zdarzeń, co pozwala algorytmowi powrócić do przeszłych akcji, aby wykryć pożądany schemat.
-	\item Szukany jest zestaw 2 instrukcji (jest to wartość minimum - zostaje ona zwiększona, jeśli wykryte są zdarzenia, których zawartość pola TransactionType zaczyna się od "6" lub "7"), które poprzedzały bieżące zdarzenie.
+	\item Przechowywana jest historia przetworzonych zdarzeń, co pozwala algorytmowi powrócić do przeszłych akcji, aby wykryć pożądany schemat,
+	\item Szukany jest zestaw 2 instrukcji (jest to wartość minimum - zostaje ona zwiększona, jeśli wykryte są zdarzenia, których zawartość pola TransactionType zaczyna się od "6" lub "7"), które poprzedzały bieżące zdarzenie,
 	\item Jeśli znaleziony zostanie odpowiedni zestaw zdarzeń, który jest rozpoznawany jako zmiana promocji to dodawane lub usuwane są odpowiednie wydarzenia na podstawie wyników wyszukiwania odpowiednich schematów zdarzeń.
 \end{itemize}
 
@@ -897,11 +897,11 @@ Od czasu do czasu otrzymywana jest wiadomość zawierająca PromotionsXML. Za ka
 \subsection{Rozszerzanie zdarzenia XML o rozszerzone nazwy przedmiotów i wartości podatków}
 Od czasu do czasu pojawia się komunikat zawierający ItemCategoryXML. Dostarcza on rozszerzonych informacji o przedmiotach i ich kategoriach. W~Aloha ten sam przedmiot może być nazwany z wykorzystaniem różnych formatów:
 \begin{itemize}
-	\item ItemShortName
-	\item ItemLongName
-	\item ItemLongName2
-	\item ItemChitName
-	\item ItemName
+	\item ItemShortName,
+	\item ItemLongName,
+	\item ItemLongName2,
+	\item ItemChitName,
+	\item ItemName.
 \end{itemize}
 Biorąc to pod uwagę, opracowano funkcjonalność rozszerzającą przychodzące zdarzenie XML z danych wejściowych.
 Dodaje ona nowe atrybuty do istniejącego pliku XML z wymienionymi wyżej nazwami elementów. Nazwa przedmiotu jest identyfikowana za pomocą tego algorytmu:
