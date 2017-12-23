@@ -33,17 +33,16 @@
 \BOOKMARK [0][-]{chapter.5}{Specyfikacja wewnetrzna}{}% 33
 \BOOKMARK [1][-]{section.5.1}{Architektura systemu}{chapter.5}% 34
 \BOOKMARK [1][-]{section.5.2}{Organizacja i struktura baz danych}{chapter.5}% 35
-\BOOKMARK [1][-]{section.5.3}{Wykorzystane biblioteki}{chapter.5}% 36
-\BOOKMARK [1][-]{section.5.4}{Model klas}{chapter.5}% 37
-\BOOKMARK [1][-]{section.5.5}{Szczeg\363\233owa analiza danych wejsciowych}{chapter.5}% 38
-\BOOKMARK [1][-]{section.5.6}{Algorytmy}{chapter.5}% 39
-\BOOKMARK [2][-]{subsection.5.6.1}{Dodawanie brakujacych przedmiot\363w bedacych czescia promocji do transakcji}{section.5.6}% 40
-\BOOKMARK [2][-]{subsection.5.6.2}{Rozszerzanie zdarzenia XML o rozszerzone nazwy przedmiot\363w i wartosci podatk\363w}{section.5.6}% 41
-\BOOKMARK [0][-]{chapter.6}{Testowanie i uruchamianie}{}% 42
-\BOOKMARK [1][-]{section.6.1}{PreParser}{chapter.6}% 43
-\BOOKMARK [1][-]{section.6.2}{Parser}{chapter.6}% 44
-\BOOKMARK [0][-]{chapter.7}{Uwagi o przebiegu i wynikach prac}{}% 45
-\BOOKMARK [1][-]{section.7.1}{Stopien realizacji zagadnienia}{chapter.7}% 46
-\BOOKMARK [1][-]{section.7.2}{Napotkane problemy}{chapter.7}% 47
-\BOOKMARK [1][-]{section.7.3}{Dalszy rozw\363j}{chapter.7}% 48
-\BOOKMARK [0][-]{chapter.8}{Podsumowanie}{}% 49
+\BOOKMARK [1][-]{section.5.3}{Model klas}{chapter.5}% 36
+\BOOKMARK [1][-]{section.5.4}{Szczeg\363\233owa analiza danych wejsciowych}{chapter.5}% 37
+\BOOKMARK [1][-]{section.5.5}{Algorytmy}{chapter.5}% 38
+\BOOKMARK [2][-]{subsection.5.5.1}{Dodawanie brakujacych przedmiot\363w bedacych czescia promocji do transakcji}{section.5.5}% 39
+\BOOKMARK [2][-]{subsection.5.5.2}{Rozszerzanie zdarzenia XML o rozszerzone nazwy przedmiot\363w i wartosci podatk\363w}{section.5.5}% 40
+\BOOKMARK [0][-]{chapter.6}{Testowanie i uruchamianie}{}% 41
+\BOOKMARK [1][-]{section.6.1}{PreParser}{chapter.6}% 42
+\BOOKMARK [1][-]{section.6.2}{Parser}{chapter.6}% 43
+\BOOKMARK [0][-]{chapter.7}{Uwagi o przebiegu i wynikach prac}{}% 44
+\BOOKMARK [1][-]{section.7.1}{Stopien realizacji zagadnienia}{chapter.7}% 45
+\BOOKMARK [1][-]{section.7.2}{Napotkane problemy}{chapter.7}% 46
+\BOOKMARK [1][-]{section.7.3}{Dalszy rozw\363j}{chapter.7}% 47
+\BOOKMARK [0][-]{chapter.8}{Podsumowanie}{}% 48
