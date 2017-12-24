@@ -115,7 +115,7 @@ Po wstępnym przetworzeniu danych zostają one wysłane do bazy ulokowanej po st
 \subsection{Umiejscowienie w systemie 360iQ}
 AlohaPreParser oraz AlohaParser są bezpośrednimi składowymi systemu 360iQ dostarczanemu przez firmę EZUniverse. System ten składa się z~całej infrastruktury nakierowanej na dostarczenie klientowi maksymalnej liczby informacji mogących wesprzeć funkcjonowanie biznesu klienta. Wspierane są duże ilości modeli kas, które mogą być zainstalowane w klepie klienta. Dzięki wsparciu dla dużej ilości modeli kas oraz współpracy z największymi sieciami sklepów (np. Subway, Burger King) system 360iQ jest kompleksowa platformą do wspomagania biznesu klienta.
 \subsection{Dane wejściowe}
-Danymi wejściowymi dostarczanymi do kontrolera są pojedyncze zdarzenia zapisane w formacie XML.
+Danymi wejściowymi dostarczanymi do kontrolera są pojedyncze zdarzenia zapisane w formacie XML (ang. Extensible Markup Language, w wolnym tłumaczeniu Rozszerzalny Język Znaczników)).
 Format przychodzących danych omówiony zostanie na podstawie następującego zdarzenia (Rys. \ref{lst:przykladoweZdarzenieAloha}).  
 \begin{figure}[t]
 	\begin{lstlisting}[frame=single, breaklines=true, numbers=none]
@@ -257,10 +257,13 @@ Niezbyt przyjazną cechą terminala Aloha jest obsługa dodawania promocji bez u
 Problem ten objawia się sytuacją, gdy w zdarzeniu wystawianym przez terminal mającym typ "TAX" pojawia się zerowa wartość podatku. W tej sytuacji, by uzyskać prawidłową cenę końcową z wliczoną już wartością podatku, konieczne jest wczytanie dodatkowego słownika przechowującego wartości podatków dla każdego z przedmiotów. Takie rozwiązanie pojawia się w sytuacji, gdy oprogramowanie działa w krajach gdzie system podatkowy znacząco różni się od tego, który obowiązuje w Stanach Zjednoczonych. 
 \section{Opis technologii i wykorzystanych narzędzi}
 \subsection{Środowisko pracy i język programowania}
-Projekt został zrealizowany przy użyciu technologii .NET oraz języka C\#.
-Wielokrotnie podczas przeglądania kodu źródłowego projektu można również napotkać skrypty pisane w języku T-SQL, w celu komunikacji z bazą danych.
+Projekt został zrealizowany przy użyciu technologii .NET (\cite{aspnet}, \cite{aspnet}) oraz języka C\# (\cite{ruszglowa}).
+Wielokrotnie podczas przeglądania kodu źródłowego projektu można również napotkać skrypty pisane w języku T-SQL (\cite{tsql}), w celu komunikacji z bazą danych.
 Całość projektu została napisana w środowisku Visual Studio 2017, przy czym korzystano również z Visual Studio Code w celu analizy danych XML oraz szybkiego przeglądania plików tekstowych.
-Do administrowania i zarządzania bazą danych wykorzystano Microsoft SQL Server Management Studio 2016. 
+Do administrowania i zarządzania bazą danych wykorzystano Microsoft SQL Server Management Studio 2016.
+Podczas projektowania algorytmów i optymalizacji kodu wykorzystywano wiedzę zdobytą w wyniku lektury lektur: (\cite{algorytmy}, \cite{perelki}, \cite{wzorceprojektowe}).
+Dodatkowo w celu poprawnej implementacji serwisu działającego w środowisku Windows korzystano z pozycji - (\cite{progwin})
+Wybór narzędzi wynikał ze standardów panujących firmie EZUniverse, na zlecenie której tworzone jest oprogramowanie.
 \subsection{Baza danych}
 Serwerem bazy danych był Microsoft SQL Server 2016 w wersji Express zainstalowany na lokalnym komputerze. Dokonano połączenia, na lokalnej bazie developera, tabel koniecznych do pracy modułu wstępnego przetwarzania i tych niezbędnych do funkcjonowania jednostki realizującej właściwe procesowanie danych.
 Dzięki takiemu rozwiązaniu można było testować działanie całego systemu na lokalnym komputerze bez konieczności korzystania z osobnego komputera, który miałby pełnić funkcję kontrolera.
