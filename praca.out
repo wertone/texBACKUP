@@ -33,7 +33,7 @@
 \BOOKMARK [0][-]{chapter.5}{Specyfikacja wewnetrzna}{}% 33
 \BOOKMARK [1][-]{section.5.1}{Architektura systemu}{chapter.5}% 34
 \BOOKMARK [1][-]{section.5.2}{Organizacja i struktura baz danych}{chapter.5}% 35
-\BOOKMARK [1][-]{section.5.3}{Model klas}{chapter.5}% 36
+\BOOKMARK [1][-]{section.5.3}{Hierarchia klas}{chapter.5}% 36
 \BOOKMARK [1][-]{section.5.4}{Szczeg\363\233owa analiza danych wejsciowych}{chapter.5}% 37
 \BOOKMARK [1][-]{section.5.5}{Algorytmy}{chapter.5}% 38
 \BOOKMARK [2][-]{subsection.5.5.1}{Dodawanie brakujacych przedmiot\363w bedacych czescia promocji do transakcji}{section.5.5}% 39

@@ -90,12 +90,12 @@
 \mainmatter
 \chapter{Wstęp}
 \label{rozdzial1}
-Celem pracy dyplomowej jest zaprojektowanie i implementacja systemu informatycznego, który umożliwiałby gromadzenie oraz przetwarzanie danych generowanych przez kasy sklepowe Aloha. System ten miałby na  celu dostarczenie użytkownikowi informacji o funkcjonowaniu sklepu, w którym aplikacja została zainstalowana. Umożliwi to kompleksowy monitoring i analizę danych sprzedażowych. System będzie pobierał dane generowane przez kasę i poddawał je szczegółowej analizie, która pozwoli na tworzenie z nich struktur  obrazujących rzeczywiste czynności wykonywane przy użyciu kas Aloha (szczególnie popularny model kasy w Stanach Zjednoczonych). Takie przetwarzanie przychodzących danych pozwoli użytkownikowi na wejrzenie w dane szczegółowe konkretnej transakcji, zobaczenie materiału wideo z jej przebiegu oraz generowanie raportów i~paragonów. Dzięki takim funkcjonalnościom system powinien umożliwić optymalizację sprzedaży oraz wprowadzanie oszczędności wynikających z usunięcia nieprawidłowości zaistniałych podczas pracy sklepu. Aplikacja będzie składała się z dwóch warstw:
+Celem pracy dyplomowej jest zaprojektowanie i implementacja systemu informatycznego, który umożliwiałby analizę oraz przetwarzanie danych generowanych przez kasy sklepowe Aloha (szczególnie popularny model kasy w Stanach Zjednoczonych). System ten miałby na  celu dostarczenie użytkownikowi informacji o funkcjonowaniu sklepu, w którym aplikacja została zainstalowana. Umożliwi to kompleksowy monitoring i analizę danych sprzedażowych. System będzie pobierał dane generowane przez terminal kasowy Aloha i poddawał je szczegółowej analizie, która pozwoli na tworzenie z nich struktur  obrazujących rzeczywiste czynności wykonywane przy użyciu kas Aloha. Takie przetwarzanie przychodzących danych pozwoli użytkownikowi na wejrzenie w dane szczegółowe konkretnej transakcji oraz generowanie raportów i~paragonów. Dodatkowo system dostarcza informacji o dacie oraz godzinie wystąpienia zdarzenia, co pozwala użytkownikowi na podejrzenie przebiegu transakcji na zainstalowanym u siebie systemie monitoringu sklepu. Dzięki takim funkcjonalnościom system powinien umożliwić optymalizację sprzedaży oraz wprowadzanie oszczędności wynikających z usunięcia nieprawidłowości zaistniałych podczas pracy sklepu (np. błędna liczba wydanych produktów w trakcie trwania transakcji, niezgadzająca się suma elementów transakcji z wartością płatności dokonanej przez klienta itp.). Aplikacja będzie składała się z dwóch warstw:
 \begin{itemize}
 	\item modułu wstępnego przetwarzania danych (PreParser-a),
 	\item modułu właściwego przetwarzania danych (Parser-a).
 \end{itemize}
-PreParser będzie działał jako serwis po stronie użytkownika i wprowadzi konieczność jego instalacji na tzw. kontrolerze w sklepie użytkownika, czyli komputerze gromadzącym dane przychodzące z kas w danym sklepie i poddającym je etapowi wstępnej obróbki (preprasing) oraz wysyłającym dane wynikowe do bazy danych dostarczanej przez twórcę systemu, gdzie dalszym ich przetwarzaniem zajmie się Parser. Zadaniem modułu właściwego przetwarzania danych, będzie obróbka wstępnie przetworzonych informacji przez PreParser i zamiana ich na format mogący być analizowany przez system i zaprezentowany użytkownikowi. Pomysł na stworzenie takiego oprogramowania zrodził się z faktu zajmowania się tą tematyką zawodowo przez autora niniejszej pracy. Autor postanowił wykorzystać wiedzę i doświadczenie zdobyte podczas pracy zawodowej oraz studiów, by stworzyć system mający być częścią oprogramowania 360iQ dostarczanego przez firmę EZUniverse Inc. Dzięki regularnej pracy nad zagadnieniem podczas wykonywaniu obowiązków zawodowych, możliwe było dokładne dostosowanie systemu pod wymagania użytkownika oraz jego solidne przetestowanie przy działu z wykorzystaniem realnych danych i przypadków użycia.
+Użytkownikiem opisywanego systemu jest właściciel sklepu, bądź sieci sklepów. PreParser będzie działał jako serwis po stronie użytkownika i wprowadzi konieczność jego instalacji na tzw. kontrolerze w sklepie użytkownika, czyli komputerze gromadzącym dane przychodzące z kas w danym sklepie. Dane te są tzw. zdarzeniami, które są generowane przez terminal kasowy za każdym razem, gdy wykonana zostanie na nim jakaś czynność. Wspomniany wyżej serwis będzie poddawał przychodzące zdarzenia etapowi wstępnej obróbki (preprasing) oraz wysyłał dane wynikowe (będące zbiorami połączonych ze sobą zdarzeń elementarnych na podstawie numeru transakcji) do bazy danych dostarczanej przez twórce systemu (firma EZUniverse), gdzie dalszym ich przetwarzaniem zajmie się Parser. Zadaniem modułu właściwego przetwarzania danych, będzie obróbka wstępnie przetworzonych informacji przez PreParser i zamiana ich na format mogący być analizowany przez system i zaprezentowany użytkownikowi w postaci paragonów, wykresów oraz listy transakcji na stronie internetowej systemu. Pomysł na stworzenie takiego oprogramowania zrodził się z faktu zajmowania się tą tematyką zawodowo przez autora niniejszej pracy. Autor postanowił wykorzystać wiedzę i doświadczenie zdobyte podczas pracy zawodowej oraz studiów, by stworzyć system mający być częścią oprogramowania 360iQ dostarczanego przez firmę EZUniverse Inc. Dzięki regularnej pracy nad zagadnieniem podczas wykonywaniu obowiązków zawodowych, możliwe było dokładne dostosowanie systemu pod wymagania użytkownika oraz jego solidne przetestowanie przy działu z wykorzystaniem realnych danych i przypadków użycia.
 
 Rozdział \ref{rozdzial2} niniejszej pracy zawiera zarys problemu oraz informacje opisujące wykorzystane technologie. Rozdział trzeci wprowadza w temat wymagań funkcjonalnych i niefunkcjonalnych oraz przypadków użycia. Następne rozdziały przybliżą tematykę specyfikacji zewnętrznej oraz wewnętrznej systemu. Poruszone zostaną zagadnienia związane z wykorzystanymi algorytmami oraz metodami radzenia sobie z problematycznymi danymi wejściowymi. Przedstawiony zostanie dodatkowo schemat bazy danych oraz nastąpi omówienie ważniejszych, ze względu na role i funkcjonalność klas. Dwa ostatnie rozdziały poruszą kwestię testowania aplikacji oraz omówiony zostanie przebieg prac i wyniki końcowe wraz z wizją dalszego rozwoju systemu. 
 \chapter{Analiza tematu}
@@ -105,7 +105,7 @@ Niniejszy rozdział omawia podstawowe zagadnienia związane z realizowanym proje
 \subsection{Procesor danych z terminali kas fiskalnych Aloha}
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=\textwidth]{./img/aloha_pos.png}
+	\includegraphics{./img/aloha_pos.png}
 	\caption{Przykładowy model kasy Aloha.}
 	\label{fig:aloha_pos}
 \end{figure}
@@ -182,6 +182,7 @@ Słowniki te gromadzone są przez moduł wstępnego przetwarzania i wykorzystywa
 \subsection{Typy zdarzeń generowanych przez kasę Aloha}
 Kasa Aloha jest zdolna do wygenerowania szeregu typów zdarzeń. Są to między innymi:
 \begin{itemize}
+	\setlength\itemsep{0.1pt}
 	\item Zalogowanie pracownika w kasie.
 	\item Wylogowanie pracownika z kasy.
 	\item Przerwa w pracy.
@@ -322,13 +323,13 @@ Podczas projektowania modułu Parsera powinny zostać uwzględnione następując
 W niniejszej sekcji zaprezentowano przypadki użycia dla modułu wstępnego przetwarzania(rys. \ref{fig:przypadki_uzycia_preparser}). Schemat dla modułu PreParsera obrazuje czynności możliwe do wykonania przez użytkownika aplikacji w celu sterowania jej pracą. Natomiast diagram dla części odpowiadającej za właściwe przetwarzanie (rys. \ref{fig:przypadki_uzycia_parser}) pokazuje akcje i czynności, jakie może podjąć administrator, by kontrolować pracę Parsera.
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=\textwidth]{./img/przypadki_uzycia_preparser.png}
+	\includegraphics{./img/przypadki_uzycia_preparser.png}
 	\caption{Przypadki użycia - moduł wstępnego przetwarzania.}
 	\label{fig:przypadki_uzycia_preparser}
 \end{figure}
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=\textwidth]{./img/przypadki_uzycia_parser.png}
+	\includegraphics{./img/przypadki_uzycia_parser.png}
 	\caption{Przypadki użycia - moduł właściwego przetwarzania.}
 	\label{fig:przypadki_uzycia_parser}
 \end{figure}
@@ -368,13 +369,13 @@ W celu zainstalowania  modułu wstępnego przetwarzania danych należy uruchomi�
 Uruchomionony zostanie instalator serwisu (rys. \ref{fig:preparser_installation_part1}). W momencie wciśnięcia przycisku Install, instalator rozpocznie wgrywanie PreParser na kontroler. Po zakończeniu procesu powinien zostać wyświetlony ekran informujący o poprawnie zakończonej instalacji serwisu (rys. \ref{fig:preparser_installation_part2})
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=\textwidth]{./img/preparser_installation_part1.png}
+	\includegraphics{./img/preparser_installation_part1.png}
 	\caption{Instalacja modułu wstępnego przetwarzania - początek instalacji.}
 	\label{fig:preparser_installation_part1}
 \end{figure}
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=\textwidth]{./img/preparser_installation_part2.png}
+	\includegraphics{./img/preparser_installation_part2.png}
 	\caption{Instalacja modułu wstępnego przetwarzania - koniec instalacji.}
 	\label{fig:preparser_installation_part2}
 \end{figure}
@@ -432,7 +433,11 @@ Skrócony opis poszczególnych parametrów:
 	\item ControllerWebURL - adres URL kontrolera.
 \end{itemize}
 \subsection{Instalacja Parser-a po stronie administratora}
-Poprawna instalacja modułu właściwego przetwarzania danych na komputerze administratora wymaga ręcznego rozpakowania archiwum AlohaParser\_VERSION.zip, gdzie VERSION jest numerem wersji. Po rozpakowaniu archiwum w miejscu wybranym przez administratora, powinny być dostępne pliki potrzebne do uruchomienia modułu właściwego przetwarzania danych.
+Poprawna instalacja modułu właściwego przetwarzania danych na komputerze administratora wymaga ręcznego rozpakowania archiwum:
+\newline
+ \texttt{AlohaParser\_VERSION.zip}
+ \newline
+ Gdzie VERSION jest numerem wersji. Po rozpakowaniu archiwum w miejscu wybranym przez administratora, powinny być dostępne pliki potrzebne do uruchomienia modułu właściwego przetwarzania danych.
 Aplikacje można uruchomić otwierając plik EZ360ParserUI.exe.
 Następnie należy dokonać konfiguracji zainstalowanej aplikacji. W tym celu otwieramy plik configuration.json. Powinien on mieć format przedstawiony na listingu \ref{lst:przykladowyPlikKonfiguracyjnyParser}.
 \begin{figure}[t]
@@ -500,18 +505,12 @@ Skrócony opis poszczególnych parametrów:
 Startowanie serwisu realizowane jest z wykorzystaniem systemu operacyjnego Windows. Poprawne wystartowanie modułu wstępnego przetwarzania (po jego odpowiedniej konfiguracji) sprowadza się do uruchomienia serwisu za pośrednictwem menadżera serwisów systemu Windows (proces został zaprezentowany na rys. \ref{fig:startowanie_serwisu})
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=\textwidth]{./img/startowanie_serwisu.png}
-	\caption{Przykład startowania serwisu.}
+	\includegraphics{./img/startowanie_serwisu.png}
+	\caption{Przykład startowania/zatrzymywania serwisu.}
 	\label{fig:startowanie_serwisu}
 \end{figure}
 \subsubsection{Zatrzymywanie serwisu}
 Zatrzymywanie preparsera realizowane jest podobnie jak jego startowanie. Wykorzystuje się do tego również menadżer serwisów Windows.
-\begin{figure}[t]
-	\centering
-	\includegraphics[width=\textwidth]{./img/zatrzymywanie_serwisu.png}
-	\caption{Przykład zatrzymywania serwisu.}
-	\label{fig:zatrzymywanie_serwisu}
-\end{figure}
 \subsubsection{Dezinstalacja serwisu}
 W celu usunięcia serwisu z systemu operacyjnego należy uruchomić wiersz poleceń systemu Windows, a następnie przejść do katalogu gdzie został zainstalowany serwis. Po dokonaniu wyżej opisach czynności należy dokonać dezinstalacji poleceniem: \newline
 \texttt{EZ360PreParserService.exe -uninstall}
@@ -527,26 +526,14 @@ Wyróżniamy następujące typy wiadomości składowanych w logach:
 \end{itemize}
 \subsection{Parser}
 \subsubsection{Uruchamianie aplikacji}
-W celu uruchomienia aplikacji należy otworzyć plik EZ360ParserUI.exe, następnie dokonać inicjalizacji poprzez kliknięcie odpowiedniego przycisku (rys. \ref{fig:inicjalizacja_aplikacji}).
-\begin{figure}[t]
-	\centering
-	\includegraphics[width=\textwidth]{./img/inicjalizacja_aplikacji.png}
-	\caption{Inicjalizacja aplikacji - należy kliknąć na ikonę zaznaczoną żółtym kolorem.}
-	\label{fig:inicjalizacja_aplikacji}
-\end{figure}
-Po poprawnej inicjalizacji modułu, wystarczy wcisnąć przycisk start, by rozpocząć proces przetwarzania danych (rys. \ref{fig:startowanie_aplikacji}).
-\begin{figure}[t]
-	\centering
-	\includegraphics[width=\textwidth]{./img/startowanie_aplikacji.png}
-	\caption{Startowanie aplikacji - należy kliknąć na ikonę zaznaczoną żółtym kolorem.}
-	\label{fig:startowanie_aplikacji}
-\end{figure}
+W celu uruchomienia aplikacji należy otworzyć plik EZ360ParserUI.exe, następnie dokonać inicjalizacji poprzez kliknięcie odpowiedniego przycisku.
+Po poprawnej inicjalizacji modułu, wystarczy wcisnąć przycisk start, by rozpocząć proces przetwarzania danych (rys. \ref{fig:zatrzymywanie_aplikacji})
 \subsubsection{Zatrzymywanie aplikacji}
 Administrator może w każdej chwili zatrzymać moduł właściwego przetwarzania danych. W celu dokonania tego, należy kliknąć przycisk STOP (rys. \ref{fig:zatrzymywanie_aplikacji}). Aplikacja dokończy obecny proces przetwarzania i wyśle dane, następnie zatrzyma się (trwa to około kilka sekund, zależnie od ilości przetwarzanych danych).
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=\textwidth]{./img/zatrzymywanie_aplikacji.png}
-	\caption{Zatrzymywanie aplikacji - należy kliknąć na ikonę zaznaczoną żółtym kolorem.}
+	\includegraphics[width=200mm]{./img/zatrzymywanie_aplikacji.png}
+	\caption{Inicjalizacja/Startowanie/Zatrzymywanie aplikacji}
 	\label{fig:zatrzymywanie_aplikacji}
 \end{figure}
 \subsubsection{Dezinstalacja aplikacji}
@@ -572,13 +559,13 @@ Przykłady działania aplikacji i jej obsługi:
 \end{itemize}
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=\textwidth]{./img/preparser_log.png}
+	\includegraphics{./img/preparser_log.png}
 	\caption{Logi PreParsera.}
 	\label{fig:preparser_log}
 \end{figure}
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=\textwidth]{./img/parser_log.png}
+	\includegraphics{./img/parser_log.png}
 	\caption{Logi Parsera.}
 	\label{fig:parser_log}
 \end{figure}
@@ -598,13 +585,14 @@ Jak już wielokrotnie wspominano w niniejszej pracy, dane wychodzące z terminal
 \end{enumerate}
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=\textwidth]{./img/schemat_przeplywu_danych.png}
+	\includegraphics[width=\textheight]{./img/schemat_przeplywu_danych.png}
 	\caption{Schemat przepływu danych.}
 	\label{fig:schemat_przeplywu_danych}
 \end{figure}
 \section{Organizacja i struktura baz danych}
-Moduł wstępnego przetwarzania danych:
- \begin{itemize}
+Moduł wstępnego przetwarzania danych.
+Schemat bazy danych zawierający niżej wymienione tabele odpowiadające za pracę PreParsera (rys. \ref{fig:preparser_database_schema}):
+  \begin{itemize}
 	\item \_RAWDATA,
 	\item ALOHA\_Transactions,
 	\item ALOHA\_CashOperations,
@@ -612,15 +600,14 @@ Moduł wstępnego przetwarzania danych:
 	\item ALOHA\_Data,
 	\item ALOHA\_Actions.
 \end{itemize}
-Schemat bazy danych - (rys. \ref{fig:preparser_database_schema})
 \begin{figure}[t]
 	\centering
 	\includegraphics[width=\textwidth]{./img/preparser_database_schema.png}
 	\caption{Schemat bazy danych dla modułu wstępnego przetwarzania.}
 	\label{fig:preparser_database_schema}
 \end{figure}
-\newline
-Moduł właściwego przetwarzania danych:
+Moduł właściwego przetwarzania danych.
+Schemat bazy danych zawierający niżej wymienione tabele odpowiadające za pracę Parsera (rys. \ref{fig:parser_database_schema}):
 \begin{itemize}
 	\item Transactions,
 	\item TransactionProducts,
@@ -629,45 +616,46 @@ Moduł właściwego przetwarzania danych:
 	\item TransactionReceipts,
 	\item TransactioActions.
 \end{itemize}
-Schemat bazy danych - (rys. \ref{fig:parser_database_schema})
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=\textwidth]{./img/parser_database_schema.png}
+	\includegraphics{./img/parser_database_schema.png}
 	\caption{Schemat bazy danych dla modułu właściwego przetwarzania.}
 	\label{fig:parser_database_schema}
 \end{figure} 
-\section{Model klas}
-Niniejsza sekcja opisuje najważniejsze klasy wykorzystywane w projekcie. W~zależności od modułu są to:
+\section{Hierarchia klas}
+W celu realizacji zadania zostały zaproponowane hierarchie klas dla PreParsera i Parsera, które zostały przedstawione na rys. \ref{fig:preparser_diagram_klas} i  rys. \ref{fig:parser_diagram_klas}. 
 \begin{itemize}
-	\item Moduł wstępnego przetwarzania danych (schemat \ref{fig:preparser_diagram_klas}),
-	\subitem PreParser,
-	\subitem AlohaPreParser,
-	\subitem TransactionPreParser,
-	\subitem TimeClockPreParser,
-	\subitem CashDropPreParser,.
-	\item Moduł właściwego przetwarzania danych (schemat \ref{fig:parser_diagram_klas}).
-	\subitem Parser,
-	\subitem AlohaParser,
-	\subitem TransactionParser,
-	\subitem TimeClockParser,
-	\subitem CashDropParser,
-	\subitem DataParser.
+	\setlength\itemsep{0.1pt}
+	\item Moduł wstępnego przetwarzania danych (rys. \ref{fig:preparser_diagram_klas}),
+	\subitem \textbf{PreParser} - jest to główna klasa abstrakcyjna, po której dziedziczą wszystkie PreParsery działające w obrębie systemu 360iQ. Dostarcza ona podstawowych funkcjonalności wspomagających ogólny proces wstępnego przetwarzania danych.
+	\subitem \textbf{AlohaPreParser} - klasa dziedzicząca po klasie PreParser i rozbudowująca jej funkcjonalności i rozwiązania specyficzne dla terminali Aloha. Administruje ona podziałem danych wejściowych na odpowiednie typy, dla których później uruchamia specjalne klasy przetwarzające.
+	\subitem \textbf{TransactionPreParser} - klasa zaprojektowana w celu wstępnego przetwarzania transakcji.
+	\subitem \textbf{TimeClockPreParser} - klasa zaprojektowana w celu wstępnego przetwarzania obecności pracowników.
+	\subitem \textbf{CashDropPreParser} - klasa zaprojektowana w celu wstępnego przetwarzania wpłat i wypłat z kasy.
+	\item Moduł właściwego przetwarzania danych (rys. \ref{fig:parser_diagram_klas}).
+	\subitem \textbf{Parser} - jest to główna klasa abstrakcyjna, po której dziedziczą wszystkie Parsery działające w obrębie systemu 360iQ. Dostarcza ona podstawowych funkcjonalności wspomagających ogólny proces właściwego przetwarzania danych.
+	\subitem \textbf{AlohaParser} - klasa dziedzicząca po klasie Parser i dodająca wsparcie dla terminali kasowych Aloha. Odczytuje typy obiektów, które zostały przekazane w formie danych wejściowych i uruchamia specjalne klasy przetwarzające.
+	\subitem \textbf{TransactionParser} - klasa zaprojektowana w celu właściwego przetwarzania transakcji.
+	\subitem \textbf{TimeClockParser} - klasa zaprojektowana w celu właściwego przetwarzania obecności pracowników.
+	\subitem \textbf{CashDropParser} - klasa zaprojektowana w celu właściwego przetwarzania wpłat i wypłat z kasy.
+	\subitem \textbf{DataParser} - klasa zaprojektowana w celu właściwego przetwarzania danych dodatkowych.
 \end{itemize}
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=\textwidth]{./img/preparser_diagram_klas.png}
+	\includegraphics{./img/preparser_diagram_klas.png}
 	\caption{Diagram przedstawiający najważniejsze klasy - PreParser.}
 	\label{fig:preparser_diagram_klas}
 \end{figure}
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=\textwidth]{./img/parser_diagram_klas.png}
+	\includegraphics{./img/parser_diagram_klas.png}
 	\caption{Diagram przedstawiający najważniejsze klasy - Parser.}
 	\label{fig:parser_diagram_klas}
 \end{figure}
 \section{Szczegółowa analiza danych wejściowych}
 Na podstawie przykładowych danych wejściowych przestawionych na rys. \ref{lst:przykladoweZdarzenieAloha2}. Każde zdarzenie w formacie XML zawiera następujące atrybuty:
 \begin{itemize}
+	\setlength\itemsep{0.1pt}
 	\item TerminalID - numer terminala kasowego.
 	\item EventTime - czas wystąpienia zdarzenia.
 	\item EmployeeID - ID pracownika.
@@ -710,132 +698,63 @@ Na podstawie przykładowych danych wejściowych przestawionych na rys. \ref{lst:
 \section{Algorytmy}
 W systemie wykorzystane zostały następujące algorytmy przetwarzające i~rozszerzające dane wejściowe w formacie XML:
 \begin{itemize}
-	\item Dodawanie brakujących przedmiotów będących częścią promocji do transakcji (listing został podzielony na części - kolejno: \ref{lst:brakujaceProdukty1}, \ref{lst:brakujaceProdukty2}, \ref{lst:brakujaceProdukty3})
-	\item Rozszerzanie zdarzenia XML o rozszerzone nazwy przedmiotów i wartości podatków (listing został podzielony na części - kolejno: \ref{lst:rozszerzanieXML1}. \ref{lst:rozszerzanieXML2}, \ref{lst:rozszerzanieXML3})
+	\item Dodawanie brakujących przedmiotów będących częścią promocji do transakcji (rys.  \ref{lst:brakujaceProdukty}).
+	\item Rozszerzanie zdarzenia XML o rozszerzone nazwy przedmiotów (rys. \ref{lst:rozszerzanieXML}).
 \end{itemize}
 \subsection{Dodawanie brakujących przedmiotów będących częścią promocji do transakcji}
 Raz w ciągu dnia, otrzymywana jest wiadomość zawierająca PromotionsXML. Za każdym razem, gdy taka informacja jest odbierana, zapisana zostaje do pliku lub aktualizowana, jeśli już istnieje. PreParser zawiera również obiekt, który przechowuje dane pochodzące ze słownika PromotionsXML. Wspomniana wiadomość jest konwertowana na instancję klasy PromotionBundle, która przechowuje informacje o promocjach i elementach w niej zawartych. Metoda bezpośrednio zaangażowana w przetwarzanie promocji nazywa się ProcessAddPromo. Zapewnia funkcjonalność, która wykrywa, czy nastąpiła zmiana promocji i wstawia produkty, których brakuje. To, co dokładnie dzieje się w wykrywaniu algorytmów promocji, można podsumować w prostych krokach:
 \begin{itemize}
 	\item Przechowywana jest historia przetworzonych zdarzeń, co pozwala algorytmowi powrócić do przeszłych akcji, aby wykryć pożądany schemat,
-	\item Szukany jest zestaw 2 instrukcji (jest to wartość minimum - zostaje ona zwiększona, jeśli wykryte są zdarzenia, których zawartość pola TransactionType zaczyna się od 6 lub 7), które poprzedzały bieżące zdarzenie,
+	\item Szukany jest zestaw 2 instrukcji - ADD\_ITEM, CANCEL\_ITEM - (jest to wartość minimum - zostaje ona zwiększona, jeśli wykryte są zdarzenia, których zawartość pola TransactionType zaczyna się od 6 lub 7), które poprzedzały bieżące zdarzenie,
 	\item Jeśli znaleziony zostanie odpowiedni zestaw zdarzeń, który jest rozpoznawany jako zmiana promocji to dodawane lub usuwane są odpowiednie wydarzenia na podstawie wyników wyszukiwania odpowiednich schematów zdarzeń.
 \end{itemize}
-
 \begin{figure}[t]
 	\begin{lstlisting}[frame=single, breaklines=true]
 	private void ProcessAddPromo(XElement action, XElement lastAction, List<SpyMessage> actions,
 	List<PromotionBundle> promotionBundles, List<string> warningMessages, List<SpyMessage> result)
 	{
-	var listOfActions = actions.Select(x => x.Body).ToList();
-	var lastActionTransactionType = lastAction?.Attribute("TransactionType")?.Value ?? string.Empty;
-	if (lastActionTransactionType == "DELETE_PROMO")
-	{
-	var actionsOffset = 2;
-	var cancelItemActionAppeared = false;
-	var addItemActionAppeared = false;
-	for (var i = 1; i < actionsOffset + 1; i++)
-	{
-	var indexToMove = listOfActions.IndexOf(lastAction) - i;
-	if (indexToMove >= 0)
-	{
-	var currentAction = actions.ElementAt(indexToMove).Body;
-	var currentActionName = currentAction?.Attribute("TransactionType")?.Value ?? string.Empty;
-	if (currentActionName.StartsWith("6") || currentActionName.StartsWith("7"))
-	{
-	actionsOffset++;
-	}
+		var listOfActions = actions.Select(x => x.Body).ToList();
+		var lastActionTransactionType = lastAction?.Attribute("TransactionType")?.Value ?? string.Empty;
+		//Warunkiem rozpoczecia pracy algorytmu jest zidentyfikowanie typu obecnie przetwarzanego zdarzenia jako DELETE_PROMO
+		if (lastActionTransactionType == "DELETE_PROMO")
+			{
+				var actionsOffset = 2;
+				var cancelItemActionAppeared = false;
+				var addItemActionAppeared = false;
 	
-	if (currentActionName == "ADD_ITEM" && cancelItemActionAppeared)
-	{
-	addItemActionAppeared = true;
-	break;
-	}
+				//Sprawdza czy w obrebie 2 zdarzen, ktore wystapily przed obecnie analizowanym zdarzeniem wystapily zdarzenia typu ADD lub CANCEL
+				CheckIfAddOrCancelActionAppeared(listOfActions, lastAction, actionsOffset, cancelItemActionAppeared, addItemActionAppeared);
+				if (addItemActionAppeared)
+				{
+					//Wystapilo zdarzenie ADD, wiec nie ma koniecznosci dodania nowych przedmiotow do transakcji
+					IsPromoChanged = true;
+					AreItemsAlreadyAdded = true;
+				}	
+				if (!AreItemsAlreadyAdded)
+				{
+				//Odczyt nazwy promocji w celu znalezienia jej produktow skladowych ze slownika promotionBundles    
+				var promoName = action?.Attribute("Description")?.Value ?? string.Empty;
+				var bundle =
+				promotionBundles.FirstOrDefault(x => x.PromotionName.ToUpperInvariant() ==
+				promoName.ToUpperInvariant());
+				//Obsluga promocji typu: 2 za 1$
+				var itemsMultiplier = 1;
+				if (promoName.StartsWith("2 for"))
+				{
+				itemsMultiplier = 2;
+				}
 	
-	if (currentActionName == "CANCEL_ITEM" && !addItemActionAppeared)
-	{
-	cancelItemActionAppeared = true;
-	}
-	}
-	else
-	{
-	break;
-	}
+				//Dodanie brakujacych zdarzen opisujacych dodanie wymaganych przedmiotow do transakcji
+				AddMissingItemsXML(bundle, itemsMultiplier, actions, result);
+				}
+				
+			//Ustawienie flagi na false w celu obslugi kolejnego przebiegu algorytmu dla nastepnych danych
+			AreItemsAlreadyAdded = false;
+		}
 	}
 	\end{lstlisting}
-	\caption{Dodawanie brakujących przedmiotów będących częścią promocji do transakcji - część pierwsza}
-	\label{lst:brakujaceProdukty1}
-\end{figure}
-\begin{figure}[t]
-	\begin{lstlisting}[frame=single, breaklines=true]
-	if (addItemActionAppeared)
-	{
-	IsPromoChanged = true;
-	AreItemsAlreadyAdded = true;
-	warningMessages.Add(
-	$"Promotion change found for transaction at CheckID = {action?.Attribute("CheckID")?.Value ?? string.Empty} and EventTime = {action?.Attribute("EventTime")?.Value ?? string.Empty}.");
-	}
-	}	
-	if (!AreItemsAlreadyAdded)
-	{
-	var promoName = action?.Attribute("Description")?.Value ?? string.Empty;
-	var itemsMultiplier = 1;
-	if (promoName.StartsWith("2 for"))
-	{
-	itemsMultiplier = 2;
-	}
-	var bundle =
-	promotionBundles.FirstOrDefault(x => x.PromotionName.ToUpperInvariant() ==
-	promoName.ToUpperInvariant());
-	var count = 1;
-	var spyMessage = actions.FirstOrDefault(x => x.Body == action);
-	if (bundle != null)
-	{
-	foreach (var product in bundle.ProductsInPromotion)
-	{
-	var element = new XElement(action);
-	element.SetAttributeValue("TransactionType", "ADD_ITEM");
-	element.SetAttributeValue("TransactionTypeID", "8");
-	element.SetAttributeValue("Quantity", "1");
-	element.SetAttributeValue("Description", product.Name);
-	element.SetAttributeValue("Amount", product.DisplayAs);
-	element.Add(new XAttribute("ItemId", product.PLU));
-	element.Add(new XAttribute("ItemName", product.Name));
-	var message = new SpyMessage
-	{
-	Body = element,
-	CheckID = long.Parse(element?.Attribute("CheckID")?.Value),
-	RawDataID = -1,
-	TransactionType = element?.Attribute("TransactionType")?.Value ?? string.Empty,
-	LastActionDate = actions.ElementAt(actions.IndexOf(spyMessage)).LastActionDate,
-	UtcTime = actions.ElementAt(actions.IndexOf(spyMessage)).UtcTime
-	};
-	\end{lstlisting}
-	\caption{Dodawanie brakujących przedmiotów będących częścią promocji do transakcji - część druga}
-	\label{lst:brakujaceProdukty2}
-\end{figure}
-\begin{figure}[t]
-	\begin{lstlisting}[frame=single, breaklines=true]
-	for (var i = 0; i < itemsMultiplier; i++)
-	{
-	result.Add(message);
-	count++;
-	}
-	}
-	warningMessages.Add(
-	$"Promotion added {promoName} and EventTime = {action?.Attribute("EventTime")?.Value ?? string.Empty}. Added new events that add proper products for promotion");
-	}
-	else
-	{
-	warningMessages.Add(
-	$"Not found bundle: {promoName} in bundle collection for action's CheckID: {action?.Attribute("CheckID")?.Value ?? string.Empty}.");
-	}
-	}
-	
-	AreItemsAlreadyAdded = false;
-	}
-	\end{lstlisting}
-	\caption{Dodawanie brakujących przedmiotów będących częścią promocji do transakcji - część trzecia}
-	\label{lst:brakujaceProdukty3}
+	\caption{Dodawanie brakujących przedmiotów będących częścią promocji do transakcji}
+	\label{lst:brakujaceProdukty}
 \end{figure}
 \subsection{Rozszerzanie zdarzenia XML o rozszerzone nazwy przedmiotów i wartości podatków}
 Raz w ciągu dnia, pojawia się komunikat zawierający ItemCategoryXML. Dostarcza on rozszerzonych informacji o przedmiotach i ich kategoriach. W~Aloha ten sam przedmiot może być nazwany z wykorzystaniem różnych formatów.
@@ -853,110 +772,48 @@ Słownik ItemCategoryXML jest przechowywany zarówno na dysku, jak i jako obiekt
 	\begin{lstlisting}[frame=single, breaklines=true]
 	private void ExtendMessegeWithAdditionalItemInfo(XElement action, XElement itemCategoryXML, List<TaxInformation> taxInformations, List<PromotionBundle> promotionBundles)
 	{
-	var itemName = action?.Attribute("Description")?.Value ?? string.Empty;
-	if (itemCategoryXML != null)
-	{
-	var itemNodes = itemCategoryXML.Elements();
-	action.Add(new XAttribute("ItemId", string.Empty));
-	action.Add(new XAttribute("ItemShortName", string.Empty));
-	action.Add(new XAttribute("ItemLongName", string.Empty));
-	action.Add(new XAttribute("ItemLongName2", string.Empty));
-	action.Add(new XAttribute("ItemChitName", string.Empty));
-	action.Add(new XAttribute("ItemName", string.Empty));
-	action.Add(new XAttribute("Tax", "0"));
-	foreach (var item in itemNodes)
-	{
-	var itemShortName = item?.Attribute("ItemShortName")?.Value ?? string.Empty;
-	var itemLongName = item?.Attribute("ItemLongName")?.Value ?? string.Empty;
-	var itemLongName2 = item?.Attribute("ItemLongName2")?.Value ?? string.Empty;
-	var itemChitName = item?.Attribute("ItemChitName")?.Value ?? string.Empty;
-	var itemNameAttr = item?.Attribute("ItemName")?.Value ?? string.Empty;	
-	if (!string.IsNullOrEmpty(itemShortName) && itemShortName == itemName
-	|| !string.IsNullOrEmpty(itemLongName) && itemLongName == itemName
-	|| !string.IsNullOrEmpty(itemLongName2) && itemLongName2 == itemName
-	|| !string.IsNullOrEmpty(itemChitName) && itemChitName == itemName
-	|| !string.IsNullOrEmpty(itemNameAttr) && itemNameAttr == itemName)
-	{
-	action.SetAttributeValue("ItemId", item?.Attribute("ItemId")?.Value ?? string.Empty);
-	action.SetAttributeValue("ItemShortName", itemShortName);
-	action.SetAttributeValue("ItemLongName", itemLongName);
-	action.SetAttributeValue("ItemLongName2", itemLongName2);
-	action.SetAttributeValue("ItemChitName", itemChitName);
-	action.SetAttributeValue("ItemName", itemNameAttr);
-	\end{lstlisting}
-	\caption{Rozszerzanie zdarzenia XML o rozszerzone nazwy przedmiotów i wartości podatków. - część pierwsza}
-	\label{lst:rozszerzanieXML1}
-\end{figure}
-\begin{figure}[t]
-	\begin{lstlisting}[frame=single, breaklines=true]
-	
-	if (taxInformations != null)
-	{
-	var taxId = item?.Attribute("ItemTaxId")?.Value ?? "0";
-	var tax = taxInformations.FirstOrDefault(x => x.TaxId == taxId);
-	if (tax != null)
-	{
-	if (decimal.TryParse(
-	action?.Attribute("Amount")?.Value ?? "0",
-	NumberStyles.Any,
-	CultureInfo.InvariantCulture,
-	out var amountValue))
-	{
-	var taxValue = amountValue * tax.TaxRate;
-	action.SetAttributeValue("Tax", taxValue.ToString(CultureInfo.InvariantCulture));
-	}
-	}
-	}
-	}
-	}
-	}
-	else
-	{
-	var itemsInPromotions = promotionBundles.Select(x => x.ProductsInPromotion).ToList();
-	var items = new List<Product>();
-	foreach (var itemsInPromotion in itemsInPromotions)
-	{
-	foreach (var itemInPromotion in itemsInPromotion)
-	{
-	if (!items.Any(x => x.PLU == itemInPromotion.PLU))
-	{
-	items.Add(itemInPromotion);
-	}
-	}
-	}
-	action.Add(new XAttribute("ItemId", string.Empty));
-	action.Add(new XAttribute("ItemShortName", string.Empty));
-	action.Add(new XAttribute("ItemLongName", string.Empty));
-	action.Add(new XAttribute("ItemLongName2", string.Empty));
-	action.Add(new XAttribute("ItemChitName", string.Empty));
-	action.Add(new XAttribute("ItemName", string.Empty));
-	action.Add(new XAttribute("Tax", "0"));
-	\end{lstlisting}
-	\caption{Rozszerzanie zdarzenia XML o rozszerzone nazwy przedmiotów i wartości podatków. - część druga}
-	\label{lst:rozszerzanieXML2}
-\end{figure}
-\begin{figure}[t]
-	\begin{lstlisting}[frame=single, breaklines=true]
-	foreach (var item in items)
-	{
-	if (!string.IsNullOrEmpty(item.ShortName) && item.ShortName == itemName
-	|| !string.IsNullOrEmpty(item.LongName) && item.LongName == itemName
-	|| !string.IsNullOrEmpty(item.Name) && item.Name == itemName)
-	{
-	action.SetAttributeValue("ItemId", item.PLU);
-	action.SetAttributeValue("ItemShortName", item.ShortName);
-	action.SetAttributeValue("ItemLongName", item.LongName);
-	action.SetAttributeValue("ItemLongName2", string.Empty);
-	action.SetAttributeValue("ItemChitName", string.Empty);
-	action.SetAttributeValue("ItemName", item.Name);
-	}
-	}
-	}
+		//Pobranie nazwy przedmiotu z atrybutu XML
+		var itemName = action?.Attribute("Description")?.Value ?? string.Empty;
+		//Jezeli slownik jest rozny od NULL to uruchamiamy algorytm
+		if (itemCategoryXML != null)
+		{
+			//Lista przedmiotow ze slownika
+			var itemNodes = itemCategoryXML.Elements();
+			//Dodanie do obecnej akcji typu ADD/CANCEL/VOID rozszerzonych nazw z pustymi wartosciami
+			AddNewAttributesWithEmptyValues(action);
+			
+			//Ustawianie wartosci rozszerzonych nazw dla przetwarzanej akcji na podstawie zawartosci kolekcji itemNodes, 
+			//ktora pochodzi ze slownika z lista produktow, dostarczona przez uzytkownika
+			foreach (var item in itemNodes)
+			{
+				var itemShortName = item?.Attribute("ItemShortName")?.Value ?? string.Empty;
+				var itemLongName = item?.Attribute("ItemLongName")?.Value ?? string.Empty;
+				var itemLongName2 = item?.Attribute("ItemLongName2")?.Value ?? string.Empty;
+				var itemChitName = item?.Attribute("ItemChitName")?.Value ?? string.Empty;
+				var itemNameAttr = item?.Attribute("ItemName")?.Value ?? string.Empty;
+				//Sprawdzanie czy ktoras z nazw przechowywanych w slowniku pokrywa sie z otrzymana w zdarzeniu.
+				//Jesli tak to rozszerzamy zdarzenie o dodatkowe nazwy.	
+				if (!string.IsNullOrEmpty(itemShortName) && itemShortName == itemName
+				|| !string.IsNullOrEmpty(itemLongName) && itemLongName == itemName
+				|| !string.IsNullOrEmpty(itemLongName2) && itemLongName2 == itemName
+				|| !string.IsNullOrEmpty(itemChitName) && itemChitName == itemName
+				|| !string.IsNullOrEmpty(itemNameAttr) && itemNameAttr == itemName)
+				{
+					action.SetAttributeValue("ItemId", item?.Attribute("ItemId")?.Value ?? string.Empty);
+					action.SetAttributeValue("ItemShortName", itemShortName);
+					action.SetAttributeValue("ItemLongName", itemLongName);
+					action.SetAttributeValue("ItemLongName2", itemLongName2);
+					action.SetAttributeValue("ItemChitName", itemChitName);
+					action.SetAttributeValue("ItemName", itemNameAttr);
+				}
+			}
+		}
 	}
 	\end{lstlisting}
-	\caption{Rozszerzanie zdarzenia XML o rozszerzone nazwy przedmiotów i wartości podatków. - część trzecia}
-	\label{lst:rozszerzanieXML3}
+	\caption{Rozszerzanie zdarzenia XML o rozszerzone nazwy przedmiotów.}
+	\label{lst:rozszerzanieXML}
 \end{figure}
+
 \chapter{Testowanie i uruchamianie}
 \label{rozdzial6}
 W niniejszym rozdziale zostaną opisane przeprowadzone testy zarówno dla moduł wstępnego przetwarzania danych jak i części odpowiedzialnej za właściwe przetwarzanie informacji. Dane testowe zostały zaimportowane w formie kopii zapasowej bazy danych z lokalizacji, na której codziennie działa opisane w tej pracy rozwiązanie. Testowane przypadki obejmują dane zawarte w zrzucie z bazy danych (03-11-2017) z lokalizacji położonej na terenie Stanów Zjednoczonych.
@@ -966,17 +823,17 @@ Dane wejściowe zgromadzone są w tabeli \_RAWDATA i wyniki ich analizy powinny 
 \begin{table}
 	\centering
 	\caption{Testy modułu wstępnego przetwarzania danych.}
-	\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|}
+	\begin{tabular}{|p{4cm}|p{4cm}|p{3cm}|p{3cm}|}
 		\hline
-		Testowany przypadek & Dane wejściowe & Dane wyjściowe \\
+		Testowany przypadek & Dane wejściowe & Dane wyjściowe & Wynik działania \\
 		\hline
-		Przetwarzanie całości danych wejściowych z testowanej paczki. & Zawartość tabeli \_RAWDATA. Ilość zdarzeń do przetworzenia -~ 78490  &  Liczba przetworzonych danych: Aloha\_Transactions - 3700, Aloha\_TimeClocks - 232, Aloha\_CashOperations - 34\\
+		Przetwarzanie całości danych wejściowych z testowanej paczki. & Zawartość tabeli \_RAWDATA. Ilość zdarzeń do przetworzenia -~ 78490  &  Liczba przetworzonych danych: Aloha\_Transactions - 3700, Aloha\_TimeClocks - 232, Aloha\_CashOperations - 34 & Poprawny\\
 		\hline
-		Przypadek pustej tabeli z~danymi wejściowymi. & Zawartość tabeli \_RAWDATA. Ilość zdarzeń do przetworzenia -~ 0  & Brak danych do przetworzenia. PreParser oczekuje na przyjście nowych danych do przetwarzania. \\
+		Przypadek pustej tabeli z~danymi wejściowymi. & Zawartość tabeli \_RAWDATA. Ilość zdarzeń do przetworzenia -~ 0  & Brak danych do przetworzenia. PreParser oczekuje na przyjście nowych danych do przetwarzania. & Poprawny\\
 		\hline
-		Przypadek tabeli z danymi wejściowymi zawierającymi jedną niepełną transakcję. & Zawartość tabeli \_RAWDATA. Ilość zdarzeń do przetworzenia - 9. Brak zdarzenia kończącego transakcje.  & Dane zostają przetworzone, jednakże transakcja nie zostaje wysłana, ponieważ PreParser czeka na przyjście zdarzenia kończącego transakcje. \\
+		Przypadek tabeli z danymi wejściowymi zawierającymi jedną niepełną transakcję. & Zawartość tabeli \_RAWDATA. Ilość zdarzeń do przetworzenia - 9. Brak zdarzenia kończącego transakcje.  & Dane zostają przetworzone, jednakże transakcja nie zostaje wysłana, ponieważ PreParser czeka na przyjście zdarzenia kończącego transakcje. & Poprawny\\
 		\hline
-		Przypadek tabeli z~danymi wejściowymi zawierającymi jedną pełną transakcję. & Zawartość tabeli \_RAWDATA. Ilość zdarzeń do przetworzenia -~ 10. Występuje zdarzenie kończące transakcje.  & Dane zostają przetworzone, transakcja zostaje wysłana. \\
+		Przypadek tabeli z~danymi wejściowymi zawierającymi jedną pełną transakcję. & Zawartość tabeli \_RAWDATA. Ilość zdarzeń do przetworzenia -~ 10. Występuje zdarzenie kończące transakcje.  & Dane zostają przetworzone, transakcja zostaje wysłana. & Poprawny\\
 		\hline 
 	\end{tabular}
 	\label{tab:testy_preparser}
@@ -987,19 +844,19 @@ Dane wejściowe zgromadzone są w tabelach: Aloha\_Transactions, Aloha\_TimeCloc
 \begin{table}
 	\centering
 	\caption{Testy modułu właściwego przetwarzania danych.}
-	\begin{tabular}{|p{4cm}|p{4cm}|p{4cm}|}
+	\begin{tabular}{|p{4cm}|p{4cm}|p{3cm}|p{3cm}|}
 		\hline
-		Testowany przypadek & Dane wejściowe & Dane wyjściowe \\
+		Testowany przypadek & Dane wejściowe & Dane wyjściowe & Wynik działania \\
 		\hline
-		Przetwarzanie transakcji & Zawartość tabeli Aloha\_Transactions. Ilość zdarzeń do przetworzenia - 3700  &  Dodano 3700 nowych transakcji do systemu.\\
+		Przetwarzanie transakcji & Zawartość tabeli Aloha\_Transactions. Ilość zdarzeń do przetworzenia - 3700  &  Dodano 3700 nowych transakcji do systemu. & Poprawny\\
 		\hline
-		Procesowanie wpłat/wypłat z kasy & Zawartość tabeli Aloha\_CashOperations. Ilość zdarzeń do przetworzenia - 34  &  Dodano 34 nowych wpłat/wypłat do systemu. \\
+		Procesowanie wpłat/wypłat z kasy & Zawartość tabeli Aloha\_CashOperations. Ilość zdarzeń do przetworzenia - 34  &  Dodano 34 nowych wpłat/wypłat do systemu.  & Poprawny\\
 		\hline
-		Procesowanie wpłat/wypłat z kasy & Zawartość tabeli Aloha\_TimeClocks. Ilość zdarzeń do przetworzenia - 232  &  Dodano 232 nowych informacji o obecnościach pracowników do systemu. \\
+		Procesowanie wpłat/wypłat z kasy & Zawartość tabeli Aloha\_TimeClocks. Ilość zdarzeń do przetworzenia - 232  &  Dodano 232 nowych informacji o obecnościach pracowników do systemu. & Poprawny\\
 		\hline
-		Brak danych do przetworzenia & Pusta tabela Aloha\_Transactions. & Parser czeka na nadejście danych do przetworzenia. \\
+		Brak danych do przetworzenia & Pusta tabela Aloha\_Transactions. & Parser czeka na nadejście danych do przetworzenia. & Poprawny\\
 		\hline 
-		Błędne dane wejściowe & Tabela Aloha\_Transactions z~transakcjami zawierającymi błędne XML-e. & Parser oznacza nieprawidłowe dane odpowiednim statusem i kontynuuje pracę. \\
+		Błędne dane wejściowe & Tabela Aloha\_Transactions z~transakcjami zawierającymi błędne XML-e. & Parser oznacza nieprawidłowe dane odpowiednim statusem i kontynuuje pracę. & Poprawny\\
 		\hline 
 	\end{tabular}
 	\label{tab:testy_parser}
