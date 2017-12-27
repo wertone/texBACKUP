@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.11.27)  27 DEC 2017 10:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.11.27)  27 DEC 2017 10:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -736,13 +736,8 @@ File: ./img/aloha_pos.png Graphic file (type png)
 <use ./img/aloha_pos.png>
 Package pdftex.def Info: ./img/aloha_pos.png  used on input line 114. on input 
 line 114.
-Package pdftex.def Info: Requested size: 401.49901pt x 260.97437pt on input lin
-e 114.
-
-Overfull \hbox (56.49901pt too wide) in paragraph at lines 114--115
- [][] 
- []
-
+Package pdftex.def Info: Requested size: 345.0pt x 224.26688pt on input line 11
+4.
 [3
 
 ]
@@ -812,25 +807,15 @@ File: ./img/preparser_installation_part1.png Graphic file (type png)
 <use ./img/preparser_installation_part1.png>
 Package pdftex.def Info: ./img/preparser_installation_part1.png  used on input 
 line 378. on input line 378.
-Package pdftex.def Info: Requested size: 375.65251pt x 291.33772pt on input lin
-e 378.
-
-Overfull \hbox (30.65251pt too wide) in paragraph at lines 378--379
- [][] 
- []
-
+Package pdftex.def Info: Requested size: 345.0pt x 267.58118pt on input line 37
+8.
 <./img/preparser_installation_part2.png, id=439, 375.65344pt x 291.33844pt>
 File: ./img/preparser_installation_part2.png Graphic file (type png)
 <use ./img/preparser_installation_part2.png>
 Package pdftex.def Info: ./img/preparser_installation_part2.png  used on input 
 line 384. on input line 384.
-Package pdftex.def Info: Requested size: 375.65251pt x 291.33772pt on input lin
-e 384.
-
-Overfull \hbox (30.65251pt too wide) in paragraph at lines 384--385
- [][] 
- []
-
+Package pdftex.def Info: Requested size: 345.0pt x 267.58118pt on input line 38
+4.
 
 Overfull \hbox (2.58287pt too wide) in paragraph at lines 374--418
 \OT4/cmr/m/n/10 cho-mi¢ plik EZ360PreParserService.Setup.v.VERSION.exe, gdzie V
@@ -869,11 +854,11 @@ File: ./img/zatrzymywanie_aplikacji.png Graphic file (type png)
 <use ./img/zatrzymywanie_aplikacji.png>
 Package pdftex.def Info: ./img/zatrzymywanie_aplikacji.png  used on input line 
 541. on input line 541.
-Package pdftex.def Info: Requested size: 569.05511pt x 358.52353pt on input lin
+Package pdftex.def Info: Requested size: 567.61922pt x 357.58505pt on input lin
 e 541.
 
-Overfull \hbox (224.05511pt too wide) in paragraph at lines 541--542
- [][] 
+Overfull \hbox (94.58182pt too wide) in paragraph at lines 541--542
+ []| [] 
  []
 
 [24 <./img/zatrzymywanie_aplikacji.png>]
@@ -885,33 +870,31 @@ put line 560.
 LaTeX Warning: Reference `fig:startowanie_aplikacji' on page 25 undefined on in
 put line 561.
 
-<./img/preparser_log.png, id=551, 950.80219pt x 524.71031pt>
+<./img/preparser_log.png, id=551, 905.63344pt x 335.00156pt>
 File: ./img/preparser_log.png Graphic file (type png)
 <use ./img/preparser_log.png>
 Package pdftex.def Info: ./img/preparser_log.png  used on input line 568. on in
 put line 568.
-Package pdftex.def Info: Requested size: 950.79987pt x 524.70901pt on input lin
+Package pdftex.def Info: Requested size: 633.93909pt x 234.49948pt on input lin
 e 568.
 
-Overfull \hbox (605.79987pt too wide) in paragraph at lines 568--569
- [][] 
+Overfull \hbox (146.67531pt too wide) in paragraph at lines 568--569
+ []| [] 
  []
 
-<./img/parser_log.png, id=552, 950.80219pt x 524.71031pt>
+<./img/parser_log.png, id=552, 794.97pt x 351.56343pt>
 File: ./img/parser_log.png Graphic file (type png)
 <use ./img/parser_log.png>
 Package pdftex.def Info: ./img/parser_log.png  used on input line 574. on input
  line 574.
-Package pdftex.def Info: Requested size: 950.79987pt x 524.70901pt on input lin
+Package pdftex.def Info: Requested size: 596.22604pt x 263.67192pt on input lin
 e 574.
 
-Overfull \hbox (605.79987pt too wide) in paragraph at lines 574--575
- [][] 
+Overfull \hbox (108.96227pt too wide) in paragraph at lines 574--575
+ []| [] 
  []
 
-[25] [26 <./img/preparser_log.png>] [27 <./img/parser_log.png>] [28
-
-]
+[25] [26 <./img/preparser_log.png> <./img/parser_log.png>]
 Rozdzia\l  5.
 
 Overfull \hbox (2.63943pt too wide) in paragraph at lines 588--589
@@ -919,27 +902,24 @@ Overfull \hbox (2.63943pt too wide) in paragraph at lines 588--589
 Interface, który
  []
 
-<./img/schemat_przeplywu_danych.png, id=577, 740.0147pt x 284.56313pt>
+<./img/schemat_przeplywu_danych.png, id=568, 740.0147pt x 284.56313pt>
 File: ./img/schemat_przeplywu_danych.png Graphic file (type png)
 <use ./img/schemat_przeplywu_danych.png>
 Package pdftex.def Info: ./img/schemat_przeplywu_danych.png  used on input line
  594. on input line 594.
-Package pdftex.def Info: Requested size: 598.0pt x 229.95644pt on input line 59
-4.
+Package pdftex.def Info: Requested size: 345.0pt x 132.6635pt on input line 594
+.
+[27
 
-Overfull \hbox (253.0pt too wide) in paragraph at lines 594--595
- [][] 
- []
-
-[29]
-<./img/preparser_database_schema.png, id=590, 663.98062pt x 682.80093pt>
+]
+<./img/preparser_database_schema.png, id=582, 663.98062pt x 682.80093pt>
 File: ./img/preparser_database_schema.png Graphic file (type png)
 <use ./img/preparser_database_schema.png>
 Package pdftex.def Info: ./img/preparser_database_schema.png  used on input lin
 e 611. on input line 611.
 Package pdftex.def Info: Requested size: 345.0pt x 354.77722pt on input line 61
 1.
-<./img/parser_database_schema.png, id=592, 892.83563pt x 1446.15282pt>
+<./img/parser_database_schema.png, id=584, 892.83563pt x 1446.15282pt>
 File: ./img/parser_database_schema.png Graphic file (type png)
 <use ./img/parser_database_schema.png>
 Package pdftex.def Info: ./img/parser_database_schema.png  used on input line 6
@@ -954,14 +934,14 @@ Overfull \hbox (547.83345pt too wide) in paragraph at lines 627--628
 
 LaTeX Warning: Float too large for page by 870.14929pt on input line 630.
 
-[30 <./img/schemat_przeplywu_danych.png>] [31 <./img/preparser_database_schema.
-png>]
+[28 <./img/schemat_przeplywu_danych.png>]
 Overfull \hbox (1.23863pt too wide) in paragraph at lines 640--641
 []| \OT4/cmr/bx/n/10 Ca-sh-Drop-Pre-Par-ser \OT4/cmr/m/n/10 - klasa za-pro-jek-
 to-wana w celu wst¦p-nego prze-
  []
 
-<./img/preparser_diagram_klas.png, id=611, 435.12563pt x 225.84375pt>
+[29 <./img/preparser_database_schema.png>]
+<./img/preparser_diagram_klas.png, id=603, 435.12563pt x 225.84375pt>
 File: ./img/preparser_diagram_klas.png Graphic file (type png)
 <use ./img/preparser_diagram_klas.png>
 Package pdftex.def Info: ./img/preparser_diagram_klas.png  used on input line 6
@@ -973,7 +953,7 @@ Overfull \hbox (90.12456pt too wide) in paragraph at lines 651--652
  [][] 
  []
 
-<./img/parser_diagram_klas.png, id=612, 447.92343pt x 222.8325pt>
+<./img/parser_diagram_klas.png, id=604, 447.92343pt x 222.8325pt>
 File: ./img/parser_diagram_klas.png Graphic file (type png)
 <use ./img/parser_diagram_klas.png>
 Package pdftex.def Info: ./img/parser_diagram_klas.png  used on input line 657.
@@ -991,7 +971,7 @@ Overfull \hbox (4.33281pt too wide) in paragraph at lines 705--706
 tmy prze-twa-rza-j¡ce i roz-
  []
 
-[32]
+[30]
 
 LaTeX Warning: Float too large for page by 4.6991pt on input line 764.
 
@@ -1001,7 +981,7 @@ Overfull \hbox (2.08392pt too wide) in paragraph at lines 766--769
 i ich ka-te-go-riach. W Aloha
  []
 
-[33]
+[31]
 Overfull \hbox (7.75055pt too wide) in paragraph at lines 773--774
 []\OT4/cmr/m/n/10 Od tego mo-mentu zda-rze-nie za-wiera wszyst-kie po-trzebne i
 n-for-ma-cje o przed-
@@ -1010,8 +990,8 @@ n-for-ma-cje o przed-
 
 LaTeX Warning: Float too large for page by 21.19905pt on input line 821.
 
-[34] [35 <./img/parser_database_schema.png>] [36 <./img/preparser_diagram_klas.
-png> <./img/parser_diagram_klas.png>] [37] [38] [39] [40
+[32] [33 <./img/parser_database_schema.png>] [34 <./img/preparser_diagram_klas.
+png> <./img/parser_diagram_klas.png>] [35] [36] [37] [38
 
 ]
 Rozdzia\l  6.
@@ -1043,7 +1023,7 @@ Overfull \hbox (38.6952pt too wide) in paragraph at lines 848--870
 ances (EZ360Labor).
  []
 
-[41] [42] [43] [44
+[39] [40] [41] [42
 
 ]
 Rozdzia\l  7.
@@ -1059,13 +1039,13 @@ Overfull \hbox (3.80629pt too wide) in paragraph at lines 875--876
 -rze-nia w grupy, które mo»na
  []
 
-(./praca.bbl [45]
+(./praca.bbl [43]
 Overfull \hbox (56.24399pt too wide) has occurred while \output is active
-\OT4/cmr/m/n/10 46 \OT4/cmr/m/sl/10 ROZDZIAŠ 7.  UWAGI O PRZEBIEGU I WYNIKACH P
+\OT4/cmr/m/n/10 44 \OT4/cmr/m/sl/10 ROZDZIAŠ 7.  UWAGI O PRZEBIEGU I WYNIKACH P
 RAC ORAZ PODSUMOWANIE
  []
 
-[46]
+[44]
 Underfull \hbox (badness 2005) in paragraph at lines 14--17
 []\OT4/cmr/m/n/10 T-SQL In-struk-cja.  []$\OT4/cmtt/m/n/10 https : / / docs . m
 icrosoft . com / en-[]us / sql / t-[]sql /
@@ -1073,7 +1053,7 @@ icrosoft . com / en-[]us / sql / t-[]sql /
 
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 883.
- [47
+ [45
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 883.
@@ -1089,9 +1069,9 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 883.
  ) 
 Here is how much of TeX's memory you used:
- 9893 strings out of 492985
- 142975 string characters out of 6136283
- 613099 words of memory out of 5000000
+ 9891 strings out of 492985
+ 142961 string characters out of 6136283
+ 613098 words of memory out of 5000000
  12977 multiletter control sequences out of 15000+600000
  13725 words of font info for 35 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
@@ -1108,10 +1088,10 @@ type1/public/pl/plss12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/pl/pl
 ssbx10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/pl/plti10.pfb><c:/tex
 live/2017/texmf-dist/fonts/type1/public/pl/pltt10.pfb><c:/texlive/2017/texmf-di
 st/fonts/type1/public/pl/pltt8.pfb>
-Output written on praca.pdf (51 pages, 1468049 bytes).
+Output written on praca.pdf (49 pages, 1414085 bytes).
 PDF statistics:
- 919 PDF objects out of 1000 (max. 8388607)
- 817 compressed objects within 9 object streams
- 351 named destinations out of 1000 (max. 500000)
+ 911 PDF objects out of 1000 (max. 8388607)
+ 811 compressed objects within 9 object streams
+ 349 named destinations out of 1000 (max. 500000)
  460 words of extra memory for PDF output out of 10000 (max. 10000000)
 

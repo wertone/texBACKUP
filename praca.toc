@@ -9,7 +9,7 @@
 \contentsline {subsection}{\numberline {2.1.5}Etap wst\IeC {\k e}pnego przetwarzania}{6}{subsection.2.1.5}
 \contentsline {subsection}{\numberline {2.1.6}Etap w\IeC {\l }a\IeC {\'s}ciwego przetwarzania}{7}{subsection.2.1.6}
 \contentsline {subsection}{\numberline {2.1.7}Przypadki niestandardowe}{8}{subsection.2.1.7}
-\contentsline {subsubsection}{Wadliwe dane wej\IeC {\'s}ciowe}{9}{section*.7}
+\contentsline {subsubsection}{Wadliwe dane wej\IeC {\'s}ciowe}{8}{section*.7}
 \contentsline {subsubsection}{Niezamkni\IeC {\k e}te transakcje}{9}{section*.8}
 \contentsline {subsubsection}{Dodawanie przedmiot\IeC {\'o}w do rachunku z u\IeC {\.z}yciem ich pe\IeC {\l }nej nazwy oraz p\IeC {\'o}\IeC {\'z}niejsze usuwanie, przy wykorzystaniu ich skr\IeC {\'o}conej nazwy}{9}{section*.9}
 \contentsline {subsubsection}{Dodawanie promocji bez uwzgl\IeC {\k e}dnienia odpowiednich przedmiot\IeC {\'o}w, kt\IeC {\'o}re okre\IeC {\'s}lona promocja powinna dodawa\IeC {\'c}}{9}{section*.10}
@@ -17,7 +17,7 @@
 \contentsline {section}{\numberline {2.2}Opis technologii i wykorzystanych narz\IeC {\k e}dzi}{10}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}\IeC {\'S}rodowisko pracy i j\IeC {\k e}zyk programowania}{10}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}Baza danych}{10}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}Modu\IeC {\l }y wspieraj\IeC {\k a}ce}{11}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.3}Modu\IeC {\l }y wspieraj\IeC {\k a}ce}{10}{subsection.2.2.3}
 \contentsline {subsubsection}{AlohaSpyRelay}{11}{section*.12}
 \contentsline {subsubsection}{EZ360DataInterface}{11}{section*.13}
 \contentsline {chapter}{\numberline {3}Wymagania}{13}{chapter.3}
@@ -46,19 +46,19 @@
 \contentsline {subsubsection}{Diagnostyka i logowanie}{25}{section*.29}
 \contentsline {section}{\numberline {4.4}Bezpiecze\IeC {\'n}stwo}{25}{section.4.4}
 \contentsline {section}{\numberline {4.5}Przyk\IeC {\l }ad dzia\IeC {\l }ania}{25}{section.4.5}
-\contentsline {chapter}{\numberline {5}Specyfikacja wewn\IeC {\k e}trzna}{29}{chapter.5}
-\contentsline {section}{\numberline {5.1}Architektura systemu}{29}{section.5.1}
-\contentsline {section}{\numberline {5.2}Organizacja i struktura baz danych}{30}{section.5.2}
-\contentsline {section}{\numberline {5.3}Hierarchia klas}{31}{section.5.3}
-\contentsline {section}{\numberline {5.4}Szczeg\IeC {\'o}\IeC {\l }owa analiza danych wej\IeC {\'s}ciowych}{32}{section.5.4}
-\contentsline {section}{\numberline {5.5}Algorytmy}{33}{section.5.5}
-\contentsline {subsection}{\numberline {5.5.1}Dodawanie brakuj\IeC {\k a}cych przedmiot\IeC {\'o}w b\IeC {\k e}d\IeC {\k a}cych cz\IeC {\k e}\IeC {\'s}ci\IeC {\k a} promocji do transakcji}{33}{subsection.5.5.1}
-\contentsline {subsection}{\numberline {5.5.2}Rozszerzanie zdarzenia XML o rozszerzone nazwy przedmiot\IeC {\'o}w i warto\IeC {\'s}ci podatk\IeC {\'o}w}{33}{subsection.5.5.2}
-\contentsline {chapter}{\numberline {6}Testowanie i uruchamianie}{41}{chapter.6}
-\contentsline {section}{\numberline {6.1}PreParser}{41}{section.6.1}
-\contentsline {section}{\numberline {6.2}Parser}{41}{section.6.2}
-\contentsline {chapter}{\numberline {7}Uwagi o przebiegu i~wynikach prac oraz podsumowanie}{45}{chapter.7}
-\contentsline {section}{\numberline {7.1}Stopie\IeC {\'n} realizacji zagadnienia}{45}{section.7.1}
-\contentsline {section}{\numberline {7.2}Napotkane problemy}{45}{section.7.2}
-\contentsline {section}{\numberline {7.3}Dalszy rozw\IeC {\'o}j}{45}{section.7.3}
-\contentsline {section}{\numberline {7.4}Podsumowanie}{46}{section.7.4}
+\contentsline {chapter}{\numberline {5}Specyfikacja wewn\IeC {\k e}trzna}{27}{chapter.5}
+\contentsline {section}{\numberline {5.1}Architektura systemu}{27}{section.5.1}
+\contentsline {section}{\numberline {5.2}Organizacja i struktura baz danych}{28}{section.5.2}
+\contentsline {section}{\numberline {5.3}Hierarchia klas}{28}{section.5.3}
+\contentsline {section}{\numberline {5.4}Szczeg\IeC {\'o}\IeC {\l }owa analiza danych wej\IeC {\'s}ciowych}{30}{section.5.4}
+\contentsline {section}{\numberline {5.5}Algorytmy}{31}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Dodawanie brakuj\IeC {\k a}cych przedmiot\IeC {\'o}w b\IeC {\k e}d\IeC {\k a}cych cz\IeC {\k e}\IeC {\'s}ci\IeC {\k a} promocji do transakcji}{31}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}Rozszerzanie zdarzenia XML o rozszerzone nazwy przedmiot\IeC {\'o}w i warto\IeC {\'s}ci podatk\IeC {\'o}w}{31}{subsection.5.5.2}
+\contentsline {chapter}{\numberline {6}Testowanie i uruchamianie}{39}{chapter.6}
+\contentsline {section}{\numberline {6.1}PreParser}{39}{section.6.1}
+\contentsline {section}{\numberline {6.2}Parser}{39}{section.6.2}
+\contentsline {chapter}{\numberline {7}Uwagi o przebiegu i~wynikach prac oraz podsumowanie}{43}{chapter.7}
+\contentsline {section}{\numberline {7.1}Stopie\IeC {\'n} realizacji zagadnienia}{43}{section.7.1}
+\contentsline {section}{\numberline {7.2}Napotkane problemy}{43}{section.7.2}
+\contentsline {section}{\numberline {7.3}Dalszy rozw\IeC {\'o}j}{43}{section.7.3}
+\contentsline {section}{\numberline {7.4}Podsumowanie}{44}{section.7.4}

@@ -111,7 +111,7 @@ Niniejszy rozdział omawia podstawowe zagadnienia związane z realizowanym proje
 \subsection{Procesor danych z terminali kas fiskalnych Aloha}
 \begin{figure}[t]
 	\centering
-	\includegraphics{./img/aloha_pos.png}
+	\includegraphics[width=\textwidth]{./img/aloha_pos.png}
 	\caption{Przykładowy model kasy Aloha.}
 	\label{fig:aloha_pos}
 \end{figure}
@@ -375,13 +375,13 @@ W celu zainstalowania  modułu wstępnego przetwarzania danych należy uruchomi�
 Uruchomionony zostanie instalator serwisu (rys. \ref{fig:preparser_installation_part1}). W momencie wciśnięcia przycisku Install, instalator rozpocznie wgrywanie PreParser na kontroler. Po zakończeniu procesu powinien zostać wyświetlony ekran informujący o poprawnie zakończonej instalacji serwisu (rys. \ref{fig:preparser_installation_part2})
 \begin{figure}[t]
 	\centering
-	\includegraphics{./img/preparser_installation_part1.png}
+	\includegraphics[width=\textwidth]{./img/preparser_installation_part1.png}
 	\caption{Instalacja modułu wstępnego przetwarzania - początek instalacji.}
 	\label{fig:preparser_installation_part1}
 \end{figure}
 \begin{figure}[t]
 	\centering
-	\includegraphics{./img/preparser_installation_part2.png}
+	\includegraphics[width=\textwidth]{./img/preparser_installation_part2.png}
 	\caption{Instalacja modułu wstępnego przetwarzania - koniec instalacji.}
 	\label{fig:preparser_installation_part2}
 \end{figure}
@@ -445,7 +445,7 @@ Poprawna instalacja modułu właściwego przetwarzania danych na komputerze admi
  \newline
  Gdzie VERSION jest numerem wersji. Po rozpakowaniu archiwum w miejscu wybranym przez administratora, powinny być dostępne pliki potrzebne do uruchomienia modułu właściwego przetwarzania danych.
 Aplikacje można uruchomić otwierając plik EZ360ParserUI.exe.
-Następnie należy dokonać konfiguracji zainstalowanej aplikacji. W tym celu otwieramy plik configuration.json. Powinien on mieć format przedstawiony na listingu \ref{lst:przykladowyPlikKonfiguracyjnyParser}.
+Następnie należy dokonać konfiguracji zainstalowanej aplikacji. W tym celu otwieramy plik configuration.json. Powinien on mieć format przedstawiony na rys. \ref{lst:przykladowyPlikKonfiguracyjnyParser}.
 \begin{figure}[t]
 	\begin{lstlisting}[frame=single, breaklines=true]
 	"ProcessID": 444,
@@ -538,7 +538,7 @@ Po poprawnej inicjalizacji modułu, wystarczy wcisnąć przycisk start, by rozpo
 Administrator może w każdej chwili zatrzymać moduł właściwego przetwarzania danych. W celu dokonania tego, należy kliknąć przycisk STOP (rys. \ref{fig:zatrzymywanie_aplikacji}). Aplikacja dokończy obecny proces przetwarzania i wyśle dane, następnie zatrzyma się (trwa to około kilka sekund, zależnie od ilości przetwarzanych danych).
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=200mm]{./img/zatrzymywanie_aplikacji.png}
+	\hspace*{-4.5cm}\includegraphics{./img/zatrzymywanie_aplikacji.png}
 	\caption{Inicjalizacja/Startowanie/Zatrzymywanie aplikacji}
 	\label{fig:zatrzymywanie_aplikacji}
 \end{figure}
@@ -565,13 +565,13 @@ Przykłady działania aplikacji i jej obsługi:
 \end{itemize}
 \begin{figure}[t]
 	\centering
-	\includegraphics{./img/preparser_log.png}
+	\hspace*{-5cm}\includegraphics[scale=0.7]{./img/preparser_log.png}
 	\caption{Logi PreParsera.}
 	\label{fig:preparser_log}
 \end{figure}
 \begin{figure}[t]
 	\centering
-	\includegraphics{./img/parser_log.png}
+	\hspace*{-5cm}\includegraphics[scale=0.75]{./img/parser_log.png}
 	\caption{Logi Parsera.}
 	\label{fig:parser_log}
 \end{figure}
@@ -591,7 +591,7 @@ Jak już wielokrotnie wspominano w niniejszej pracy, dane wychodzące z terminal
 \end{enumerate}
 \begin{figure}[t]
 	\centering
-	\includegraphics[width=\textheight]{./img/schemat_przeplywu_danych.png}
+	\includegraphics[width=\textwidth]{./img/schemat_przeplywu_danych.png}
 	\caption{Schemat przepływu danych.}
 	\label{fig:schemat_przeplywu_danych}
 \end{figure}
