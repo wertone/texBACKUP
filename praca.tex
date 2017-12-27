@@ -8,6 +8,12 @@
 % potrzebny jeżeli korzystamy z listingów
 \usepackage{color}
 \usepackage{listings}
+\usepackage{array}
+\usepackage{makecell}
+\renewcommand\theadalign{bc}
+\renewcommand\theadfont{\bfseries}
+\renewcommand\theadgape{\Gape[4pt]}
+\renewcommand\cellgape{\Gape[4pt]}
 
 % formatowanie listingu
 \lstloadlanguages{% Check Dokumentation for further languages ...
@@ -71,7 +77,7 @@
 \DeclareCaptionFormat{listing}{\colorbox{blue}{\parbox{\textwidth}{\hspace{15pt}#1#2#3}}}
 \captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, singlelinecheck=false, margin=0pt, font={bf,footnotesize}}
 
-
+\hyphenation{Tran-sac-tion}
 \frenchspacing
 \author{Mateusz Stolecki}
 
@@ -816,24 +822,24 @@ Słownik ItemCategoryXML jest przechowywany zarówno na dysku, jak i jako obiekt
 
 \chapter{Testowanie i uruchamianie}
 \label{rozdzial6}
-W niniejszym rozdziale zostaną opisane przeprowadzone testy zarówno dla moduł wstępnego przetwarzania danych jak i części odpowiedzialnej za właściwe przetwarzanie informacji. Dane testowe zostały zaimportowane w formie kopii zapasowej bazy danych z lokalizacji, na której codziennie działa opisane w tej pracy rozwiązanie. Testowane przypadki obejmują dane zawarte w zrzucie z bazy danych (03-11-2017) z lokalizacji położonej na terenie Stanów Zjednoczonych.
+W niniejszym rozdziale zostaną opisane przeprowadzone testy zarówno dla moduł wstępnego przetwarzania danych jak i części odpowiedzialnej za właściwe przetwarzanie informacji. Dane testowe zostały zaimportowane w formie kopii zapasowej bazy danych z lokalizacji, na której codziennie działa opisane w tej pracy rozwiązanie. Testowane przypadki obejmują dane zawarte w zrzucie z bazy danych (03-11-2017) z lokalizacji położonej na terenie Stanów Zjednoczonych. Z racji faktu przeprowadzenia znacznej ilości testów oraz analizy przypadków testowych, autor niniejszej pracy ograniczył się do umieszczenia tylko tych najbardziej podstawowych, ponieważ całościowy opis i analiza testowanych przypadków nie był możliwy z racji zbyt ich dużego stopnia skomplikowania oraz obszerności. 
 \section {PreParser}
 Tabela \ref{tab:testy_preparser} przedstawia wyniki procedury testowej modułu wstępnego przetwarzania.
 Dane wejściowe zgromadzone są w tabeli \_RAWDATA i wyniki ich analizy powinny zostać umieszczone w tabelach: Aloha\_Transactions, Aloha\_TimeClocks, Aloha\_CashOperations. Całość tabel znajduję się bazie EZ360Communication. 
 \begin{table}
 	\centering
 	\caption{Testy modułu wstępnego przetwarzania danych.}
-	\begin{tabular}{|p{4cm}|p{4cm}|p{3cm}|p{3cm}|}
+	\begin{tabular}{|c|c|c|c|}
 		\hline
-		Testowany przypadek & Dane wejściowe & Dane wyjściowe & Wynik działania \\
+		\thead{Testowany przypadek} & \thead{Dane wejściowe} & \thead{Dane wyjściowe} & \thead{Wynik} \\
 		\hline
-		Przetwarzanie całości danych wejściowych z testowanej paczki. & Zawartość tabeli \_RAWDATA. Ilość zdarzeń do przetworzenia -~ 78490  &  Liczba przetworzonych danych: Aloha\_Transactions - 3700, Aloha\_TimeClocks - 232, Aloha\_CashOperations - 34 & Poprawny\\
+		\makecell{Przetwarzanie całości\\danych wejściowych\\z testowanej paczki.} & \makecell{Zawartość tabeli \_RAWDATA. \\Ilość zdarzeń \\do przetworzenia - 78490}  &  \makecell{Liczba przetworzonych \\danych: \\Transactions-3700,\\TimeClocks-232,\\CashOperations-34} & \makecell{Poprawny}\\
 		\hline
-		Przypadek pustej tabeli z~danymi wejściowymi. & Zawartość tabeli \_RAWDATA. Ilość zdarzeń do przetworzenia -~ 0  & Brak danych do przetworzenia. PreParser oczekuje na przyjście nowych danych do przetwarzania. & Poprawny\\
+		\makecell{Przypadek pustej tabeli\\ z~danymi wejściowymi.} & \makecell{Zawartość tabeli \_RAWDATA. \\Ilość zdarzeń \\do przetworzenia -~ 0}  & \makecell{Brak danych\\ do przetworzenia. \\PreParser oczekuje \\na przyjście\\ nowych danych\\ do przetwarzania.} & \makecell{Poprawny}\\
 		\hline
-		Przypadek tabeli z danymi wejściowymi zawierającymi jedną niepełną transakcję. & Zawartość tabeli \_RAWDATA. Ilość zdarzeń do przetworzenia - 9. Brak zdarzenia kończącego transakcje.  & Dane zostają przetworzone, jednakże transakcja nie zostaje wysłana, ponieważ PreParser czeka na przyjście zdarzenia kończącego transakcje. & Poprawny\\
+		\makecell{Przypadek tabeli\\z danymi\\wejściowymi zawierającymi\\jedną niepełną\\transakcję.} & \makecell{Zawartość tabeli \_RAWDATA.\\Ilość zdarzeń\\do przetworzenia -~ 9.\\Brak zdarzenia\\kończącego transakcje.}  & \makecell{Dane zostają\\przetworzone,\\jednakże transakcja\\nie zostaje wysłana,\\ponieważ PreParser\\czeka na przyjście\\zdarzenia kończącego\\transakcje.} & \makecell{Poprawny}\\
 		\hline
-		Przypadek tabeli z~danymi wejściowymi zawierającymi jedną pełną transakcję. & Zawartość tabeli \_RAWDATA. Ilość zdarzeń do przetworzenia -~ 10. Występuje zdarzenie kończące transakcje.  & Dane zostają przetworzone, transakcja zostaje wysłana. & Poprawny\\
+		\makecell{Przypadek tabeli\\z~danymi wejściowymi\\zawierającymi jedną\\pełną transakcję.} & \makecell{Zawartość tabeli \_RAWDATA. \\Ilość zdarzeń\\do przetworzenia -~ 10.\\Występuje zdarzenie\\ kończące transakcje.}  & \makecell{Dane zostają\\przetworzone,\\transakcja zostaje\\wysłana.} & \makecell{Poprawny}\\
 		\hline 
 	\end{tabular}
 	\label{tab:testy_preparser}
@@ -844,19 +850,19 @@ Dane wejściowe zgromadzone są w tabelach: Aloha\_Transactions, Aloha\_TimeCloc
 \begin{table}
 	\centering
 	\caption{Testy modułu właściwego przetwarzania danych.}
-	\begin{tabular}{|p{4cm}|p{4cm}|p{3cm}|p{3cm}|}
+	\begin{tabular}{|c|c|c|c|}
 		\hline
-		Testowany przypadek & Dane wejściowe & Dane wyjściowe & Wynik działania \\
+		\thead{Testowany przypadek} & \thead{Dane wejściowe} & \thead{Dane wyjściowe} & \thead{Wynik} \\
 		\hline
-		Przetwarzanie transakcji & Zawartość tabeli Aloha\_Transactions. Ilość zdarzeń do przetworzenia - 3700  &  Dodano 3700 nowych transakcji do systemu. & Poprawny\\
+		\makecell{Przetwarzanie transakcji} & \makecell{Zawartość tabeli\\Aloha\_Transactions.\\Ilość zdarzeń\\do przetworzenia- 3700}  &  \makecell{Dodano 3700\\nowych transakcji\\do systemu.} & \makecell{Poprawny}\\
 		\hline
-		Procesowanie wpłat/wypłat z kasy & Zawartość tabeli Aloha\_CashOperations. Ilość zdarzeń do przetworzenia - 34  &  Dodano 34 nowych wpłat/wypłat do systemu.  & Poprawny\\
+		\makecell{Procesowanie\\wpłat/wypłat\\z kasy} & \makecell{Zawartość tabeli\\Aloha\_CashOperations.\\Ilość zdarzeń\\do przetworzenia - 34}  &  \makecell{Dodano 34\\nowych wpłat/wypłat\\do systemu.}  & \makecell{Poprawny}\\
 		\hline
-		Procesowanie wpłat/wypłat z kasy & Zawartość tabeli Aloha\_TimeClocks. Ilość zdarzeń do przetworzenia - 232  &  Dodano 232 nowych informacji o obecnościach pracowników do systemu. & Poprawny\\
+		\makecell{Procesowanie\\wpłat/wypłat\\z kasy} & \makecell{Zawartość tabeli\\Aloha\_TimeClocks.\\Ilość zdarzeń\\do przetworzenia - 232}  & \makecell{Dodano 232\\nowych informacji\\o obecnościach\\pracowników\\do systemu.} & \makecell{Poprawny}\\
 		\hline
-		Brak danych do przetworzenia & Pusta tabela Aloha\_Transactions. & Parser czeka na nadejście danych do przetworzenia. & Poprawny\\
+		\makecell{Brak danych\\do przetworzenia} & \makecell{Pusta tabela\\Aloha\_Transactions.} & \makecell{Parser czeka\\na nadejście\\danych do\\przetworzenia.} & \makecell{Poprawny}\\
 		\hline 
-		Błędne dane wejściowe & Tabela Aloha\_Transactions z~transakcjami zawierającymi błędne XML-e. & Parser oznacza nieprawidłowe dane odpowiednim statusem i kontynuuje pracę. & Poprawny\\
+		\makecell{Błędne dane\\wejściowe} & \makecell{Tabela\\Aloha\_Transactions\\z~transakcjami\\zawierającymi błędne\\XML-e.} & \makecell{Parser oznacza\\nieprawidłowe dane\\odpowiednim statusem\\i kontynuuje pracę.} & \makecell{Poprawny}\\
 		\hline 
 	\end{tabular}
 	\label{tab:testy_parser}
@@ -870,14 +876,8 @@ Głównymi problemami, które generuje terminal kasowy Aloha, są rozdrobnione i
 \section{Dalszy rozwój}
 Z racji faktu ciągłej pracy systemu, konieczne jest jego stałe wspieranie oraz aktualizowanie. Rozwiązywane są również zgłaszane przez klienta usterki i~błędy w przetwarzaniu danych. Konieczność ciągłej rozbudowy aplikacji wynika z wdrażania systemu na coraz większą ilość lokalizacji co wymaga specjalnych poprawek lub optymalizacji wynikających z uwarunkowań regionalnych.
 \section{Podsumowanie}
-W niniejszej pracy opisano proces realizacji zagadnienia, którym autor zajmuję się regularnie w ramach pracy zawodowej. Wiedza zdobyta podczas pracy z tym typem danych oraz urządzeń, pozwoliła zbudować od samych podstaw własny moduł realizujący kompleksowe przetwarzanie danych. Nieocenionym czynnikiem były również umiejętności wypracowane podczas studiów inżynierskich, które znacznie poszerzyły horyzonty myślowe autora oraz zapewniły podstawowy umiejętności, które następnie mogły być rozwijane dzięki samodzielnej pracy autora. Aplikacja przeszła szereg wymagających testów sprawdzających jakość przetwarzanych danych oraz ich poprawność. Oprogramowanie zostało wdrożone w sklepach na całym świecie (największa ilość wspieranych sklepów znajduję się na terenie Stanów Zjednoczonych) i~jest ono na bieżąco monitorowane oraz rozwijane przez autora. Z racji faktu przeprowadzenia znacznej ilości testów oraz analizy przypadków testowych, autor niniejszej pracy ograniczył się do umieszczenia tylko tych najbardziej podstawowych, ponieważ całościowy opis i analiza testowanych przypadków nie był możliwy z racji zbyt ich dużego stopnia skomplikowania oraz obszerności. 
-\bibliographystyle{plain}
-\bibliography{bibliografia}	
-\cite{tsql}
-\cite{ruszglowa}
-\cite{wzorceprojektowe}
-\cite{algorytmy}
-\cite{aspnet}
-\cite{progwin}
-\cite{perelki}
+Realizowanym zagadaniem w niniejszej pracy było stworzenie systemu przetwarzania danych z terminali kas sklepowych Aloha, który ma być częścią systemu 360iQ zaprojektowanego przez firmę EZUniverse. Miał on na celu umożliwienie właścicielowi sklepu analizy danych sprzedażowych oraz wpłat i wypłat z kas sklepowych. W tym celu zaimplementowano moduły wstępnego (PreParser) oraz właściwego (Parser) przetwarzania danych.
+W niniejszej pracy opisano proces realizacji zagadnienia, którym autor zajmuję się regularnie w ramach pracy zawodowej. Wiedza zdobyta podczas pracy z tym typem danych (tj. danych generowanych przez terminale kas sklepowych) oraz urządzeń, pozwoliła zbudować od samych podstaw własny moduł realizujący kompleksowe przetwarzanie danych. Opracowane zostały specjalne algorytmy przetwarzające dane wejściowe (rozdział \ref{rozdzial5}), które weszły w skład funkcjonalności dostarczanej przez PreParser, który zapewnia możliwości pozwalające na wstępną obróbkę i przygotowanie danych do dalszego etapu przetwarzania. Zaimplementowano również szereg funkcjonalności tworzących moduł Parsera, składają się one na przetwarzanie: transakcji, wpłat/wypłat z kasy, obecności pracowników. Pod koniec procesu przetwarzania danych wejściowych moduł właściwej analizy danych umieszcza je w wynikowej bazie danych. Aplikacja przeszła szereg wymagających testów sprawdzających jakość przetwarzanych danych oraz ich poprawność. Autor postanowił wykorzystać wiedzę i doświadczenie zdobyte podczas pracy zawodowej oraz studiów, by stworzyć system mający być częścią oprogramowania 360iQ dostarczanego przez firmę EZUniverse Inc. Dzięki regularnej pracy nad zagadnieniem podczas wykonywania obowiązków zawodowych oprogramowanie zostało wdrożone w sklepach na całym świecie (największa ilość wspieranych sklepów znajduję się na terenie Stanów Zjednoczonych) i~jest ono na bieżąco monitorowane oraz rozwijane przez autora w związku z pełnieniem obowiązków zawodowych.
+\bibliographystyle{plunsrt}
+\bibliography{bibliografia}
 \end{document}

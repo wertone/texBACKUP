@@ -1,9 +1,24 @@
 \begin{thebibliography}{1}
 
+\bibitem{aspnet}
+Adam Freeman.
+\newblock {\em ASP.NET MVC 5. Zaawansowane programowanie.}
+\newblock Helion, Gliwice, 2015.
+
+\bibitem{ruszglowa}
+Andrew~Stellman Jennifer~Greene.
+\newblock {\em Rusz głową! C\#}.
+\newblock Helion, Gliwice, 2014.
+
 \bibitem{tsql}
-{T-SQL Reference}.
+{T-SQL Instrukcja}.
 \newblock \url{https://docs.microsoft.com/en-us/sql/t-sql/language-reference/}.
 \newblock [data dostępu: 12 grudnia 2017].
+
+\bibitem{algorytmy}
+Czech Z.J., Deorowicz S., Fabian P.
+\newblock {\em Algorytmy i struktury danych. Wybrane zagadnienia.}
+\newblock Wydawnictwo Politechniki Śląskiej, Gliwice, 2007.
 
 \bibitem{perelki}
 Jon Bentley.
@@ -11,30 +26,14 @@ Jon Bentley.
 \newblock Helion, Gliwice, 2012.
 
 \bibitem{wzorceprojektowe}
-Ralph Johnson John~Vlissides Erich~Gamma, Richard~Helm.
+Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides.
 \newblock {\em Wzorce projektowe. Elementy oprogramowania obiektowego
   wielokrotnego użytku.}
 \newblock Helion, Gliwice, 2010.
 
-\bibitem{aspnet}
-Adam Freeman.
-\newblock {\em ASP.NET MVC 5. Zaawansowane programowanie.}
-\newblock Helion, Gliwice, 2015.
-
 \bibitem{progwin}
 Johnson~M. Hart.
 \newblock {\em Programowanie w systemie Windows. Wydanie IV.}
-\newblock Helion, Gliwice, 2010.
-
-\bibitem{ruszglowa}
-Andrew~Stellman Jennifer~Greene.
-\newblock {\em Rusz głową! C\#}.
-\newblock Helion, Gliwice, 2014.
-
-\bibitem{algorytmy}
-Piotr Wróblewski.
-\newblock {\em Algorytmy, struktury danych i techniki programowania. Wydanie
-  IV.}
 \newblock Helion, Gliwice, 2010.
 
 \end{thebibliography}
