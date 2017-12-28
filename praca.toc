@@ -50,15 +50,15 @@
 \contentsline {section}{\numberline {5.1}Architektura systemu}{27}{section.5.1}
 \contentsline {section}{\numberline {5.2}Organizacja i struktura baz danych}{28}{section.5.2}
 \contentsline {section}{\numberline {5.3}Hierarchia klas}{28}{section.5.3}
-\contentsline {section}{\numberline {5.4}Szczeg\IeC {\'o}\IeC {\l }owa analiza danych wej\IeC {\'s}ciowych}{30}{section.5.4}
-\contentsline {section}{\numberline {5.5}Algorytmy}{31}{section.5.5}
-\contentsline {subsection}{\numberline {5.5.1}Dodawanie brakuj\IeC {\k a}cych przedmiot\IeC {\'o}w b\IeC {\k e}d\IeC {\k a}cych cz\IeC {\k e}\IeC {\'s}ci\IeC {\k a} promocji do transakcji}{31}{subsection.5.5.1}
-\contentsline {subsection}{\numberline {5.5.2}Rozszerzanie zdarzenia XML o rozszerzone nazwy przedmiot\IeC {\'o}w i warto\IeC {\'s}ci podatk\IeC {\'o}w}{31}{subsection.5.5.2}
-\contentsline {chapter}{\numberline {6}Testowanie i uruchamianie}{39}{chapter.6}
-\contentsline {section}{\numberline {6.1}PreParser}{39}{section.6.1}
-\contentsline {section}{\numberline {6.2}Parser}{39}{section.6.2}
-\contentsline {chapter}{\numberline {7}Uwagi o przebiegu i~wynikach prac oraz podsumowanie}{43}{chapter.7}
-\contentsline {section}{\numberline {7.1}Stopie\IeC {\'n} realizacji zagadnienia}{43}{section.7.1}
-\contentsline {section}{\numberline {7.2}Napotkane problemy}{43}{section.7.2}
-\contentsline {section}{\numberline {7.3}Dalszy rozw\IeC {\'o}j}{43}{section.7.3}
-\contentsline {section}{\numberline {7.4}Podsumowanie}{44}{section.7.4}
+\contentsline {section}{\numberline {5.4}Szczeg\IeC {\'o}\IeC {\l }owa analiza danych wej\IeC {\'s}ciowych}{31}{section.5.4}
+\contentsline {section}{\numberline {5.5}Algorytmy}{32}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Dodawanie brakuj\IeC {\k a}cych przedmiot\IeC {\'o}w b\IeC {\k e}d\IeC {\k a}cych cz\IeC {\k e}\IeC {\'s}ci\IeC {\k a} promocji do transakcji}{32}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}Rozszerzanie zdarzenia XML o rozszerzone nazwy przedmiot\IeC {\'o}w i warto\IeC {\'s}ci podatk\IeC {\'o}w}{33}{subsection.5.5.2}
+\contentsline {chapter}{\numberline {6}Testowanie i uruchamianie}{37}{chapter.6}
+\contentsline {section}{\numberline {6.1}PreParser}{37}{section.6.1}
+\contentsline {section}{\numberline {6.2}Parser}{37}{section.6.2}
+\contentsline {chapter}{\numberline {7}Uwagi o przebiegu i~wynikach prac oraz podsumowanie}{41}{chapter.7}
+\contentsline {section}{\numberline {7.1}Stopie\IeC {\'n} realizacji zagadnienia}{41}{section.7.1}
+\contentsline {section}{\numberline {7.2}Napotkane problemy}{41}{section.7.2}
+\contentsline {section}{\numberline {7.3}Dalszy rozw\IeC {\'o}j}{41}{section.7.3}
+\contentsline {section}{\numberline {7.4}Podsumowanie}{42}{section.7.4}

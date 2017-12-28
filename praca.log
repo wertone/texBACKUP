@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.11.27)  27 DEC 2017 10:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2017.11.27)  28 DEC 2017 13:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -919,22 +919,14 @@ Package pdftex.def Info: ./img/preparser_database_schema.png  used on input lin
 e 611. on input line 611.
 Package pdftex.def Info: Requested size: 345.0pt x 354.77722pt on input line 61
 1.
-<./img/parser_database_schema.png, id=584, 892.83563pt x 1446.15282pt>
+<./img/parser_database_schema.png, id=584, 1053.1847pt x 1009.52156pt>
 File: ./img/parser_database_schema.png Graphic file (type png)
 <use ./img/parser_database_schema.png>
 Package pdftex.def Info: ./img/parser_database_schema.png  used on input line 6
 27. on input line 627.
-Package pdftex.def Info: Requested size: 892.83345pt x 1446.14929pt on input li
-ne 627.
-
-Overfull \hbox (547.83345pt too wide) in paragraph at lines 627--628
- [][] 
- []
-
-
-LaTeX Warning: Float too large for page by 870.14929pt on input line 630.
-
-[28 <./img/schemat_przeplywu_danych.png>]
+Package pdftex.def Info: Requested size: 345.0pt x 330.69391pt on input line 62
+7.
+ [28 <./img/schemat_przeplywu_danych.png>]
 Overfull \hbox (1.23863pt too wide) in paragraph at lines 640--641
 []| \OT4/cmr/bx/n/10 Ca-sh-Drop-Pre-Par-ser \OT4/cmr/m/n/10 - klasa za-pro-jek-
 to-wana w celu wst¦p-nego prze-
@@ -953,7 +945,8 @@ Overfull \hbox (90.12456pt too wide) in paragraph at lines 651--652
  [][] 
  []
 
-<./img/parser_diagram_klas.png, id=604, 447.92343pt x 222.8325pt>
+[30 <./img/parser_database_schema.png>]
+<./img/parser_diagram_klas.png, id=609, 447.92343pt x 222.8325pt>
 File: ./img/parser_diagram_klas.png Graphic file (type png)
 <use ./img/parser_diagram_klas.png>
 Package pdftex.def Info: ./img/parser_diagram_klas.png  used on input line 657.
@@ -971,7 +964,7 @@ Overfull \hbox (4.33281pt too wide) in paragraph at lines 705--706
 tmy prze-twa-rza-j¡ce i roz-
  []
 
-[30]
+[31 <./img/preparser_diagram_klas.png>] [32 <./img/parser_diagram_klas.png>]
 
 LaTeX Warning: Float too large for page by 4.6991pt on input line 764.
 
@@ -981,7 +974,7 @@ Overfull \hbox (2.08392pt too wide) in paragraph at lines 766--769
 i ich ka-te-go-riach. W Aloha
  []
 
-[31]
+
 Overfull \hbox (7.75055pt too wide) in paragraph at lines 773--774
 []\OT4/cmr/m/n/10 Od tego mo-mentu zda-rze-nie za-wiera wszyst-kie po-trzebne i
 n-for-ma-cje o przed-
@@ -990,10 +983,7 @@ n-for-ma-cje o przed-
 
 LaTeX Warning: Float too large for page by 21.19905pt on input line 821.
 
-[32] [33 <./img/parser_database_schema.png>] [34 <./img/preparser_diagram_klas.
-png> <./img/parser_diagram_klas.png>] [35] [36] [37] [38
-
-]
+[33] [34] [35] [36]
 Rozdzia\l  6.
 
 Overfull \hbox (100.79501pt too wide) in paragraph at lines 832--846
@@ -1023,7 +1013,9 @@ Overfull \hbox (38.6952pt too wide) in paragraph at lines 848--870
 ances (EZ360Labor).
  []
 
-[39] [40] [41] [42
+[37
+
+] [38] [39] [40
 
 ]
 Rozdzia\l  7.
@@ -1039,13 +1031,13 @@ Overfull \hbox (3.80629pt too wide) in paragraph at lines 875--876
 -rze-nia w grupy, które mo»na
  []
 
-(./praca.bbl [43]
+(./praca.bbl [41]
 Overfull \hbox (56.24399pt too wide) has occurred while \output is active
-\OT4/cmr/m/n/10 44 \OT4/cmr/m/sl/10 ROZDZIAŠ 7.  UWAGI O PRZEBIEGU I WYNIKACH P
+\OT4/cmr/m/n/10 42 \OT4/cmr/m/sl/10 ROZDZIAŠ 7.  UWAGI O PRZEBIEGU I WYNIKACH P
 RAC ORAZ PODSUMOWANIE
  []
 
-[44]
+[42]
 Underfull \hbox (badness 2005) in paragraph at lines 14--17
 []\OT4/cmr/m/n/10 T-SQL In-struk-cja.  []$\OT4/cmtt/m/n/10 https : / / docs . m
 icrosoft . com / en-[]us / sql / t-[]sql /
@@ -1053,7 +1045,7 @@ icrosoft . com / en-[]us / sql / t-[]sql /
 
 )
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 883.
- [45
+ [43
 
 ]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 883.
@@ -1069,9 +1061,9 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 883.
  ) 
 Here is how much of TeX's memory you used:
- 9891 strings out of 492985
- 142961 string characters out of 6136283
- 613098 words of memory out of 5000000
+ 9889 strings out of 492985
+ 142947 string characters out of 6136283
+ 614315 words of memory out of 5000000
  12977 multiletter control sequences out of 15000+600000
  13725 words of font info for 35 fonts, out of 8000000 for 9000
  1142 hyphenation exceptions out of 8191
@@ -1088,10 +1080,10 @@ type1/public/pl/plss12.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/pl/pl
 ssbx10.pfb><c:/texlive/2017/texmf-dist/fonts/type1/public/pl/plti10.pfb><c:/tex
 live/2017/texmf-dist/fonts/type1/public/pl/pltt10.pfb><c:/texlive/2017/texmf-di
 st/fonts/type1/public/pl/pltt8.pfb>
-Output written on praca.pdf (49 pages, 1414085 bytes).
+Output written on praca.pdf (47 pages, 1418399 bytes).
 PDF statistics:
- 911 PDF objects out of 1000 (max. 8388607)
- 811 compressed objects within 9 object streams
- 349 named destinations out of 1000 (max. 500000)
+ 901 PDF objects out of 1000 (max. 8388607)
+ 803 compressed objects within 9 object streams
+ 347 named destinations out of 1000 (max. 500000)
  460 words of extra memory for PDF output out of 10000 (max. 10000000)
 
